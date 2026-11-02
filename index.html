@@ -481,6 +481,24 @@ select.inp{appearance:auto;padding:11px 12px;font-size:15px}
 
 .guestbar{background:color-mix(in srgb,var(--gold) 16%,var(--card));color:var(--ink);border-radius:16px;padding:10px 14px;font-weight:700;font-size:13.5px;line-height:1.45;border:1.5px solid color-mix(in srgb,var(--gold) 45%,transparent)}
 
+/* ---- v7 : une couleur par langue (Fr vert, En bleu, Ar orange) ---- */
+:root[data-ui="en"]{--bg1:#1F5BC4;--bg2:#1B2F66;--app:#EEF3FC;--soft:#D8E4FB;--line:#C3D3F2;--ink:#0E1E40;--muted:#5A6C92;--primary:#2563EB;--primary-2:#1A4CC0;--on-primary:#FFFFFF;--hero1:#2F6FE6;--hero2:#1B47B0}
+@media (prefers-color-scheme: dark){:root[data-ui="en"]:not([data-theme="light"]){--bg1:#0F2A5E;--bg2:#121A3A;--app:#0B1222;--card:#131D33;--soft:#1B2A4A;--line:#26385E;--ink:#E6EDFB;--muted:#9AACCF;--primary:#6E9BFF;--primary-2:#3F6FE0;--on-primary:#071433;--hero1:#2457C4;--hero2:#173D8F}}
+:root[data-theme="dark"][data-ui="en"]{--bg1:#0F2A5E;--bg2:#121A3A;--app:#0B1222;--card:#131D33;--soft:#1B2A4A;--line:#26385E;--ink:#E6EDFB;--muted:#9AACCF;--primary:#6E9BFF;--primary-2:#3F6FE0;--on-primary:#071433;--hero1:#2457C4;--hero2:#173D8F}
+:root[data-ui="ar"]{--bg1:#C2620E;--bg2:#7A3410;--app:#FBF3EA;--soft:#F8E1C8;--line:#EBCBA6;--ink:#3A1E08;--muted:#86644A;--primary:#C9660C;--primary-2:#9C4D08;--on-primary:#FFFFFF;--hero1:#DE7A16;--hero2:#A24C0C}
+@media (prefers-color-scheme: dark){:root[data-ui="ar"]:not([data-theme="light"]){--bg1:#5A2C08;--bg2:#2A1408;--app:#170F09;--card:#24180F;--soft:#3A2614;--line:#4D341D;--ink:#F7EADC;--muted:#C3A487;--primary:#F59E3D;--primary-2:#C2741F;--on-primary:#2A1405;--hero1:#B5600F;--hero2:#7A3A0A}}
+:root[data-theme="dark"][data-ui="ar"]{--bg1:#5A2C08;--bg2:#2A1408;--app:#170F09;--card:#24180F;--soft:#3A2614;--line:#4D341D;--ink:#F7EADC;--muted:#C3A487;--primary:#F59E3D;--primary-2:#C2741F;--on-primary:#2A1405;--hero1:#B5600F;--hero2:#7A3A0A}
+body{transition:background-color .3s}
+.exseg{display:flex;flex-wrap:wrap;gap:4px}
+.exseg button{padding:9px 12px;font-size:14px}
+.tblw{overflow-x:auto;margin:8px 0;border-radius:14px;border:1.5px solid var(--line)}
+.tbl{border-collapse:collapse;width:100%;font-size:14.5px}
+.tbl th{background:var(--soft);color:var(--primary);font-family:var(--display);font-weight:700;text-align:left;padding:8px 10px;white-space:nowrap}
+.tbl td{padding:7px 10px;border-top:1px solid var(--line);vertical-align:middle}
+.tbl td .ar{font-size:1.35em}
+.tbl tr:nth-child(even) td{background:color-mix(in srgb,var(--soft) 35%,transparent)}
+.front.xq{font-variant-numeric:tabular-nums}
+
 </style>
 
 <div class="app" id="app">
@@ -562,7 +580,7 @@ select.inp{appearance:auto;padding:11px 12px;font-size:15px}
 
     <section class="view" data-view="ex" hidden>
       <div class="top"><div><h1>Exercices</h1><div class="sub">Grammaire et textes, à ton rythme</div></div><button class="langbtn" data-lang></button></div>
-      <div class="seg exseg" id="exSeg" hidden><button data-t="gram">Grammaire</button><button data-t="txt">Textes &amp; Coran</button></div>
+      <div class="seg exseg" id="exSeg" hidden><button data-t="gram">Grammaire</button><button data-t="base">Les essentiels</button><button data-t="txt">Textes &amp; Coran</button></div>
       <div class="cols">
         <div class="col">
           <div class="hero stk" style="align-items:stretch;gap:14px">
@@ -575,6 +593,7 @@ select.inp{appearance:auto;padding:11px 12px;font-size:15px}
               <li>Tu connais déjà la notion ? Appuie sur <b>Je connais déjà</b> : elle est mise de côté et tu passes à la suivante.</li>
               <li>Les exercices s’affichent sans la réponse. Cherche, retourne la carte, puis note-toi. La fiche reste accessible sous la réponse.</li>
               <li>Les exercices ratés reviennent plus souvent dans <b>À revoir</b>, comme tes mots.</li>
+              <li>En arabe, <b>Les essentiels</b> regroupe les chiffres, l’alphabet, l’heure, les jours, les mois, les couleurs et les formules du quotidien.</li>
               <li>En arabe, l’onglet <b>Textes &amp; Coran</b> te fait apprendre le vocabulaire d’un passage quelques jours avant, puis débloque le texte à traduire.</li>
               <li>Cette section est à part : tu peux la sauter quand tu veux, elle ne bloque rien.</li>
             </ul>
@@ -1542,6 +1561,49 @@ const TEXTS=[
 ["فَسَقَطَتْ قِطْعَةُ الْجُبْنِ، فَأَخَذَهَا الثَّعْلَبُ وَهَرَبَ.","Le morceau de fromage tomba ; le renard le prit et s’enfuit."],
 ["وَقَالَ وَهُوَ يَضْحَكُ: كُلُّ مُتَمَلِّقٍ يَعِيشُ عَلَى حِسَابِ مَنْ يَسْمَعُهُ.","Et il dit en riant : « Tout flatteur vit aux dépens de celui qui l’écoute. »"]]}
 ];
+/* ---------- ARABE · LES ESSENTIELS (chiffres, alphabet, heure…) ----------
+ même format que GRAM ; les lignes qui commencent par | forment un tableau dans la fiche */
+const BASES=[
+{id:"chiffres",name:"Les chiffres de 0 à 10",c:"Quel est ce chiffre ? Dis-le en arabe",f:"Au Moyen-Orient, on écrit les chiffres avec les **chiffres arabes orientaux**. Les nombres se lisent de **gauche à droite**, même dans un texte arabe : ١٢ = 12.\n|Chiffre|Arabe|Nom|Lecture\n|0|٠|صِفْرٌ|ṣifr\n|1|١|وَاحِدٌ|wâḥid\n|2|٢|اِثْنَانِ|ithnân\n|3|٣|ثَلَاثَةٌ|thalâtha\n|4|٤|أَرْبَعَةٌ|arbaʿa\n|5|٥|خَمْسَةٌ|khamsa\n|6|٦|سِتَّةٌ|sitta\n|7|٧|سَبْعَةٌ|sabʿa\n|8|٨|ثَمَانِيَةٌ|thamâniya\n|9|٩|تِسْعَةٌ|tisʿa\n|10|١٠|عَشَرَةٌ|ʿashara",x:[
+["٣","3 · ثَلَاثَةٌ (thalâtha)",""],["٧","7 · سَبْعَةٌ (sabʿa)",""],["٥","5 · خَمْسَةٌ (khamsa)",""],["٩","9 · تِسْعَةٌ (tisʿa)",""],["٢","2 · اِثْنَانِ (ithnân)",""],["٤","4 · أَرْبَعَةٌ (arbaʿa)","Attention : ٤ ressemble à un 3 inversé."],["٦","6 · سِتَّةٌ (sitta)","Attention : ٦ ressemble à un 7 inversé."],["٨","8 · ثَمَانِيَةٌ (thamâniya)",""],["٠","0 · صِفْرٌ (ṣifr)","Le zéro est un simple point. Le mot صِفْرٌ a donné « chiffre » et « zéro » en français."],
+["٢٠٢٦","2026","On lit de gauche à droite.","Lis ce nombre"],["Écris 15 en chiffres arabes","١٥","",""],["٠٦٩٢","0692 (un début de numéro de portable à La Réunion)","","Lis ce nombre"]]},
+{id:"nombres",name:"Les nombres de 11 à 1000",c:"Dis ce nombre en arabe",f:"**11 et 12** : أَحَدَ عَشَرَ · اِثْنَا عَشَرَ.\n**13 à 19** : unité + عَشَرَ, figés : ثَلَاثَةَ عَشَرَ (13).\n**Dizaines** en ـُونَ : عِشْرُونَ (20), ثَلَاثُونَ (30)…\n**21 à 99** : on dit d’abord l’unité, puis وَ et la dizaine : « un et vingt » → وَاحِدٌ وَعِشْرُونَ.\n|Nombre|Arabe|Lecture\n|20|عِشْرُونَ|ʿishrûn\n|30|ثَلَاثُونَ|thalâthûn\n|40|أَرْبَعُونَ|arbaʿûn\n|50|خَمْسُونَ|khamsûn\n|60|سِتُّونَ|sittûn\n|70|سَبْعُونَ|sabʿûn\n|80|ثَمَانُونَ|thamânûn\n|90|تِسْعُونَ|tisʿûn\n|100|مِائَةٌ|mi’a\n|1000|أَلْفٌ|alf",x:[
+["11","أَحَدَ عَشَرَ (aḥada ʿashar)",""],["12","اِثْنَا عَشَرَ (ithnâ ʿashar)",""],["13","ثَلَاثَةَ عَشَرَ (thalâthata ʿashar)",""],["20","عِشْرُونَ (ʿishrûn)",""],["25","خَمْسَةٌ وَعِشْرُونَ (khamsa wa-ʿishrûn)","L’unité d’abord : « cinq et vingt »."],["40","أَرْبَعُونَ (arbaʿûn)",""],["99","تِسْعَةٌ وَتِسْعُونَ (tisʿa wa-tisʿûn)","Comme les 99 noms d’Allah."],["100","مِائَةٌ (mi’a)","Parfois écrit مِئَةٌ."],["1000","أَلْفٌ (alf)",""],["وَاحِدٌ وَثَلَاثُونَ","31","« un et trente ».","Quel nombre est-ce ?"]]},
+{id:"alpha1",name:"L’alphabet (1) : de ا à ز",c:"Quelle est cette lettre ?",f:"L’arabe a **28 lettres**, toutes des consonnes (ا، و، ي servent aussi de voyelles longues). On écrit de **droite à gauche**.\n|Lettre|Nom|Son\n|ا|أَلِفٌ · alif|â long, ou support de hamza\n|ب|بَاءٌ · bâ’|b\n|ت|تَاءٌ · tâ’|t\n|ث|ثَاءٌ · thâ’|th anglais de « think »\n|ج|جِيمٌ · jîm|j (dj)\n|ح|حَاءٌ · ḥâ’|h soufflé du fond de la gorge\n|خ|خَاءٌ · khâ’|kh, comme la jota espagnole\n|د|دَالٌ · dâl|d\n|ذ|ذَالٌ · dhâl|th anglais de « this »\n|ر|رَاءٌ · râ’|r roulé\n|ز|زَايٌ · zây|z",x:[
+["ب","bâ’ · son b",""],["ت","tâ’ · son t","Deux points au-dessus."],["ث","thâ’ · son th (« think »)","Trois points au-dessus."],["ج","jîm · son j",""],["ح","ḥâ’ · h du fond de la gorge","Sans point."],["خ","khâ’ · son kh","Un point au-dessus."],["د","dâl · son d",""],["ذ","dhâl · son th (« this »)","Un point au-dessus."],["ر","râ’ · r roulé",""],["ز","zây · son z","Comme ر avec un point."],["ا","alif · â long",""]]},
+{id:"alpha2",name:"L’alphabet (2) : de س à ي",c:"Quelle est cette lettre ?",f:"|Lettre|Nom|Son\n|س|سِينٌ · sîn|s\n|ش|شِينٌ · shîn|ch\n|ص|صَادٌ · ṣâd|s emphatique (bouche ronde, son grave)\n|ض|ضَادٌ · ḍâd|d emphatique : l’arabe est « la langue du ḍâd »\n|ط|طَاءٌ · ṭâ’|t emphatique\n|ظ|ظَاءٌ · ẓâ’|dh emphatique\n|ع|عَيْنٌ · ʿayn|contraction du fond de la gorge\n|غ|غَيْنٌ · ghayn|r grasseyé (r parisien)\n|ف|فَاءٌ · fâ’|f\n|ق|قَافٌ · qâf|k du fond de la gorge\n|ك|كَافٌ · kâf|k\n|ل|لَامٌ · lâm|l\n|م|مِيمٌ · mîm|m\n|ن|نُونٌ · nûn|n\n|ه|هَاءٌ · hâ’|h expiré (anglais « house »)\n|و|وَاوٌ · wâw|w, ou û long\n|ي|يَاءٌ · yâ’|y, ou î long",x:[
+["س","sîn · son s",""],["ش","shîn · son ch","Trois points."],["ص","ṣâd · s emphatique",""],["ض","ḍâd · d emphatique","Un point."],["ط","ṭâ’ · t emphatique",""],["ظ","ẓâ’ · dh emphatique","Un point."],["ع","ʿayn · son du fond de la gorge",""],["غ","ghayn · r grasseyé","Un point."],["ف","fâ’ · son f","Un point au-dessus."],["ق","qâf · k profond","Deux points au-dessus."],["ك","kâf · son k",""],["ه","hâ’ · h expiré",""],["ي","yâ’ · y / î","Deux points en dessous."]]},
+{id:"formes",name:"Les lettres liées et leurs formes",c:"Réponds",f:"Une lettre change de forme selon sa place : **isolée, début, milieu, fin**.\n|Isolée|Début|Milieu|Fin\n|ب|بـ|ـبـ|ـب\n|ع|عـ|ـعـ|ـع\n|ه|هـ|ـهـ|ـه\n6 lettres **ne se lient jamais à la lettre suivante** : ا د ذ ر ز و. Après elles, la lettre suivante prend sa forme de début : دَرْسٌ، وَرْدٌ.\nLa **tâ’ marbûṭa** ة n’existe qu’en fin de mot.",x:[
+["Quelles lettres ne se lient pas à la suivante ?","ا د ذ ر ز و","Six lettres."],
+["Lis : كتب","k-t-b → كَتَبَ (kataba), il a écrit","Trois lettres liées : كـ ـتـ ـب.","Lis et décompose"],
+["Lis : باب","b-â-b → بَابٌ (bâb), porte","Le ا coupe la liaison.","Lis et décompose"],
+["Lis : ورد","w-r-d → وَرْدٌ (ward), roses","Aucune lettre ne se lie ici.","Lis et décompose"],
+["Lis : قلم","q-l-m → قَلَمٌ (qalam), stylo, calame","","Lis et décompose"]]},
+{id:"semblables",name:"Les lettres qui se ressemblent",c:"Quelle lettre est-ce ?",f:"Beaucoup de lettres ont la **même forme** et ne diffèrent que par leurs **points** :\n|Forme|Lettres\n|ٮ|ب (1 dessous) · ت (2 dessus) · ث (3 dessus) · ن (1 dessus) · ي (2 dessous)\n|ح|ج (1 dans le creux) · ح (aucun) · خ (1 dessus)\n|د|د · ذ (1 point)\n|ر|ر · ز (1 point)\n|س|س · ش (3 points)\n|ص|ص · ض (1 point)\n|ط|ط · ظ (1 point)\n|ع|ع · غ (1 point)\n|ف|ف (1 point) · ق (2 points)",x:[
+["ن","nûn · n","Un point au-dessus, forme de bol."],["ي","yâ’ · y","Deux points en dessous."],["ث","thâ’ · th","Trois points au-dessus."],["خ","khâ’ · kh","Un point au-dessus."],["ق","qâf · q","Deux points ; ف n’en a qu’un."],["ض","ḍâd · ḍ",""],["ظ","ẓâ’ · ẓ",""],["غ","ghayn · gh",""]]},
+{id:"heure",name:"Lire l’heure",c:"Dis l’heure en arabe",f:"**كَمِ السَّاعَةُ؟** Quelle heure est-il ?\nOn répond avec **السَّاعَةُ** + l’heure en nombre **ordinal féminin** (la première, la deuxième…).\n|Heure|Arabe\n|1 h|الْوَاحِدَةُ\n|2 h|الثَّانِيَةُ\n|3 h|الثَّالِثَةُ\n|4 h|الرَّابِعَةُ\n|5 h|الْخَامِسَةُ\n|6 h|السَّادِسَةُ\n|7 h|السَّابِعَةُ\n|8 h|الثَّامِنَةُ\n|9 h|التَّاسِعَةُ\n|10 h|الْعَاشِرَةُ\n|11 h|الْحَادِيَةَ عَشْرَةَ\n|12 h|الثَّانِيَةَ عَشْرَةَ\n**Les minutes** : وَالرُّبْعُ et quart · وَالنِّصْفُ et demie · وَالثُّلُثُ et vingt · إِلَّا رُبْعًا moins le quart · وَعَشْرُ دَقَائِقَ et dix.\n**Le moment** : صَبَاحًا le matin · ظُهْرًا à midi · مَسَاءً le soir · لَيْلًا la nuit.",x:[
+["3:00","السَّاعَةُ الثَّالِثَةُ",""],
+["7:30","السَّاعَةُ السَّابِعَةُ وَالنِّصْفُ",""],
+["5:15","السَّاعَةُ الْخَامِسَةُ وَالرُّبْعُ",""],
+["8:45","السَّاعَةُ التَّاسِعَةُ إِلَّا رُبْعًا","On part de l’heure suivante : « neuf heures moins le quart »."],
+["10:20","السَّاعَةُ الْعَاشِرَةُ وَالثُّلُثُ","Vingt minutes = un tiers d’heure."],
+["1:00","السَّاعَةُ الْوَاحِدَةُ",""],
+["12:00","السَّاعَةُ الثَّانِيَةَ عَشْرَةَ",""],
+["السَّاعَةُ السَّادِسَةُ وَالنِّصْفُ مَسَاءً","18 h 30","مَسَاءً = le soir.","Quelle heure est-il ?"],
+["Comment demander l’heure ?","كَمِ السَّاعَةُ؟","","Traduis en arabe"]]},
+{id:"jours",name:"Les jours de la semaine",c:"Traduis en arabe",f:"La semaine commence le **dimanche**. Les noms viennent souvent des nombres : الْأَحَدُ (le premier), الِاثْنَيْنِ (le deuxième)…\n|Jour|Arabe|Lecture\n|dimanche|الْأَحَدُ|al-aḥad\n|lundi|الِاثْنَيْنِ|al-ithnayn\n|mardi|الثُّلَاثَاءُ|ath-thulâthâ’\n|mercredi|الْأَرْبِعَاءُ|al-arbiʿâ’\n|jeudi|الْخَمِيسُ|al-khamîs\n|vendredi|الْجُمُعَةُ|al-jumuʿa\n|samedi|السَّبْتُ|as-sabt\nOn dit aussi **يَوْمُ** + jour : يَوْمُ الْجُمُعَةِ (le jour du vendredi).",x:[
+["dimanche","الْأَحَدُ (al-aḥad)","Même racine que أَحَدٌ, « un »."],["lundi","الِاثْنَيْنِ (al-ithnayn)",""],["mardi","الثُّلَاثَاءُ (ath-thulâthâ’)",""],["mercredi","الْأَرْبِعَاءُ (al-arbiʿâ’)",""],["jeudi","الْخَمِيسُ (al-khamîs)",""],["vendredi","الْجُمُعَةُ (al-jumuʿa)","Le jour du rassemblement."],["samedi","السَّبْتُ (as-sabt)",""]]},
+{id:"mois",name:"Les mois de l’Hégire",c:"Réponds",f:"Le calendrier hégirien est **lunaire** : chaque mois commence avec le nouveau croissant.\n|N°|Mois|Lecture\n|1|مُحَرَّمٌ|Muḥarram\n|2|صَفَرٌ|Ṣafar\n|3|رَبِيعٌ الْأَوَّلُ|Rabîʿ al-awwal\n|4|رَبِيعٌ الْآخِرُ|Rabîʿ al-âkhir\n|5|جُمَادَى الْأُولَى|Jumâdâ al-ûlâ\n|6|جُمَادَى الْآخِرَةُ|Jumâdâ al-âkhira\n|7|رَجَبٌ|Rajab\n|8|شَعْبَانُ|Shaʿbân\n|9|رَمَضَانُ|Ramaḍân\n|10|شَوَّالٌ|Shawwâl\n|11|ذُو الْقَعْدَةِ|Dhû l-qaʿda\n|12|ذُو الْحِجَّةِ|Dhû l-ḥijja\nLes **4 mois sacrés** : مُحَرَّمٌ، رَجَبٌ، ذُو الْقَعْدَةِ، ذُو الْحِجَّةِ.",x:[
+["Le 9e mois, celui du jeûne","رَمَضَانُ (Ramaḍân)",""],["Le mois du pèlerinage","ذُو الْحِجَّةِ (Dhû l-ḥijja)","Le 12e mois."],["Le 1er mois de l’année","مُحَرَّمٌ (Muḥarram)",""],["Le mois de l’Aïd al-Fitr (le 1er du mois)","شَوَّالٌ (Shawwâl)","Le 10e mois."],["Le mois juste avant Ramadan","شَعْبَانُ (Shaʿbân)",""],["Les 4 mois sacrés","مُحَرَّمٌ، رَجَبٌ، ذُو الْقَعْدَةِ، ذُو الْحِجَّةِ",""],["رَجَبٌ : quel numéro ?","Le 7e mois","Un des mois sacrés.","Réponds"]]},
+{id:"ordinaux",name:"Premier, deuxième… (ordinaux)",c:"Traduis en arabe",f:"Les ordinaux suivent le schème **فَاعِل** (sauf « premier ») et s’accordent comme des adjectifs.\n|Rang|Masculin|Féminin\n|1er|الْأَوَّلُ|الْأُولَى\n|2e|الثَّانِي|الثَّانِيَةُ\n|3e|الثَّالِثُ|الثَّالِثَةُ\n|4e|الرَّابِعُ|الرَّابِعَةُ\n|5e|الْخَامِسُ|الْخَامِسَةُ\n|6e|السَّادِسُ|السَّادِسَةُ\n|7e|السَّابِعُ|السَّابِعَةُ\n|8e|الثَّامِنُ|الثَّامِنَةُ\n|9e|التَّاسِعُ|التَّاسِعَةُ\n|10e|الْعَاشِرُ|الْعَاشِرَةُ",x:[
+["le premier jour","الْيَوْمُ الْأَوَّلُ",""],["la première fois","الْمَرَّةُ الْأُولَى","Féminin irrégulier."],["la troisième leçon","الدَّرْسُ الثَّالِثُ","دَرْسٌ est masculin."],["le cinquième étage","الطَّابِقُ الْخَامِسُ",""],["la dixième année","السَّنَةُ الْعَاشِرَةُ",""]]},
+{id:"couleurs",name:"Les couleurs",c:"Traduis en arabe",f:"Les couleurs de base suivent le schème **أَفْعَلُ** au masculin et **فَعْلَاءُ** au féminin.\n|Couleur|Masculin|Féminin\n|rouge|أَحْمَرُ|حَمْرَاءُ\n|bleu|أَزْرَقُ|زَرْقَاءُ\n|vert|أَخْضَرُ|خَضْرَاءُ\n|jaune|أَصْفَرُ|صَفْرَاءُ\n|blanc|أَبْيَضُ|بَيْضَاءُ\n|noir|أَسْوَدُ|سَوْدَاءُ\nAutres couleurs en ـِيٌّ : بُنِّيٌّ marron · بُرْتُقَالِيٌّ orange · رَمَادِيٌّ gris.",x:[
+["rouge (masculin)","أَحْمَرُ",""],["une voiture blanche","سَيَّارَةٌ بَيْضَاءُ","سَيَّارَةٌ est féminin."],["le ciel bleu","السَّمَاءُ الزَّرْقَاءُ","سَمَاءٌ est féminin."],["un livre vert","كِتَابٌ أَخْضَرُ",""],["noire (féminin)","سَوْدَاءُ",""],["gris","رَمَادِيٌّ","De رَمَادٌ, la cendre."]]},
+{id:"positions",name:"Où ? Les positions",c:"Traduis en arabe",f:"|Français|Arabe|Lecture\n|à droite|عَلَى الْيَمِينِ|ʿalâ l-yamîn\n|à gauche|عَلَى الْيَسَارِ|ʿalâ l-yasâr\n|devant|أَمَامَ|amâma\n|derrière|خَلْفَ / وَرَاءَ|khalfa / warâ’a\n|au-dessus de|فَوْقَ|fawqa\n|sous|تَحْتَ|taḥta\n|entre|بَيْنَ|bayna\n|à côté de|بِجَانِبِ|bi-jânibi\n|ici · là-bas|هُنَا · هُنَاكَ|hunâ · hunâka\n**أَيْنَ؟** = Où ? Le nom qui suit ces mots est au génitif : تَحْتَ الشَّجَرَةِ.",x:[
+["Où est la mosquée ?","أَيْنَ الْمَسْجِدُ؟",""],["à droite","عَلَى الْيَمِينِ",""],["sous l’arbre","تَحْتَ الشَّجَرَةِ","Génitif après تَحْتَ."],["devant la maison","أَمَامَ الْبَيْتِ",""],["Le livre est ici.","الْكِتَابُ هُنَا",""]]},
+{id:"formules",name:"Les formules du quotidien",c:"Quelle formule dis-tu ?",f:"|Situation|Formule|Sens\n|avant de commencer|بِسْمِ اللَّهِ|au nom d’Allah\n|pour remercier Allah|الْحَمْدُ لِلَّهِ|louange à Allah\n|devant une merveille|سُبْحَانَ اللَّهِ|gloire à Allah\n|pour admirer sans envier|مَا شَاءَ اللَّهُ|ce qu’Allah a voulu\n|pour un projet futur|إِنْ شَاءَ اللَّهُ|si Allah le veut\n|pour remercier quelqu’un|جَزَاكَ اللَّهُ خَيْرًا|qu’Allah te récompense en bien\n|pour bénir quelqu’un|بَارَكَ اللَّهُ فِيكَ|qu’Allah te bénisse\n|à qui éternue|يَرْحَمُكَ اللَّهُ|qu’Allah te fasse miséricorde\n|après une faute|أَسْتَغْفِرُ اللَّهَ|je demande pardon à Allah\n|à l’annonce d’un décès|إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ|nous sommes à Allah et vers Lui nous retournons",x:[
+["Tu commences à manger.","بِسْمِ اللَّهِ",""],["Quelqu’un te rend service.","جَزَاكَ اللَّهُ خَيْرًا",""],["Tu admires la nouvelle maison d’un ami.","مَا شَاءَ اللَّهُ","Pour admirer sans envie."],["Quelqu’un éternue et dit الْحَمْدُ لِلَّهِ.","يَرْحَمُكَ اللَّهُ",""],["Tu apprends un décès.","إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ","Coran 2:156."],["Tu parles d’un projet pour demain.","إِنْ شَاءَ اللَّهُ",""]]}
+];
 
 /* ================= CONFIG ================= */
 const LANGS={
@@ -1566,7 +1628,14 @@ const THEMES={
 const PROFILES=["A01","A02","G"];
 /* les codes ne sont pas écrits ici : seule leur empreinte SHA-256 est stockée */
 const CODEHASH={"efba9970fd9d6795554ac8eb0cc0aa6f333c1673cc97d5102c576c470bd6861d":"G","490af1cbca303d493ac8e63d7bf6fea2fac91460f1c15e036be3ae407fb49518": "A01", "e96a546e0837e4f274bd83213a68e8e93ae600694d79ed68d9135a7ffac3dc3b": "A02"};
-async function sha(s){const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}
+function sha256js(m){const K=[],H=[];let p=2;const fr=x=>(x-Math.floor(x))*4294967296|0;for(let c=0;c<64;p++){let ok=1;for(let d=2;d*d<=p;d++)if(p%d===0){ok=0;break}if(ok){if(c<8)H[c]=fr(Math.pow(p,1/2));K[c++]=fr(Math.pow(p,1/3))}}
+ const b=[...new TextEncoder().encode(m)],l=b.length*8;b.push(128);while(b.length%64!==56)b.push(0);for(let i=7;i>=0;i--)b.push(i>3?0:(l>>>(i*8))&255);
+ const r=(x,n)=>(x>>>n)|(x<<(32-n));for(let o=0;o<b.length;o+=64){const w=[];for(let i=0;i<16;i++)w[i]=(b[o+4*i]<<24)|(b[o+4*i+1]<<16)|(b[o+4*i+2]<<8)|b[o+4*i+3];
+  for(let i=16;i<64;i++){const s0=r(w[i-15],7)^r(w[i-15],18)^(w[i-15]>>>3),s1=r(w[i-2],17)^r(w[i-2],19)^(w[i-2]>>>10);w[i]=(w[i-16]+s0+w[i-7]+s1)|0}
+  let[a,bb,c,d,e,f,g,h]=H;for(let i=0;i<64;i++){const S1=r(e,6)^r(e,11)^r(e,25),ch=(e&f)^(~e&g),t1=(h+S1+ch+K[i]+w[i])|0,S0=r(a,2)^r(a,13)^r(a,22),mj=(a&bb)^(a&c)^(bb&c),t2=(S0+mj)|0;h=g;g=f;f=e;e=(d+t1)|0;d=c;c=bb;bb=a;a=(t1+t2)|0}
+  H[0]=(H[0]+a)|0;H[1]=(H[1]+bb)|0;H[2]=(H[2]+c)|0;H[3]=(H[3]+d)|0;H[4]=(H[4]+e)|0;H[5]=(H[5]+f)|0;H[6]=(H[6]+g)|0;H[7]=(H[7]+h)|0}
+ return H.map(x=>(x>>>0).toString(16).padStart(8,"0")).join("")}
+async function sha(s){if(!(window.crypto&&crypto.subtle))return sha256js(s);try{const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("")}catch(e){return sha256js(s)}}
 const PID=(()=>{try{const p=localStorage.getItem("plume.pid");return PROFILES.includes(p)&&localStorage.getItem("plume.pk")?p:null}catch(e){return null}})();
 const PKEY=(()=>{try{return localStorage.getItem("plume.pk")}catch(e){return null}})();
 const sfx=k=>PID?k+"."+PID:k+".tmp";
@@ -1622,9 +1691,15 @@ AR.forEach(t=>{const r=(REGS["ar-"+t.id]||"").split(" ");
 const XC={fr:[],en:[],ar:[]},NOTION={};
 Object.entries(GRAM).forEach(([lang,ns])=>ns.forEach((n,ni)=>{n.lang=lang;n.key=lang+":"+n.id;n.num=ni+1;
  n.ids=n.x.map((r,i)=>{const id="gx:"+lang+":"+n.id+":"+i;CM[id]={id,lang,kind:"x",series:n.name,notion:n.key,q:r[3]||n.c,w:r[0],d:r[1],note:r[2]||""};return id});
- NOTION[n.key]=n;XC[lang].push(n)}));
+ n.group="gram";NOTION[n.key]=n;XC[lang].push(n)}));
+BASES.forEach((n,ni)=>{n.lang="ar";n.key="ar:b-"+n.id;n.num=ni+1;n.group="base";
+ n.ids=n.x.map((r,i)=>{const id="gx:ar:b-"+n.id+":"+i;CM[id]={id,lang:"ar",kind:"x",series:n.name,notion:n.key,q:r[3]||n.c,w:r[0],d:r[1],note:r[2]||""};return id});
+ NOTION[n.key]=n;XC.ar.push(n)});
+const nlist=(lang,g)=>XC[lang].filter(n=>n.group===g);
 const AR_RUN=/([\u0600-\u06FF](?:[\u0600-\u06FF\u064B-\u0652\u0670\s،؟ـ]*[\u0600-\u06FF\u064B-\u0652\u0670])?)/g;
-const rich=s=>esc(s).replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(AR_RUN,'<span class="ar" lang="ar">$1</span>').replace(/\n/g,"<br>");
+const inl=s=>esc(s).replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(AR_RUN,'<span class="ar" lang="ar">$1</span>');
+const tbl=rows=>`<div class="tblw"><table class="tbl"><thead><tr>${rows[0].map(c=>`<th>${inl(c)}</th>`).join("")}</tr></thead><tbody>${rows.slice(1).map(r=>`<tr>${r.map(c=>`<td>${inl(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+const rich=s=>{const out=[];let tb=null;String(s).split("\n").forEach(l=>{if(l.startsWith("|")){(tb=tb||[]).push(l.replace(/^\||\|$/g,"").split("|").map(c=>c.trim()))}else{if(tb){out.push(tbl(tb));tb=null}out.push(inl(l)+"<br>")}});if(tb)out.push(tbl(tb));return out.join("").replace(/<br>$/,"")};
 
 /* textes & Coran (arabe) : vocabulaire préalable + traduction */
 const TXT={};
@@ -2100,7 +2175,7 @@ const vocLearned=t=>t.vids.filter(id=>S.srs[id]&&S.srs[id].reps>0).length;
 const textOpen=t=>vocLearned(t)===t.vids.length||!!S.tu[t.id];
 const nextText=()=>TEXTS.find(t=>!S.td[t.id]);
 let exTab="gram";
-function nextNotion(lang,after){const ns=XC[lang];let i=after?ns.findIndex(n=>n.key===after)+1:0;
+function nextNotion(lang,after,g){const ns=nlist(lang,after?NOTION[after].group:(g||"gram"));let i=after?ns.findIndex(n=>n.key===after)+1:0;
  for(;i<ns.length;i++)if(!S.nk[ns[i].key])return ns[i];return after?null:null}
 function notionStatus(n){const st=S.nk[n.key];if(st==="known")return`<span class="tag" style="background:var(--app);color:var(--muted)">Déjà connue</span>`;
  if(st==="done"){const d=n.ids.filter(id=>S.srs[id]&&isDue(S.srs[id])).length,h=n.ids.filter(isHard).length;
@@ -2110,14 +2185,15 @@ function renderEx(){
  const isAr=S.lang==="ar";if(!isAr)exTab="gram";
  $("#exSeg").hidden=!isAr;$("#exSeg").querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===exTab));
  if(exTab==="txt")return renderTexts();
- $("#exNextLbl").textContent="Prochaine notion";$("#exStudy").textContent="Étudier";$("#exListTitle").textContent="Les notions, dans l’ordre";
- const lang=S.lang,ns=XC[lang],nn=nextNotion(lang),d=exDue(lang).length;
+ const base=exTab==="base";
+ $("#exNextLbl").textContent=base?"Prochain module":"Prochaine notion";$("#exStudy").textContent="Étudier";$("#exListTitle").textContent=base?"Chiffres, lettres, heure… dans l’ordre":"Les notions, dans l’ordre";
+ const lang=S.lang,ns=nlist(lang,exTab),nn=nextNotion(lang,null,exTab),d=exDue(lang).length;
  $("#exNext").textContent=nn?nn.name:"Tout est vu !";
- $("#exStat").textContent=`${ns.filter(n=>S.nk[n.key]==="done").length} étudiées · ${ns.filter(n=>S.nk[n.key]==="known").length} déjà connues · ${ns.length} notions en ${L().name.toLowerCase()}`;
+ $("#exStat").textContent=`${ns.filter(n=>S.nk[n.key]==="done").length} étudiées · ${ns.filter(n=>S.nk[n.key]==="known").length} déjà connues · ${ns.length} ${base?"modules":"notions"} en ${L().name.toLowerCase()}`;
  $("#exStudy").disabled=!nn;$("#exDueBtn").disabled=!d;$("#exDueBtn").textContent=d?`À revoir (${d})`:"Rien à revoir";
  $("#exList").innerHTML=ns.map(n=>`<button class="notion${S.nk[n.key]==="known"?" known":""}" data-n="${esc(n.key)}"><span class="num">${n.num}</span><span class="nt"><h3>${esc(n.name)}</h3><small>${plural(n.ids.length,"exercice")}</small></span>${notionStatus(n)}</button>`).join("");
 }
-$("#exStudy").onclick=()=>{if(exTab==="txt"){const t=nextText();if(t)openText(t.id);return}const nn=nextNotion(S.lang);if(nn)openNotion(nn.key)};
+$("#exStudy").onclick=()=>{if(exTab==="txt"){const t=nextText();if(t)openText(t.id);return}const nn=nextNotion(S.lang,null,exTab==="base"?"base":"gram");if(nn)openNotion(nn.key)};
 $("#exSeg").onclick=e=>{const b=e.target.closest("button");if(b){exTab=b.dataset.t;renderEx()}};
 function textState(t){if(S.td[t.id])return`<span class="tag" style="background:var(--ok-bg);color:var(--ok)">Traduit</span>`;
  if(textOpen(t))return`<span class="tag" style="background:var(--easy-bg);color:var(--easy)">Texte débloqué</span>`;
@@ -2172,7 +2248,7 @@ function openNotion(key){
  const n=NOTION[key];if(!n)return;MODE="panel";const st=S.nk[key];
  $("#overlay").innerHTML=`<div class="panel" role="dialog" aria-label="${esc(n.name)}">
   <div class="phead"><button class="iconbtn" data-close aria-label="Fermer">${ICON.back}</button><h2>${esc(n.name)}</h2></div>
-  <div class="pbody"><div class="eyebrow">Fiche · ${esc(LANGS[n.lang].name)} · notion ${n.num}/${XC[n.lang].length}</div>
+  <div class="pbody"><div class="eyebrow">Fiche · ${esc(LANGS[n.lang].name)} · ${n.group==="base"?"module":"notion"} ${n.num}/${nlist(n.lang,n.group).length}</div>
    <div class="card rich fiche">${rich(n.f)}</div>
    <button class="btn" id="nGo">S’exercer (${plural(n.ids.length,"exercice")})</button>
    ${st==="known"?`<button class="btn ghost sm" id="nBack">Remettre cette notion dans mon parcours</button>`:`<button class="btn ghost" id="nKnown">${ICON.check} Je connais déjà · passer à la suite</button>`}
@@ -2391,6 +2467,8 @@ $("#doReset").onclick=()=>{const keep={goal:S.goal,session:S.session,genSize:S.g
 
 /* ================= RENDU ================= */
 function render(){
+ document.documentElement.setAttribute("data-ui",S.lang);
+ {const m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",{fr:"#0F5C4A",en:"#1F5BC4",ar:"#C2620E"}[S.lang])}
  syncLangBtns();
  const tot=LORDER.reduce((n,l)=>n+dueIds(l).length,0);
  const nb=$("#navBadge");nb.hidden=!tot;nb.textContent=tot>99?"99+":tot;
@@ -2401,7 +2479,7 @@ function render(){
 function showLogin(){
  $("#login").hidden=false;$("#app").setAttribute("aria-hidden","true");
  const go=async()=>{const raw=$("#lgId").value.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase().replace(/[^A-Z0-9]/g,"");let h="";try{h=await sha("plume:"+raw)}catch(e){}
-  const v=CODEHASH[h];if(!v){$("#lgErr").textContent="Identifiant inconnu. Vérifie ton code.";$("#lgId").focus();return}
+  const v=["INVITE","INVITEE","INVITES","GUEST"].includes(raw)?"G":CODEHASH[h];if(!v){$("#lgErr").textContent="Identifiant inconnu. Vérifie ton code.";$("#lgId").focus();return}
   try{localStorage.setItem("plume.pid",v);localStorage.setItem("plume.pk",h.slice(0,24));
    /* première connexion : la progression déjà présente sur cet appareil va dans le premier profil choisi */
    ["plume.v1","plume.gen.v1","plume.mine.v1"].forEach(k=>{const old=localStorage.getItem(k);if(old&&!localStorage.getItem(k+"."+v)&&!localStorage.getItem("plume.migrated")){localStorage.setItem(k+"."+v,old)}});

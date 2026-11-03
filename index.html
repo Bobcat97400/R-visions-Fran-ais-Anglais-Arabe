@@ -341,52 +341,63 @@ details.m p{margin:0 0 12px; line-height:1.5; color:var(--muted)}
 .confirm .row button{flex:1; padding:10px; border-radius:12px; font-weight:800; background:var(--card)}
 .confirm .row button.danger{background:var(--bad); color:var(--card)}
 
-@media (max-width:380px){ .top h1{font-size:24px} .ring{width:150px;height:150px} .ring .big{font-size:40px} .grade{font-size:12.5px} .langs{gap:8px} .lang{padding:12px 10px} }
+@media (max-width:380px){:root.mob .top h1{font-size:24px}
+:root.mob .ring{width:150px;height:150px}
+:root.mob .ring .big{font-size:40px}
+:root.mob .grade{font-size:12.5px}
+:root.mob .langs{gap:8px}
+:root.mob .lang{padding:12px 10px}
+ }
 
 .node{transform:translateX(var(--off,0))}
 #pathSide{display:none}
 .kk{display:none}
 .langbtn .lg.ar{font-family:var(--arabic);font-size:17px}
 /* ======== VERSION ORDINATEUR / TABLETTE ======== */
-@media (min-width:900px){
-  body{padding-block:24px}
-  .app{max-width:1320px; max-height:none; border-radius:30px; flex-direction:row-reverse}
-  .nav{display:flex; flex-direction:column; gap:6px; width:232px; flex:none; padding:22px 14px; border-top:0; border-left:1px solid var(--line)}
-  .nav button{flex-direction:row; justify-content:flex-start; gap:12px; padding:12px 14px; font-size:15px; font-family:var(--display); font-weight:700; border-radius:14px}
-  .nav .badge{position:static; margin-left:auto}
-  .brand{display:flex; align-items:center; gap:10px; padding:4px 10px 22px; font-family:var(--display); font-weight:800; font-size:24px; color:var(--ink)}
-  .brand span{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff}
-  .brand svg{width:22px;height:22px}
-  .navfoot{display:flex; flex-direction:column; gap:4px; margin-top:auto; padding:14px 10px 0; color:var(--muted); font-size:12.5px; font-weight:700; line-height:1.5}
-  .screen{padding:34px 44px 40px}
-  .view{max-width:1080px; margin-inline:auto; gap:22px}
-  .top h1{font-size:34px}
-  .cols{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:22px; align-items:start}
-  .hero{flex-direction:row; justify-content:space-around; padding:26px}
-  .stats{width:auto; flex:1; max-width:380px; grid-template-columns:1fr; gap:14px; padding:18px 20px}
-  .stat{flex-direction:row-reverse; justify-content:space-between}
-  .stat b{font-size:24px}
-  .decks{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
-  .lexlist{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:start}
-  .tiles{grid-template-columns:repeat(4,1fr)}
-  .tiles.two{grid-template-columns:1fr 1fr}
-  .setgrid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start}
-  .pathwrap{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:28px; align-items:start}
-  .path{flex-direction:row; flex-wrap:wrap; justify-content:center; gap:26px 14px}
-  .toast{bottom:30px}
-  .hero.stk{flex-direction:column}
-  .node{transform:none}
-  #pathSide{display:flex}
-  .kk{display:inline}
-  .sheet{left:50%; right:auto; bottom:50%; transform:translate(-50%,50%); width:min(560px,90%); border-radius:28px; animation:none}
-  .lhead,.rv,.rfoot,.lbody,.lfoot,.phead,.pbody{padding-inline:max(24px, calc((100% - 760px) / 2))}
-  .rcard{min-height:300px; padding:30px}
-  .rcard .front{font-size:34px}
-  .rcard .front.ar{font-size:52px}
-  .kbd{display:block; text-align:center; color:var(--muted); font-size:12.5px; font-weight:700}
-  .grade small kbd{margin-left:4px}
-}
-@media (min-width:900px) and (max-width:1100px){ .nav{width:84px; padding:22px 10px} .nav button{justify-content:center; font-size:0; gap:0} .nav .badge{position:absolute; top:4px; right:6px; font-size:11px} .brand b,.navfoot{display:none} .brand{padding:4px 0 22px; justify-content:center} }
+:root.desk body{padding-block:24px}
+:root.desk .app{max-width:1320px; max-height:none; border-radius:30px; flex-direction:row-reverse}
+:root.desk .nav{display:flex; flex-direction:column; gap:6px; width:232px; flex:none; padding:22px 14px; border-top:0; border-left:1px solid var(--line)}
+:root.desk .nav button{flex-direction:row; justify-content:flex-start; gap:12px; padding:12px 14px; font-size:15px; font-family:var(--display); font-weight:700; border-radius:14px}
+:root.desk .nav .badge{position:static; margin-left:auto}
+:root.desk .brand{display:flex; align-items:center; gap:10px; padding:4px 10px 22px; font-family:var(--display); font-weight:800; font-size:24px; color:var(--ink)}
+:root.desk .brand span{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#fff}
+:root.desk .brand svg{width:22px;height:22px}
+:root.desk .navfoot{display:flex; flex-direction:column; gap:4px; margin-top:auto; padding:14px 10px 0; color:var(--muted); font-size:12.5px; font-weight:700; line-height:1.5}
+:root.desk .screen{padding:34px 44px 40px}
+:root.desk .view{max-width:1080px; margin-inline:auto; gap:22px}
+:root.desk .top h1{font-size:34px}
+:root.desk .cols{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:22px; align-items:start}
+:root.desk .hero{flex-direction:row; justify-content:space-around; padding:26px}
+:root.desk .stats{width:auto; flex:1; max-width:380px; grid-template-columns:1fr; gap:14px; padding:18px 20px}
+:root.desk .stat{flex-direction:row-reverse; justify-content:space-between}
+:root.desk .stat b{font-size:24px}
+:root.desk .decks{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+:root.desk .lexlist{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:start}
+:root.desk .tiles{grid-template-columns:repeat(4,1fr)}
+:root.desk .tiles.two{grid-template-columns:1fr 1fr}
+:root.desk .setgrid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start}
+:root.desk .pathwrap{display:grid; grid-template-columns:minmax(0,1fr) 300px; gap:28px; align-items:start}
+:root.desk .path{flex-direction:row; flex-wrap:wrap; justify-content:center; gap:26px 14px}
+:root.desk .toast{bottom:30px}
+:root.desk .hero.stk{flex-direction:column}
+:root.desk .node{transform:none}
+:root.desk #pathSide{display:flex}
+:root.desk .kk{display:inline}
+:root.desk .sheet{left:50%; right:auto; bottom:50%; transform:translate(-50%,50%); width:min(560px,90%); border-radius:28px; animation:none}
+:root.desk .lhead,:root.desk .rv,:root.desk .rfoot,:root.desk .lbody,:root.desk .lfoot,:root.desk .phead,:root.desk .pbody{padding-inline:max(24px, calc((100% - 760px) / 2))}
+:root.desk .rcard{min-height:300px; padding:30px}
+:root.desk .rcard .front{font-size:34px}
+:root.desk .rcard .front.ar{font-size:52px}
+:root.desk .kbd{display:block; text-align:center; color:var(--muted); font-size:12.5px; font-weight:700}
+:root.desk .grade small kbd{margin-left:4px}
+
+
+@media (max-width:1100px){:root.desk.p-pc .nav{width:84px; padding:22px 10px}
+:root.desk.p-pc .nav button{justify-content:center; font-size:0; gap:0}
+:root.desk.p-pc .nav .badge{position:absolute; top:4px; right:6px; font-size:11px}
+:root.desk.p-pc .brand b,:root.desk.p-pc .navfoot{display:none}
+:root.desk.p-pc .brand{padding:4px 0 22px; justify-content:center}
+ }
 @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
 
 /* ---- v2 : séries, registres, galères ---- */
@@ -419,10 +430,12 @@ details.m p{margin:0 0 12px; line-height:1.5; color:var(--muted)}
 .okbtn{margin-left:auto;padding:5px 10px;border-radius:10px;background:var(--ok-bg);color:var(--ok);font-weight:800;font-size:12.5px}
 .deck .bar{height:6px}
 .grade{font-size:13.5px}
-@media (max-width:380px){.grade{font-size:12px}}
+@media (max-width:380px){:root.mob .grade{font-size:12px}}
 
 /* ---- v3 : exercices ---- */
-@media (max-width:899px){.nav{grid-template-columns:repeat(6,1fr);gap:2px;padding:8px 6px 12px}.nav button{font-size:11px;padding:8px 0}.nav button svg{width:22px;height:22px}}
+:root.mob .nav{grid-template-columns:repeat(6,1fr);gap:2px;padding:8px 6px 12px}
+:root.mob .nav button{font-size:11px;padding:8px 0}
+:root.mob .nav button svg{width:22px;height:22px}
 .rich .ar{font-family:var(--arabic);font-size:1.3em;line-height:1.6}
 .fiche{line-height:1.75;font-size:15.5px}
 .front.xq{font-size:22px;line-height:1.5}
@@ -455,10 +468,12 @@ details.m p{margin:0 0 12px; line-height:1.5; color:var(--muted)}
 .front.xq .ar{line-height:1.9}
 
 /* ---- v5 : ajouter, à la carte ---- */
-@media (max-width:899px){.nav{grid-template-columns:repeat(7,1fr);padding:8px 4px 12px}.nav button{font-size:10px;letter-spacing:-.01em}.nav button svg{width:21px;height:21px}
- .navadd .plus{width:38px;height:38px;border-radius:14px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;margin-top:-16px;box-shadow:0 4px 0 var(--primary-2)}
- .navadd[aria-current="page"]{background:none}}
-@media (min-width:900px){.navadd .plus{display:contents}}
+:root.mob .nav{grid-template-columns:repeat(7,1fr);padding:8px 4px 12px}
+:root.mob .nav button{font-size:10px;letter-spacing:-.01em}
+:root.mob .nav button svg{width:21px;height:21px}
+:root.mob .navadd .plus{width:38px;height:38px;border-radius:14px;background:var(--primary);color:var(--on-primary);display:grid;place-items:center;margin-top:-16px;box-shadow:0 4px 0 var(--primary-2)}
+:root.mob .navadd[aria-current="page"]{background:none}
+:root.desk .navadd .plus{display:contents}
 .navadd .plus svg{width:22px;height:22px}
 .arin{font-family:var(--arabic),var(--body);font-size:20px}
 select.inp{appearance:auto;padding:11px 12px;font-size:15px}
@@ -467,7 +482,7 @@ select.inp{appearance:auto;padding:11px 12px;font-size:15px}
 .bprev .ar{font-size:20px}
 .spin.sm{width:16px;height:16px;border-width:2px;display:inline-block;vertical-align:-3px;margin-right:6px}
 #addBox,#bulkBox{gap:12px}
-@media (min-width:900px){.lexlist.one{grid-template-columns:1fr}}
+:root.desk .lexlist.one{grid-template-columns:1fr}
 
 /* ---- v6 : identifiant ---- */
 .login{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px max(16px,env(safe-area-inset-left,0px));background:linear-gradient(160deg,var(--bg1),var(--bg2))}
@@ -504,18 +519,18 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .nav,.btn,.chip,.grade,.choice{-webkit-user-select:none;user-select:none}
 select.inp{font-size:16px}
 .screen,.pbody,.rv,.lbody{overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
-@media (max-width:599px){
-  html{background:linear-gradient(to bottom,var(--app) 50%,var(--card) 50%)}
-  body{display:block;padding-block:0;padding-left:0;padding-right:0;background:var(--app);height:100%}
-  .app{max-width:none;max-height:none;width:100%;height:100%;border:0;border-radius:0;box-shadow:none}
-  .screen{padding:14px max(18px,env(safe-area-inset-right,0px)) 26px max(18px,env(safe-area-inset-left,0px))}
-  .nav{padding-left:max(4px,env(safe-area-inset-left,0px));padding-right:max(4px,env(safe-area-inset-right,0px));border-top:1px solid var(--line)}
-  .toast{bottom:92px}
-}
-@media (max-height:500px) and (max-width:1000px){
-  body{padding-block:0;padding-left:0;padding-right:0}
-  .app{max-width:none;max-height:none;height:100%;border:0;border-radius:0}
-}
+:root.fb{background:linear-gradient(to bottom,var(--app) 50%,var(--card) 50%)}
+:root.fb body{display:block;padding-block:0;padding-left:0;padding-right:0;background:var(--app);height:100%}
+:root.fb .app{max-width:none;max-height:none;width:100%;height:100%;border:0;border-radius:0;box-shadow:none}
+:root.fb .screen{padding:14px max(18px,env(safe-area-inset-right,0px)) 26px max(18px,env(safe-area-inset-left,0px))}
+:root.fb .nav{padding-left:max(4px,env(safe-area-inset-left,0px));padding-right:max(4px,env(safe-area-inset-right,0px));border-top:1px solid var(--line)}
+:root.fb .toast{bottom:92px}
+
+
+:root.fb body{padding-block:0;padding-left:0;padding-right:0}
+:root.fb .app{max-width:none;max-height:none;height:100%;border:0;border-radius:0}
+
+
 
 /* ======== v8 : animations ======== */
 :root{--spring:cubic-bezier(.34,1.56,.64,1);--ease:cubic-bezier(.22,1,.36,1)}
@@ -534,7 +549,8 @@ select.inp{font-size:16px}
 .navadd .plus{transition:transform .3s var(--spring),background-color .35s}
 .navadd:active .plus{transform:scale(.88) rotate(90deg)}
 .navadd[aria-current="page"] .plus{transform:rotate(90deg)}
-@media (min-width:900px){.navind{border-radius:14px}.nav button[aria-current="page"] svg{transform:scale(1.1)}}
+:root.desk .navind{border-radius:14px}
+:root.desk .nav button[aria-current="page"] svg{transform:scale(1.1)}
 /* entrée des onglets */
 .view.entering>*{animation:rise .5s var(--ease) both}
 .view.entering>*:nth-child(2){animation-delay:.04s}.view.entering>*:nth-child(3){animation-delay:.08s}.view.entering>*:nth-child(4){animation-delay:.12s}.view.entering>*:nth-child(5){animation-delay:.16s}
@@ -592,7 +608,8 @@ select.inp{font-size:16px}
 .rfoot>.btn{width:100%}
 .hero:has(.ring) .glyph{right:auto;left:-46px;top:-34px;width:180px;height:180px}
 .glyph text{stroke:rgba(255,255,255,.5)}
-@media (min-width:900px){.hero:has(.ring) .glyph{left:-50px;top:-40px;width:190px;height:190px}.rfoot>.btn{width:auto}}
+:root.desk .hero:has(.ring) .glyph{left:-50px;top:-40px;width:190px;height:190px}
+:root.desk .rfoot>.btn{width:auto}
 
 /* ======== v9 : lettres en glissement, Dock, couleurs, notes ======== */
 .glyph{display:none}
@@ -614,13 +631,15 @@ select.inp{font-size:16px}
 @keyframes pop{35%{transform:scale(.78)}}
 .navadd .plus{transform:translateY(calc(var(--mag,0) * -6px)) scale(calc(1 + var(--mag,0) * .25))}
 .navadd .plus svg{transform:none!important}
-@media (min-width:900px){
- .nav button svg{transform:translateX(calc(var(--mag,0) * 6px)) scale(calc(var(--base) + var(--mag,0) * .45))}
- .nav button[aria-current="page"] svg{transform:translateX(calc(var(--mag,0) * 6px)) scale(calc(var(--base) + var(--mag,0) * .45))}
- .nav button{transition:color .2s,padding .2s;padding-left:calc(14px + var(--mag,0) * 6px)}
-}
-@media (max-width:899px){.nav{grid-template-columns:repeat(8,1fr);gap:0}.nav button{font-size:9.5px;letter-spacing:-.02em;padding:8px 0}}
-@media (max-width:370px){.nav button{font-size:0;gap:0}.nav button svg{width:22px;height:22px}}
+:root.desk .nav button svg{transform:translateX(calc(var(--mag,0) * 6px)) scale(calc(var(--base) + var(--mag,0) * .45))}
+:root.desk .nav button[aria-current="page"] svg{transform:translateX(calc(var(--mag,0) * 6px)) scale(calc(var(--base) + var(--mag,0) * .45))}
+:root.desk .nav button{transition:color .2s,padding .2s;padding-left:calc(14px + var(--mag,0) * 6px)}
+
+
+:root.mob .nav{grid-template-columns:repeat(8,1fr);gap:0}
+:root.mob .nav button{font-size:9.5px;letter-spacing:-.02em;padding:8px 0}
+@media (max-width:370px){:root.mob .nav button{font-size:0;gap:0}
+:root.mob .nav button svg{width:22px;height:22px}}
 /* couleurs */
 .colors{display:flex;flex-direction:column;gap:12px}
 .colrow{display:flex;flex-direction:column;gap:6px}
@@ -633,8 +652,8 @@ select.inp{font-size:16px}
 .sw.auto[aria-pressed="true"]{box-shadow:0 0 0 2px var(--primary)}
 /* notes */
 .notesgrid{display:grid;grid-template-columns:1fr;gap:10px}
-@media (min-width:600px){.notesgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:1100px){.notesgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+:root.desk .notesgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:1100px){:root.desk .notesgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .note{position:relative;text-align:left;background:var(--card);border-radius:20px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0;transition:transform .18s var(--spring),background-color .35s}
 .note:active{transform:scale(.97)}
 @media (hover:hover){.note:hover{transform:translateY(-2px)}}
@@ -649,19 +668,113 @@ select.inp{font-size:16px}
 #nePin{color:var(--gold);font-size:20px}
 
 /* ======== v10 : iPhone en plein écran (écran d'accueil) — comme Barre & Assiette ======== */
-@media (max-width:599px){
-  :root{padding-top:0!important;padding-bottom:0!important}
-  html,body{height:100%;background:var(--app)}
-  body{overflow:hidden}
-  .app{height:100vh;height:100dvh;padding-top:env(safe-area-inset-top,0px);background-clip:border-box}
-  .nav{padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
-  .panel,.lesson{padding-top:env(safe-area-inset-top,0px)}
-  .lfoot,.rfoot{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
-  .pbody{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
-  .sheet{padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
-  .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
-  .login{padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+:root.fb{padding-top:0!important;padding-bottom:0!important}
+:root.fb,:root.fb body{height:100%;background:var(--app)}
+:root.fb body{overflow:hidden}
+:root.fb .app{height:100vh;height:100dvh;padding-top:env(safe-area-inset-top,0px);background-clip:border-box}
+:root.fb .nav{padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+:root.fb .panel,:root.fb .lesson{padding-top:env(safe-area-inset-top,0px)}
+:root.fb .lfoot,:root.fb .rfoot{padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+:root.fb .pbody{padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+:root.fb .sheet{padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+:root.fb .toast{bottom:calc(92px + env(safe-area-inset-bottom,0px))}
+:root.fb .login{padding-top:calc(24px + env(safe-area-inset-top,0px));padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
+
+
+
+
+/* ================================================================
+   v11 : FORMATS D’AFFICHAGE — iPhone · Android · Mac · PC
+   :root.mob = téléphone (cadre si écran large, plein écran si .fb)
+   :root.desk = ordinateur · :root.p-xxx = finitions propres à chaque plateforme
+   ================================================================ */
+/* ---- téléphone plein écran (commun iPhone + Android) ---- */
+:root.fb{overflow:hidden}
+:root.fb .app{position:fixed;top:0;left:0;right:0;height:var(--app-h,100dvh)}
+:root.fb .login{inset:0 0 auto 0;height:var(--app-h,100dvh)}
+
+/* ---- iPhone : barre d’onglets translucide façon iOS ---- */
+:root.p-iphone .nav{position:absolute;left:0;right:0;bottom:0;z-index:20;
+ background:color-mix(in srgb,var(--card) 76%,transparent);-webkit-backdrop-filter:saturate(180%) blur(22px);backdrop-filter:saturate(180%) blur(22px);
+ border-top:.5px solid color-mix(in srgb,var(--ink) 16%,transparent);padding-top:6px}
+:root.p-iphone.fb .nav{padding-bottom:calc(2px + env(safe-area-inset-bottom,0px));padding-left:max(2px,env(safe-area-inset-left,0px));padding-right:max(2px,env(safe-area-inset-right,0px))}
+:root.p-iphone:not(.fb) .nav{padding-bottom:10px}
+:root.p-iphone .screen{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+:root.p-iphone .navind{opacity:0!important}
+:root.p-iphone .nav button{font-weight:600;padding-top:4px}
+:root.p-iphone .nav button[aria-current="page"]{color:var(--primary)}
+:root.p-iphone .toast{bottom:calc(86px + env(safe-area-inset-bottom,0px))}
+:root.p-iphone.fb .lfoot,:root.p-iphone.fb .rfoot{padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+
+/* ---- Android : barre de navigation Material 3 ---- */
+:root.p-android .navind{opacity:0!important}
+:root.p-android .nav{background:color-mix(in srgb,var(--primary) 9%,var(--card));border-top:0;padding-top:10px;padding-left:2px;padding-right:2px;padding-bottom:max(12px,calc(6px + env(safe-area-inset-bottom,0px)))}
+:root.p-android .nav button{gap:4px;padding:0 0 2px;font-weight:600}
+:root.p-android .nav button::before{content:"";position:absolute;top:-3px;left:50%;width:min(56px,calc(100% - 2px));height:32px;border-radius:16px;background:var(--soft);
+ transform:translateX(-50%) scaleX(.35);opacity:0;transition:transform .4s var(--spring),opacity .2s}
+:root.p-android .nav button[aria-current="page"]::before{transform:translateX(-50%) scaleX(1);opacity:1}
+:root.p-android .nav button svg{position:relative;z-index:1;margin-top:1px}
+:root.p-android .nav button[aria-current="page"]{color:var(--ink);font-weight:800}
+:root.p-android .nav button[aria-current="page"] svg{--base:1;--lift:0px;color:var(--primary)}
+:root.p-android .navadd::before{display:none}
+:root.p-android .navadd .plus{border-radius:16px;box-shadow:0 3px 6px rgba(0,0,0,.22),0 1px 2px rgba(0,0,0,.18)}
+:root.p-android .btn{border-radius:999px;box-shadow:0 1px 2px rgba(0,0,0,.16)}
+:root.p-android .btn:active{transform:none;box-shadow:0 1px 1px rgba(0,0,0,.1)}
+:root.p-android :is(.btn,.deck,.notion,.lang,.tile,.chip,.grade,.choice,.lchoice){position:relative;overflow:hidden}
+.ripple{position:absolute;border-radius:50%;pointer-events:none;background:currentColor;opacity:.2;transform:scale(0);animation:ripple .55s ease-out forwards}
+@keyframes ripple{to{transform:scale(1);opacity:0}}
+
+/* ---- Mac : fenêtre + Dock flottant avec grossissement ---- */
+:root.desk.p-mac .app{flex-direction:column;border-radius:14px;border:1px solid rgba(255,255,255,.28);box-shadow:0 40px 90px -30px rgba(0,0,0,.55)}
+:root.desk.p-mac .nav{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:25;flex-direction:row;align-items:flex-end;width:auto;height:auto;gap:6px;padding:8px 10px;
+ border:1px solid color-mix(in srgb,#fff 32%,transparent);border-radius:22px;background:color-mix(in srgb,var(--card) 60%,transparent);
+ -webkit-backdrop-filter:blur(24px) saturate(170%);backdrop-filter:blur(24px) saturate(170%);box-shadow:0 18px 40px -12px rgba(0,0,0,.42)}
+:root.desk.p-mac .nav button{flex-direction:column;justify-content:center;width:50px;height:50px;padding:0!important;gap:0;font-size:0;border-radius:13px;
+ background:color-mix(in srgb,var(--card) 94%,transparent)!important;color:var(--primary);
+ box-shadow:0 1px 2px rgba(0,0,0,.14),inset 0 0 0 1px color-mix(in srgb,var(--ink) 8%,transparent);
+ transform-origin:50% 100%;transform:translateY(calc(var(--mag,0) * -12px)) scale(calc(1 + var(--mag,0) * .5));margin:0 calc(var(--mag,0) * 9px);
+ transition:transform .16s cubic-bezier(.2,.8,.3,1),margin .16s cubic-bezier(.2,.8,.3,1),background-color .3s}
+:root.desk.p-mac .nav button svg{width:26px;height:26px;transform:none!important}
+:root.desk.p-mac .nav button[aria-current="page"]{background:linear-gradient(160deg,var(--hero1),var(--hero2))!important;color:#fff}
+:root.desk.p-mac .nav button[aria-current="page"]::before{content:"";position:absolute;bottom:-7px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--ink);opacity:.65}
+:root.desk.p-mac .nav button::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);font:600 12px/1 var(--body);padding:6px 10px;border-radius:7px;
+ background:color-mix(in srgb,var(--ink) 88%,transparent);color:var(--app);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
+:root.desk.p-mac .nav button:hover::after{opacity:1;transform:translateX(-50%)}
+:root.desk.p-mac .nav button[data-go="settings"]{margin-left:calc(14px + var(--mag,0) * 9px)}
+:root.desk.p-mac .nav .badge{position:absolute;top:-6px;right:-6px;margin:0;font-size:11px}
+:root.desk.p-mac .brand,:root.desk.p-mac .navfoot,:root.desk.p-mac .navind{display:none}
+:root.desk.p-mac .screen{padding-bottom:124px}
+:root.desk.p-mac .toast{bottom:108px}
+@media (max-width:640px){:root.desk.p-mac .nav{gap:3px;padding:6px 7px;border-radius:16px}:root.desk.p-mac .nav button{width:36px;height:36px;border-radius:10px}:root.desk.p-mac .nav button svg{width:19px;height:19px}}
+
+/* ---- PC : fenêtre Windows 11 + volet de navigation ---- */
+:root.desk.p-pc .app{border-radius:10px;border:1px solid rgba(255,255,255,.26);box-shadow:0 30px 70px -28px rgba(0,0,0,.5)}
+:root.desk.p-pc .nav{background:color-mix(in srgb,var(--card) 70%,var(--app))}
+:root.desk.p-pc .navind{border-radius:8px;background:color-mix(in srgb,var(--ink) 7%,transparent)}
+:root.desk.p-pc .navind::before{content:"";position:absolute;left:5px;top:50%;width:3px;height:18px;margin-top:-9px;border-radius:3px;background:var(--primary)}
+:root.desk.p-pc .nav button{border-radius:8px}
+:root.desk.p-pc .nav button:hover{background:color-mix(in srgb,var(--ink) 4%,transparent)!important}
+:root.desk.p-pc .nav button[aria-current="page"]{color:var(--ink)}
+:root.desk.p-pc .nav button[aria-current="page"] svg{color:var(--primary)}
+
+/* ---- ordinateur dans une fenêtre étroite ---- */
+@media (max-width:760px){
+ :root.desk .cols,:root.desk .setgrid,:root.desk .decks,:root.desk .lexlist{grid-template-columns:1fr}
+ :root.desk .screen{padding:22px 18px 30px}
+ :root.desk.p-mac .screen{padding-bottom:100px}
+ :root.desk .hero{flex-direction:column}
+ :root.desk .stats{width:100%;max-width:none}
+ :root.desk .tiles{grid-template-columns:1fr 1fr}
+ :root.desk.p-pc .nav{width:68px;padding:18px 8px}
+ :root.desk.p-pc .nav button{justify-content:center;font-size:0;gap:0;padding:12px 0!important}
+ :root.desk.p-pc .nav .badge{position:absolute;top:4px;right:4px;font-size:11px}
+ :root.desk.p-pc .brand b,:root.desk.p-pc .navfoot{display:none}
+ :root.desk.p-pc .brand{padding:4px 0 18px;justify-content:center}
 }
+@media (max-width:600px){:root.desk body{padding:0}:root.desk .app{border-radius:0;border:0;max-height:none}}
+/* PC : grossissement discret au survol (le vrai effet Dock est réservé au format Mac) */
+:root.desk.p-pc .nav button svg,:root.desk.p-pc .nav button[aria-current="page"] svg{transform:scale(calc(var(--base) + var(--mag,0) * .16))}
+:root.desk.p-pc .nav button{padding-left:14px}
 
 </style>
 
@@ -814,6 +927,7 @@ select.inp{font-size:16px}
           <div class="set"><h3>Taille des séries générées</h3><p>Nombre de mots que Claude prépare quand tu termines une série.</p><div class="seg" id="segGen"></div></div>
           <div class="set"><h3>Objectif du jour</h3><p>XP à gagner chaque jour pour garder ta série (1 XP par carte).</p><div class="seg" id="segGoal"></div></div>
           <div class="set"><h3>Prononciation</h3><p>Lire le mot à voix haute dès qu’une carte s’affiche (voix de ton appareil).</p><div class="seg" id="segVoice"></div></div>
+          <div class="set"><h3>Format d’affichage</h3><p>La mise en page s’adapte à l’appareil. Tu peux aussi la choisir toi-même.</p><div class="seg" id="segFmt"></div><p id="fmtHelp" style="font-size:13px"></p></div>
           <div class="set"><h3>Apparence</h3><div class="seg" id="segTheme"></div></div>
           <div class="set"><div class="ghead" style="margin:0"><h3>Couleurs</h3><button id="colorReset">Rétablir</button></div><p>Choisis la couleur de chaque langue, et celle du fond. « Auto » garde le fond assorti à la langue.</p><div class="colors" id="colorBox"></div></div>
         </div>
@@ -1799,6 +1913,33 @@ const THEMES={
  ar:["Au choix de Claude","Mots du Coran","Prière & adoration","Verbes essentiels","Famille & société","Maison & vie quotidienne","Voyage & ville","Nature & création","Qualités morales","Temps & nombres","Savoir & études","Émotions","Prophètes & récits"]
 };
 
+/* ================= FORMAT D’AFFICHAGE (iPhone, Android, Mac, PC) ================= */
+const FMTS={iphone:"iPhone",android:"Android",mac:"Mac",pc:"PC"};
+function detectFmt(){const ua=navigator.userAgent||"",tp=navigator.maxTouchPoints||0;
+ if(/iPhone|iPod/.test(ua))return"iphone";
+ if(/iPad/.test(ua)||(/Macintosh/.test(ua)&&tp>1))return"mac";
+ if(/Android/.test(ua))return(/Mobile/.test(ua)||Math.min(screen.width,screen.height)<600)?"android":"pc";
+ if(/Macintosh|Mac OS X/.test(ua))return"mac";
+ if(/Windows|CrOS|Linux|X11/.test(ua))return"pc";
+ return innerWidth<600?"android":"pc"}
+let FMT_PREF=(()=>{try{const v=localStorage.getItem("plume.fmt");return FMTS[v]?v:"auto"}catch(e){return"auto"}})();
+const curFmt=()=>FMTS[FMT_PREF]?FMT_PREF:detectFmt();
+const isStandalone=()=>{try{return navigator.standalone===true||matchMedia("(display-mode: standalone)").matches||matchMedia("(display-mode: fullscreen)").matches}catch(e){return false}};
+function applyFmt(){const f=curFmt(),r=document.documentElement,mob=f==="iphone"||f==="android";
+ let coarse=false;try{coarse=matchMedia("(pointer:coarse)").matches}catch(e){}
+ const fb=mob&&(innerWidth<600||isStandalone()||(coarse&&innerHeight<520));
+ ["p-iphone","p-android","p-mac","p-pc","mob","desk","fb","pwa"].forEach(c=>r.classList.remove(c));
+ r.classList.add("p-"+f,mob?"mob":"desk");if(fb)r.classList.add("fb");if(isStandalone())r.classList.add("pwa");
+ /* iPhone ouvert depuis l’écran d’accueil : iOS donne une hauteur trop courte (il oublie la barre d’état),
+    ce qui laissait une bande vide sous la barre du bas. On prend la vraie hauteur de l’écran. */
+ if(fb&&isStandalone()&&/iPhone|iPod|iPad/.test(navigator.userAgent||"")){
+  const portrait=innerHeight>=innerWidth,full=portrait?Math.max(screen.height,screen.width):Math.min(screen.height,screen.width);
+  r.style.setProperty("--app-h",Math.max(full,innerHeight)+"px")}else r.style.removeProperty("--app-h")}
+function setFmt(v){FMT_PREF=FMTS[v]?v:"auto";try{localStorage.setItem("plume.fmt",FMT_PREF)}catch(e){}applyFmt();setTimeout(()=>{if(typeof moveInd==="function")moveInd(false)},0)}
+applyFmt();
+addEventListener("resize",applyFmt);
+addEventListener("orientationchange",()=>setTimeout(()=>{applyFmt();if(typeof moveInd==="function")moveInd(false)},300));
+
 /* ================= PALETTES DE COULEURS ================= */
 const PK=["bg1","bg2","app","soft","line","ink","muted","primary","primary-2","on-primary","hero1","hero2"];
 const mkP=(name,L,D)=>({name,L:Object.fromEntries(PK.map((k,i)=>[k,L[i]]).concat([["card","#FFFFFF"]])),D:Object.fromEntries(PK.map((k,i)=>[k,D[i]]).concat([["card",D[12]]]))});
@@ -2290,6 +2431,11 @@ function go(v){const same=view===v;view=v;document.querySelectorAll("[data-view]
  document.querySelectorAll("#nav button[data-go]").forEach(b=>{if(b.dataset.go===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
  moveInd(true);$("#screen").scrollTop=0;try{history.replaceState(null,"",v==="home"?location.pathname+location.search:"#"+HASH[v])}catch(e){}render()}
 $("#nav").addEventListener("click",e=>{const b=e.target.closest("button[data-go]");if(!b)return;b.classList.remove("pop");void b.offsetWidth;b.classList.add("pop");buzz(6);go(b.dataset.go)});
+document.querySelectorAll("#nav button[data-go]").forEach(b=>b.dataset.tip=b.textContent.trim());
+document.addEventListener("pointerdown",e=>{if(!document.documentElement.classList.contains("p-android"))return;
+ const h=e.target.closest(".btn,.deck,.notion,.lang,.tile,.chip,.grade,.choice,.lchoice");if(!h||h.disabled)return;
+ const r=h.getBoundingClientRect(),d=Math.max(r.width,r.height)*2.2,s=document.createElement("span");s.className="ripple";
+ s.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;h.appendChild(s);setTimeout(()=>s.remove(),600)},{passive:true});
 const navInd=document.createElement("span");navInd.className="navind";navInd.setAttribute("aria-hidden","true");$("#nav").prepend(navInd);
 function moveInd(anim){const b=document.querySelector('#nav button[aria-current="page"]');if(!b){navInd.style.opacity=0;return}
  if(!anim)navInd.style.transition="none";
@@ -2748,6 +2894,8 @@ function renderColors(){const box=$("#colorBox");if(!box)return;
   `<div class="colrow"><span class="colname">Fond</span><div class="swrow">${swatches("bg",true)}</div></div>`}
 function renderSettings(){
  renderColors();
+ seg($("#segFmt"),[["auto","Auto"],["iphone","iPhone"],["android","Android"],["mac","Mac"],["pc","PC"]],FMT_PREF,v=>setFmt(v));
+ $("#fmtHelp").textContent=`Détecté sur cet appareil : ${FMTS[detectFmt()]}. Affichage actuel : ${FMTS[curFmt()]}. Ce choix est propre à cet appareil : ton téléphone et ton ordinateur gardent chacun le leur.`;
  seg($("#segGoal"),[[20,"20 XP"],[30,"30 XP"],[50,"50 XP"],[80,"80 XP"]],S.goal,v=>S.goal=+v);
  seg($("#segSession"),[[5,"5"],[10,"10"],[15,"15"],[20,"20"],[0,"Toute la série"]],S.session,v=>S.session=+v);
  seg($("#segGen"),[[10,"10"],[20,"20"],[30,"30"]],S.genSize,v=>S.genSize=+v);
@@ -2776,7 +2924,7 @@ $("#doReset").onclick=()=>{const keep={goal:S.goal,session:S.session,genSize:S.g
 /* ================= RENDU ================= */
 function render(){
  document.documentElement.setAttribute("data-ui",S.lang);applyColors();
- setTimeout(()=>{const m=document.querySelector('meta[name="theme-color"]');if(m){const full=matchMedia("(max-width:599px)").matches;const v=getComputedStyle(document.documentElement).getPropertyValue(full?"--app":"--bg1").trim();if(v)m.setAttribute("content",v)}},0);
+ setTimeout(()=>{const m=document.querySelector('meta[name="theme-color"]');if(m){const full=document.documentElement.classList.contains("fb");const v=getComputedStyle(document.documentElement).getPropertyValue(full?"--app":"--bg1").trim();if(v)m.setAttribute("content",v)}},0);
  syncLangBtns();
  const tot=LORDER.reduce((n,l)=>n+dueIds(l).length,0);
  const nb=$("#navBadge");nb.hidden=!tot;nb.textContent=tot>99?"99+":tot;

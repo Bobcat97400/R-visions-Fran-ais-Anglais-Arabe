@@ -392,11 +392,11 @@ details.m p{margin:0 0 12px; line-height:1.5; color:var(--muted)}
 :root.desk .grade small kbd{margin-left:4px}
 
 
-@media (max-width:1100px){:root.desk.p-pc .nav{width:84px; padding:22px 10px}
-:root.desk.p-pc .nav button{justify-content:center; font-size:0; gap:0}
-:root.desk.p-pc .nav .badge{position:absolute; top:4px; right:6px; font-size:11px}
-:root.desk.p-pc .brand b,:root.desk.p-pc .navfoot{display:none}
-:root.desk.p-pc .brand{padding:4px 0 22px; justify-content:center}
+@media (max-width:1100px){:root.desk .nav{width:84px; padding:22px 10px}
+:root.desk .nav button{justify-content:center; font-size:0; gap:0}
+:root.desk .nav .badge{position:absolute; top:4px; right:6px; font-size:11px}
+:root.desk .brand b,:root.desk .navfoot{display:none}
+:root.desk .brand{padding:4px 0 22px; justify-content:center}
  }
 @media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
 
@@ -552,12 +552,6 @@ select.inp{font-size:16px}
 :root.desk .navind{border-radius:14px}
 :root.desk .nav button[aria-current="page"] svg{transform:scale(1.1)}
 /* entrée des onglets */
-.view.entering>*{animation:rise .5s var(--ease) both}
-.view.entering>*:nth-child(2){animation-delay:.04s}.view.entering>*:nth-child(3){animation-delay:.08s}.view.entering>*:nth-child(4){animation-delay:.12s}.view.entering>*:nth-child(5){animation-delay:.16s}
-.view.entering :is(.stack,.lexlist,.langs,.tiles)>*{animation:rise .5s var(--ease) both}
-.view.entering :is(.stack,.lexlist,.langs,.tiles)>:nth-child(2){animation-delay:.05s}.view.entering :is(.stack,.lexlist,.langs,.tiles)>:nth-child(3){animation-delay:.09s}
-.view.entering :is(.stack,.lexlist,.langs,.tiles)>:nth-child(4){animation-delay:.13s}.view.entering :is(.stack,.lexlist,.langs,.tiles)>:nth-child(5){animation-delay:.17s}
-.view.entering :is(.stack,.lexlist,.langs,.tiles)>:nth-child(n+6){animation-delay:.21s}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}}
 /* lettre qui se dessine */
 .hero>*{position:relative;z-index:1}
@@ -724,29 +718,6 @@ select.inp{font-size:16px}
 .ripple{position:absolute;border-radius:50%;pointer-events:none;background:currentColor;opacity:.2;transform:scale(0);animation:ripple .55s ease-out forwards}
 @keyframes ripple{to{transform:scale(1);opacity:0}}
 
-/* ---- Mac : fenêtre + Dock flottant avec grossissement ---- */
-:root.desk.p-mac .app{flex-direction:column;border-radius:14px;border:1px solid rgba(255,255,255,.28);box-shadow:0 40px 90px -30px rgba(0,0,0,.55)}
-:root.desk.p-mac .nav{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:25;flex-direction:row;align-items:flex-end;width:auto;height:auto;gap:6px;padding:8px 10px;
- border:1px solid color-mix(in srgb,#fff 32%,transparent);border-radius:22px;background:color-mix(in srgb,var(--card) 60%,transparent);
- -webkit-backdrop-filter:blur(24px) saturate(170%);backdrop-filter:blur(24px) saturate(170%);box-shadow:0 18px 40px -12px rgba(0,0,0,.42)}
-:root.desk.p-mac .nav button{flex-direction:column;justify-content:center;width:50px;height:50px;padding:0!important;gap:0;font-size:0;border-radius:13px;
- background:color-mix(in srgb,var(--card) 94%,transparent)!important;color:var(--primary);
- box-shadow:0 1px 2px rgba(0,0,0,.14),inset 0 0 0 1px color-mix(in srgb,var(--ink) 8%,transparent);
- transform-origin:50% 100%;transform:translateY(calc(var(--mag,0) * -12px)) scale(calc(1 + var(--mag,0) * .5));margin:0 calc(var(--mag,0) * 9px);
- transition:transform .16s cubic-bezier(.2,.8,.3,1),margin .16s cubic-bezier(.2,.8,.3,1),background-color .3s}
-:root.desk.p-mac .nav button svg{width:26px;height:26px;transform:none!important}
-:root.desk.p-mac .nav button[aria-current="page"]{background:linear-gradient(160deg,var(--hero1),var(--hero2))!important;color:#fff}
-:root.desk.p-mac .nav button[aria-current="page"]::before{content:"";position:absolute;bottom:-7px;left:50%;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--ink);opacity:.65}
-:root.desk.p-mac .nav button::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(4px);font:600 12px/1 var(--body);padding:6px 10px;border-radius:7px;
- background:color-mix(in srgb,var(--ink) 88%,transparent);color:var(--app);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s,transform .15s}
-:root.desk.p-mac .nav button:hover::after{opacity:1;transform:translateX(-50%)}
-:root.desk.p-mac .nav button[data-go="settings"]{margin-left:calc(14px + var(--mag,0) * 9px)}
-:root.desk.p-mac .nav .badge{position:absolute;top:-6px;right:-6px;margin:0;font-size:11px}
-:root.desk.p-mac .brand,:root.desk.p-mac .navfoot,:root.desk.p-mac .navind{display:none}
-:root.desk.p-mac .screen{padding-bottom:124px}
-:root.desk.p-mac .toast{bottom:108px}
-@media (max-width:640px){:root.desk.p-mac .nav{gap:3px;padding:6px 7px;border-radius:16px}:root.desk.p-mac .nav button{width:36px;height:36px;border-radius:10px}:root.desk.p-mac .nav button svg{width:19px;height:19px}}
-
 /* ---- PC : fenêtre Windows 11 + volet de navigation ---- */
 :root.desk.p-pc .app{border-radius:10px;border:1px solid rgba(255,255,255,.26);box-shadow:0 30px 70px -28px rgba(0,0,0,.5)}
 :root.desk.p-pc .nav{background:color-mix(in srgb,var(--card) 70%,var(--app))}
@@ -761,20 +732,60 @@ select.inp{font-size:16px}
 @media (max-width:760px){
  :root.desk .cols,:root.desk .setgrid,:root.desk .decks,:root.desk .lexlist{grid-template-columns:1fr}
  :root.desk .screen{padding:22px 18px 30px}
- :root.desk.p-mac .screen{padding-bottom:100px}
  :root.desk .hero{flex-direction:column}
  :root.desk .stats{width:100%;max-width:none}
  :root.desk .tiles{grid-template-columns:1fr 1fr}
- :root.desk.p-pc .nav{width:68px;padding:18px 8px}
- :root.desk.p-pc .nav button{justify-content:center;font-size:0;gap:0;padding:12px 0!important}
- :root.desk.p-pc .nav .badge{position:absolute;top:4px;right:4px;font-size:11px}
- :root.desk.p-pc .brand b,:root.desk.p-pc .navfoot{display:none}
- :root.desk.p-pc .brand{padding:4px 0 18px;justify-content:center}
+ :root.desk .nav{width:68px;padding:18px 8px}
+ :root.desk .nav button{justify-content:center;font-size:0;gap:0;padding:12px 0!important}
+ :root.desk .nav .badge{position:absolute;top:4px;right:4px;font-size:11px}
+ :root.desk .brand b,:root.desk .navfoot{display:none}
+ :root.desk .brand{padding:4px 0 18px;justify-content:center}
 }
 @media (max-width:600px){:root.desk body{padding:0}:root.desk .app{border-radius:0;border:0;max-height:none}}
-/* PC : grossissement discret au survol (le vrai effet Dock est réservé au format Mac) */
-:root.desk.p-pc .nav button svg,:root.desk.p-pc .nav button[aria-current="page"] svg{transform:scale(calc(var(--base) + var(--mag,0) * .16))}
-:root.desk.p-pc .nav button{padding-left:14px}
+
+/* ---- Mac : barre latérale translucide, fenêtre arrondie, sélection façon macOS ---- */
+:root.desk.p-mac .app{border-radius:14px;border:1px solid rgba(255,255,255,.3);box-shadow:0 40px 90px -30px rgba(0,0,0,.55)}
+:root.desk.p-mac .nav{background:color-mix(in srgb,var(--card) 58%,transparent);-webkit-backdrop-filter:blur(26px) saturate(170%);backdrop-filter:blur(26px) saturate(170%);border-left:1px solid color-mix(in srgb,var(--ink) 9%,transparent)}
+:root.desk.p-mac .navind{border-radius:9px;background:color-mix(in srgb,var(--primary) 16%,transparent)}
+:root.desk.p-mac .nav button{border-radius:9px}
+:root.desk.p-mac .nav button[aria-current="page"]{color:var(--primary)}
+:root.desk.p-mac .brand span{border-radius:11px}
+
+/* ---- Effet Dock dans la barre latérale (Mac et PC) : l’icône grossit et le texte se décale ---- */
+:root.desk .nav button svg,:root.desk .nav button[aria-current="page"] svg{transform-origin:50% 50%;transform:scale(calc(var(--base) + var(--mag,0) * .42))}
+:root.desk .nav button{gap:calc(12px + var(--mag,0) * 9px);padding-left:calc(14px + var(--mag,0) * 4px);transition:color .2s,gap .16s cubic-bezier(.2,.8,.3,1),padding .16s cubic-bezier(.2,.8,.3,1)}
+:root.desk .nav button svg{transition:transform .16s cubic-bezier(.2,.8,.3,1)}
+@media (max-width:1100px){:root.desk .nav button{gap:0;padding-left:0}}
+
+/* ================================================================
+   v12 : iPhone — barre collée tout en bas (jusqu’au « menton »)
+   L’app occupe tout l’écran via inset:0 et la barre est fixée au bord réel de l’écran.
+   ================================================================ */
+:root.fb .app{top:0;bottom:0;left:0;right:0;height:auto!important}
+:root.fb .login{inset:0;height:auto}
+:root.p-iphone.fb,:root.p-iphone.fb body{background:var(--card)}
+:root.p-iphone.fb .nav{position:fixed;left:0;right:0;bottom:0;margin:0;border-radius:0;
+ padding-bottom:max(6px,env(safe-area-inset-bottom,0px))}
+:root.p-iphone.fb .nav::after{content:"";position:absolute;left:0;right:0;top:100%;height:60px;background:inherit}
+
+/* ================================================================
+   v12 : ANIMATIONS — les éléments arrivent en cascade depuis le bas, partout
+   ================================================================ */
+.ai{animation:aiIn .66s cubic-bezier(.2,.9,.28,1.12) both;animation-delay:calc(var(--ai,0) * 52ms)}
+@keyframes aiIn{0%{opacity:0;translate:0 38px;scale:.96}60%{opacity:1}100%{opacity:1;translate:0 0;scale:1}}
+:root.boot .nav .ai{animation-name:aiNav}
+@keyframes aiNav{0%{opacity:0;translate:0 26px}100%{opacity:1;translate:0 0}}
+:root.desk.boot .nav .ai{animation-name:aiSide}
+@keyframes aiSide{0%{opacity:0;translate:-30px 0}100%{opacity:1;translate:0 0}}
+/* appui : la carte s’enfonce puis rebondit, l’icône saute */
+.press{scale:.95;transition:scale .12s ease}
+.boing{animation:boing .58s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes boing{0%{scale:.94}45%{scale:1.045}75%{scale:.99}100%{scale:1}}
+.boing :is(.dot,.ico),.boing>svg,.boing .ico svg{animation:hop .62s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes hop{0%{translate:0 0;rotate:0deg}30%{translate:0 -7px;rotate:-12deg}60%{translate:0 1px;rotate:6deg}100%{translate:0 0;rotate:0deg}}
+.nav button.boing{animation:none}
+.nav button.boing svg{animation:hop .6s cubic-bezier(.3,1.5,.5,1) both}
+@media (prefers-reduced-motion:reduce){.ai,.boing,.boing *{animation:none!important}.press{scale:1}}
 
 </style>
 
@@ -2427,9 +2438,28 @@ async function generate(){
 /* ================= NAVIGATION ================= */
 let view="home";
 const HASH={learn:"apprendre",ex:"exercices",add:"ajouter",lex:"lexique",rev:"revision",notes:"notes",settings:"reglages"};
-function go(v){const same=view===v;view=v;document.querySelectorAll("[data-view]").forEach(s=>{s.hidden=s.dataset.view!==v;if(!s.hidden&&!same){s.classList.remove("entering");void s.offsetWidth;s.classList.add("entering");clearTimeout(s._t);s._t=setTimeout(()=>s.classList.remove("entering"),900)}});
+function go(v){const same=view===v;view=v;document.querySelectorAll("[data-view]").forEach(s=>{s.hidden=s.dataset.view!==v;if(!s.hidden&&!same)s._enter=1});
  document.querySelectorAll("#nav button[data-go]").forEach(b=>{if(b.dataset.go===v)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
- moveInd(true);$("#screen").scrollTop=0;try{history.replaceState(null,"",v==="home"?location.pathname+location.search:"#"+HASH[v])}catch(e){}render()}
+ moveInd(true);$("#screen").scrollTop=0;try{history.replaceState(null,"",v==="home"?location.pathname+location.search:"#"+HASH[v])}catch(e){}render();
+ const sv=document.querySelector(`[data-view="${v}"]`);if(sv&&sv._enter){sv._enter=0;cascade(sv)}}
+/* ---------- ANIMATIONS : cascade depuis le bas, partout ---------- */
+const RMO=()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}};
+const AI_LISTS=".cols,.col,.stack,.lexlist,.langs,.tiles,.chips,#exList,#seriesList,#mineList,#notesList,#revList,#lexList,.pbody,.setlist,.grid";
+function aiItems(root){const out=[];const visit=(el,d)=>{for(const c of el.children){if(c.hidden||c.matches("script,style,template,.sparks,.glyphs"))continue;
+  if(d<3&&c.matches(AI_LISTS)&&c.children.length&&c.children.length<40)visit(c,d+1);else out.push(c)}};visit(root,0);return out}
+function cascade(root,start=0){if(!root||RMO())return;const items=aiItems(root).filter(e=>e.offsetParent!==null||getComputedStyle(e).position==="fixed");let i=start;
+ root.querySelectorAll("#exList,#seriesList,#mineList,#notesList,#revList,#lexList,#lexChips,#revChips,#noteChips").forEach(l=>l._sig=l.innerHTML);
+ for(const el of items){el.classList.remove("ai");void el.offsetWidth;if(i<16){el.style.setProperty("--ai",i++);el.classList.add("ai");clearTimeout(el._ai);el._ai=setTimeout(()=>el.classList.remove("ai"),1700)}}}
+function cascadeList(el){if(!el||RMO()||el.offsetParent===null)return;const sig=el.innerHTML;if(el._sig===sig)return;el._sig=sig;
+ [...el.children].forEach((c,i)=>{if(i>=16)return;c.classList.remove("ai");void c.offsetWidth;c.style.setProperty("--ai",i);c.classList.add("ai");setTimeout(()=>c.classList.remove("ai"),1700)})}
+try{const mo=new MutationObserver(ms=>{const seen=new Set();for(const m of ms){const t=m.target;if(seen.has(t))continue;seen.add(t);
+  if(t.id==="overlay"){const pb=t.querySelector(".panel .pbody");if(pb)cascade(pb);continue}
+  if(t.matches&&t.matches("#exList,#seriesList,#mineList,#notesList,#revList,#lexList,#lexChips,#revChips,#noteChips"))cascadeList(t)}});
+ ["#overlay","#exList","#seriesList","#mineList","#notesList","#revList","#lexList","#lexChips","#revChips","#noteChips"].forEach(q=>{const e=$(q);if(e)mo.observe(e,{childList:true})})}catch(e){}
+/* appui : rebond + icône qui saute */
+document.addEventListener("pointerdown",e=>{if(RMO())return;const t=e.target.closest("button,.lang,.lchoice,[data-t],[data-n]");if(!t||t.closest(".nav,.grades,#flip,.login")||t.disabled)return;
+ t.classList.remove("boing");t.classList.add("press");const up=()=>{removeEventListener("pointerup",up);removeEventListener("pointercancel",up);t.classList.remove("press");void t.offsetWidth;t.classList.add("boing");clearTimeout(t._bo);t._bo=setTimeout(()=>t.classList.remove("boing"),650)};
+ addEventListener("pointerup",up);addEventListener("pointercancel",up)},{passive:true});
 $("#nav").addEventListener("click",e=>{const b=e.target.closest("button[data-go]");if(!b)return;b.classList.remove("pop");void b.offsetWidth;b.classList.add("pop");buzz(6);go(b.dataset.go)});
 document.querySelectorAll("#nav button[data-go]").forEach(b=>b.dataset.tip=b.textContent.trim());
 document.addEventListener("pointerdown",e=>{if(!document.documentElement.classList.contains("p-android"))return;
@@ -2948,6 +2978,11 @@ saveLocal();applyTheme();
 if(!PID)showLogin();
 {const h=(location.hash||"").slice(1);const v=Object.keys(HASH).find(k=>HASH[k]===h);if(v)view=v}
 setupGlyphs();go(view);drawGlyph();
+/* grande entrée au lancement : en-tête, contenu puis barre de navigation */
+if(PID&&!RMO()){const r=document.documentElement;r.classList.add("boot");const sv=document.querySelector(`[data-view="${view}"]`);
+ const nb=[...document.querySelectorAll("#nav>.brand,#nav button[data-go],#nav>.navfoot")];
+ nb.forEach((b,i)=>{b.style.setProperty("--ai",i+3);b.classList.add("ai")});cascade(sv,1);
+ setTimeout(()=>{r.classList.remove("boot");nb.forEach(b=>b.classList.remove("ai"))},1800)}
 try{document.fonts&&document.fonts.ready.then(()=>moveInd(false))}catch(e){}
 Sync.init();
 (async()=>{try{Gen.sample=window.claude&&window.claude.use?await window.claude.use("sample"):null}catch(e){Gen.sample=null}if(view==="learn")renderLearn()})();

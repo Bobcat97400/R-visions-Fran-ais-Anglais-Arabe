@@ -787,6 +787,16 @@ select.inp{font-size:16px}
 .nav button.boing svg{animation:hop .6s cubic-bezier(.3,1.5,.5,1) both}
 @media (prefers-reduced-motion:reduce){.ai,.boing,.boing *{animation:none!important}.press{scale:1}}
 
+/* ================================================================
+   v13 : iPhone écran d’accueil — vrai bord bas.
+   Sur iPhone (app installée), iOS rend la zone « fixe » trop courte de la hauteur de la barre d’état :
+   tout ce qui est collé à bottom:0 s’arrête ~50 px trop haut (le « menton »).
+   On donne à l’app la vraie hauteur de l’écran (mesurée en JS) et la barre est collée au bas de l’app.
+   ================================================================ */
+:root.p-iphone.fb,:root.p-iphone.fb body{min-height:calc(100% + env(safe-area-inset-top,0px));background:color-mix(in srgb,var(--card) 80%,var(--app))}
+:root.p-iphone.fb .app{position:fixed;top:0;left:0;right:0;bottom:auto!important;height:calc(var(--app-h,100dvh) + var(--ios-adj,0px))!important}
+:root.p-iphone.fb .nav{position:absolute;left:0;right:0;bottom:0;padding-bottom:max(8px,env(safe-area-inset-bottom,0px))}
+
 </style>
 
 <div class="app" id="app">
@@ -938,7 +948,10 @@ select.inp{font-size:16px}
           <div class="set"><h3>Taille des séries générées</h3><p>Nombre de mots que Claude prépare quand tu termines une série.</p><div class="seg" id="segGen"></div></div>
           <div class="set"><h3>Objectif du jour</h3><p>XP à gagner chaque jour pour garder ta série (1 XP par carte).</p><div class="seg" id="segGoal"></div></div>
           <div class="set"><h3>Prononciation</h3><p>Lire le mot à voix haute dès qu’une carte s’affiche (voix de ton appareil).</p><div class="seg" id="segVoice"></div></div>
-          <div class="set"><h3>Format d’affichage</h3><p>La mise en page s’adapte à l’appareil. Tu peux aussi la choisir toi-même.</p><div class="seg" id="segFmt"></div><p id="fmtHelp" style="font-size:13px"></p></div>
+          <div class="set"><h3>Format d’affichage</h3><p>La mise en page s’adapte à l’appareil. Tu peux aussi la choisir toi-même.</p><div class="seg" id="segFmt"></div><p id="fmtHelp" style="font-size:13px"></p>
+            <div id="iosAdj" hidden style="margin-top:10px"><div class="ghead" style="margin:0"><b style="font-size:14px">Calage du bas (iPhone)</b><button id="iosAdjReset">Auto</button></div>
+            <p style="font-size:13px;margin:4px 0 8px">Si la barre du bas ne touche pas le bord de l’écran, glisse vers la droite jusqu’à ce qu’elle colle. Réglage propre à ce téléphone.</p>
+            <input type="range" id="iosAdjR" min="-80" max="80" step="1" style="width:100%;accent-color:var(--primary)"><small class="muted" id="iosAdjV"></small></div></div>
           <div class="set"><h3>Apparence</h3><div class="seg" id="segTheme"></div></div>
           <div class="set"><div class="ghead" style="margin:0"><h3>Couleurs</h3><button id="colorReset">Rétablir</button></div><p>Choisis la couleur de chaque langue, et celle du fond. « Auto » garde le fond assorti à la langue.</p><div class="colors" id="colorBox"></div></div>
         </div>
@@ -1945,7 +1958,9 @@ function applyFmt(){const f=curFmt(),r=document.documentElement,mob=f==="iphone"
     ce qui laissait une bande vide sous la barre du bas. On prend la vraie hauteur de l’écran. */
  if(fb&&isStandalone()&&/iPhone|iPod|iPad/.test(navigator.userAgent||"")){
   const portrait=innerHeight>=innerWidth,full=portrait?Math.max(screen.height,screen.width):Math.min(screen.height,screen.width);
-  r.style.setProperty("--app-h",Math.max(full,innerHeight)+"px")}else r.style.removeProperty("--app-h")}
+  r.style.setProperty("--app-h",Math.max(full,innerHeight)+"px")}else r.style.removeProperty("--app-h");
+ let adj=0;try{adj=+localStorage.getItem("plume.iosadj")||0}catch(e){}
+ if(fb&&f==="iphone"&&adj)r.style.setProperty("--ios-adj",adj+"px");else r.style.removeProperty("--ios-adj")}
 function setFmt(v){FMT_PREF=FMTS[v]?v:"auto";try{localStorage.setItem("plume.fmt",FMT_PREF)}catch(e){}applyFmt();setTimeout(()=>{if(typeof moveInd==="function")moveInd(false)},0)}
 applyFmt();
 addEventListener("resize",applyFmt);
@@ -2925,6 +2940,12 @@ function renderColors(){const box=$("#colorBox");if(!box)return;
 function renderSettings(){
  renderColors();
  seg($("#segFmt"),[["auto","Auto"],["iphone","iPhone"],["android","Android"],["mac","Mac"],["pc","PC"]],FMT_PREF,v=>setFmt(v));
+ {const box=$("#iosAdj"),rg=$("#iosAdjR");box.hidden=curFmt()!=="iphone";let a=0;try{a=+localStorage.getItem("plume.iosadj")||0}catch(e){}
+  rg.value=a;box.querySelector(".diag")||box.insertAdjacentHTML("beforeend",'<p class="diag muted" style="font-size:11px;margin:6px 0 0"></p>');
+  {const cs=getComputedStyle(document.documentElement);box.querySelector(".diag").textContent=`Diagnostic : écran ${screen.width}×${screen.height} · fenêtre ${innerWidth}×${innerHeight} · app ${Math.round($("#app").getBoundingClientRect().height)} · ${isStandalone()?"app installée":"navigateur"}`}
+  $("#iosAdjV").textContent=a?`Décalage : ${a>0?"+":""}${a} px`:"Automatique";
+  rg.oninput=()=>{const v=+rg.value;try{localStorage.setItem("plume.iosadj",v)}catch(e){}applyFmt();$("#iosAdjV").textContent=v?`Décalage : ${v>0?"+":""}${v} px`:"Automatique"};
+  $("#iosAdjReset").onclick=()=>{try{localStorage.removeItem("plume.iosadj")}catch(e){}rg.value=0;applyFmt();$("#iosAdjV").textContent="Automatique"}}
  $("#fmtHelp").textContent=`Détecté sur cet appareil : ${FMTS[detectFmt()]}. Affichage actuel : ${FMTS[curFmt()]}. Ce choix est propre à cet appareil : ton téléphone et ton ordinateur gardent chacun le leur.`;
  seg($("#segGoal"),[[20,"20 XP"],[30,"30 XP"],[50,"50 XP"],[80,"80 XP"]],S.goal,v=>S.goal=+v);
  seg($("#segSession"),[[5,"5"],[10,"10"],[15,"15"],[20,"20"],[0,"Toute la série"]],S.session,v=>S.session=+v);

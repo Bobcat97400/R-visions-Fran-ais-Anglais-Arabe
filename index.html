@@ -843,6 +843,13 @@ select.inp{font-size:16px}
 .wmap b{font-family:var(--arabic)}.wmap .rl{color:var(--primary)}.wmap i{font-style:normal;font-size:12px;color:var(--muted)}
 .wwhy{margin:0;line-height:1.6;font-weight:600}
 .wnf{background:var(--card);border-radius:14px;padding:12px;border:1px solid var(--line);max-height:320px;overflow:auto}
+.notion .num.hadith{background:color-mix(in srgb,#2E8B6E 20%,var(--card));color:#2E8B6E;font-family:var(--arabic);font-size:20px}
+.ttype.hadith{background:color-mix(in srgb,#2E8B6E 20%,var(--card));color:#2E8B6E}
+.vref{font-size:11.5px;font-weight:700;color:var(--muted);text-align:left;direction:ltr}
+.rcard{flex-shrink:0}
+.rcard .wchips{justify-content:center}
+.wchips,.wdeck{max-width:100%;min-width:0}
+.wmini .wm small{overflow-wrap:anywhere}
 
 </style>
 
@@ -1919,6 +1926,184 @@ const TEXTS=[
 ["فَسَقَطَتْ قِطْعَةُ الْجُبْنِ، فَأَخَذَهَا الثَّعْلَبُ وَهَرَبَ.","Le morceau de fromage tomba ; le renard le prit et s’enfuit."],
 ["وَقَالَ وَهُوَ يَضْحَكُ: كُلُّ مُتَمَلِّقٍ يَعِيشُ عَلَى حِسَابِ مَنْ يَسْمَعُهُ.","Et il dit en riant : « Tout flatteur vit aux dépens de celui qui l’écoute. »"]]}
 ];
+/* ---------- TEXTES — 2e livraison : Juzʿ ʿAmma, fin d'Al-Baqara, Ar-Raḥmân, hadiths, poésie, texte moderne ---------- */
+TEXTS.push(
+{id:"kawthar",type:"coran",title:"Al-Kawthar · L’Abondance",src:"Sourate 108 · versets 1 à 3",intro:"La plus courte sourate du Coran : trois versets.",voc:[
+["أَعْطَيْنَاكَ","aʿṭaynâka","Nous t’avons donné"],["الْكَوْثَرَ","al-kawthar","l’abondance (Al-Kawthar)"],["فَصَلِّ","fa-ṣalli","prie donc"],["وَانْحَرْ","wa-nḥar","et sacrifie"],["شَانِئَكَ","shâniʾaka","celui qui te hait"],["الْأَبْتَرُ","al-abtar","sans postérité, coupé"]],s:[
+["إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ","Nous t’avons certes accordé l’Abondance (Al-Kawthar).",1],
+["فَصَلِّ لِرَبِّكَ وَانْحَرْ","Prie donc pour ton Seigneur, et sacrifie.",2],
+["إِنَّ شَانِئَكَ هُوَ الْأَبْتَرُ","C’est celui qui te hait qui sera, certes, sans postérité.",3]]},
+{id:"kafirun",type:"coran",title:"Al-Kâfirûn · Les Mécréants",src:"Sourate 109 · versets 1 à 6",intro:"Une déclaration nette : chacun sa religion.",voc:[
+["يَا أَيُّهَا","yâ ayyuhâ","ô vous"],["الْكَافِرُونَ","al-kâfirûn","les mécréants"],["أَعْبُدُ","aʿbudu","j’adore"],["تَعْبُدُونَ","taʿbudûn","vous adorez"],["أَنْتُمْ","antum","vous"],["عَابِدُونَ","ʿâbidûn","adorateurs"],["عَبَدْتُمْ","ʿabadtum","vous avez adoré"],["دِينُكُمْ","dînukum","votre religion"],["وَلِيَ","wa-liya","et à moi"]],s:[
+["قُلْ يَا أَيُّهَا الْكَافِرُونَ","Dis : « Ô vous les mécréants !",1],
+["لَا أَعْبُدُ مَا تَعْبُدُونَ","Je n’adore pas ce que vous adorez,",2],
+["وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ","et vous n’adorez pas ce que j’adore.",3],
+["وَلَا أَنَا عَابِدٌ مَا عَبَدْتُمْ","Je ne suis pas adorateur de ce que vous avez adoré,",4],
+["وَلَا أَنْتُمْ عَابِدُونَ مَا أَعْبُدُ","et vous n’êtes pas adorateurs de ce que j’adore.",5],
+["لَكُمْ دِينُكُمْ وَلِيَ دِينِ","À vous votre religion, et à moi ma religion. »",6]]},
+{id:"quraysh",type:"coran",title:"Quraysh",src:"Sourate 106 · versets 1 à 4",intro:"Les voyages d’hiver et d’été de la tribu de Quraysh, et la gratitude qu’ils doivent.",voc:[
+["لِإِيلَافِ","li-îlâfi","pour l’habitude (le pacte) de"],["قُرَيْشٍ","quraysh","Quraysh"],["رِحْلَةَ","riḥlata","le voyage de"],["الشِّتَاءِ","ash-shitâʾ","l’hiver"],["الصَّيْفِ","aṣ-ṣayf","l’été"],["فَلْيَعْبُدُوا","fa-l-yaʿbudû","qu’ils adorent donc"],["أَطْعَمَهُمْ","aṭʿamahum","Il les a nourris"],["جُوعٍ","jûʿ","la faim"],["وَآمَنَهُمْ","wa-âmanahum","et Il les a rassurés"],["خَوْفٍ","khawf","la peur"]],s:[
+["لِإِيلَافِ قُرَيْشٍ","À cause du pacte des Quraysh,",1],
+["إِيلَافِهِمْ رِحْلَةَ الشِّتَاءِ وَالصَّيْفِ","de leur pacte pour le voyage d’hiver et d’été,",2],
+["فَلْيَعْبُدُوا رَبَّ هٰذَا الْبَيْتِ","qu’ils adorent donc le Seigneur de cette Maison,",3],
+["الَّذِي أَطْعَمَهُمْ مِنْ جُوعٍ وَآمَنَهُمْ مِنْ خَوْفٍ","qui les a nourris contre la faim et rassurés contre la peur.",4]]},
+{id:"fil",type:"coran",title:"Al-Fîl · L’Éléphant",src:"Sourate 105 · versets 1 à 5",intro:"L’armée d’Abraha et ses éléphants, arrêtée devant La Mecque l’année de la naissance du Prophète ﷺ.",voc:[
+["تَرَ","tara","tu vois (n’as-tu pas vu)"],["كَيْفَ","kayfa","comment"],["فَعَلَ","faʿala","Il a fait (agi)"],["بِأَصْحَابِ","bi-aṣḥâbi","avec les gens de"],["الْفِيلِ","al-fîl","l’éléphant"],["كَيْدَهُمْ","kaydahum","leur ruse"],["تَضْلِيلٍ","taḍlîl","l’échec, l’égarement"],["وَأَرْسَلَ","wa-arsala","et Il a envoyé"],["طَيْرًا","ṭayran","des oiseaux"],["أَبَابِيلَ","abâbîl","par volées"],["تَرْمِيهِمْ","tarmîhim","qui leur lançaient"],["بِحِجَارَةٍ","bi-ḥijâra","des pierres"],["سِجِّيلٍ","sijjîl","argile cuite"],["كَعَصْفٍ","ka-ʿaṣf","comme de la paille"],["مَأْكُولٍ","maʾkûl","mangée (rongée)"]],s:[
+["أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَابِ الْفِيلِ","N’as-tu pas vu comment ton Seigneur a agi envers les gens de l’Éléphant ?",1],
+["أَلَمْ يَجْعَلْ كَيْدَهُمْ فِي تَضْلِيلٍ","N’a-t-Il pas fait échouer leur ruse ?",2],
+["وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ","Il envoya contre eux des oiseaux par volées,",3],
+["تَرْمِيهِمْ بِحِجَارَةٍ مِنْ سِجِّيلٍ","qui leur lançaient des pierres d’argile cuite,",4],
+["فَجَعَلَهُمْ كَعَصْفٍ مَأْكُولٍ","et Il les rendit semblables à de la paille rongée.",5]]},
+{id:"maun",type:"coran",title:"Al-Mâʿûn · L’Ustensile",src:"Sourate 107 · versets 1 à 7",intro:"La vraie religion se voit dans la façon de traiter l’orphelin et le pauvre.",voc:[
+["أَرَأَيْتَ","a-raʾayta","as-tu vu"],["يُكَذِّبُ","yukadhdhibu","il traite de mensonge"],["يَدُعُّ","yaduʿʿu","il repousse brutalement"],["يَحُضُّ","yaḥuḍḍu","il incite"],["طَعَامِ","ṭaʿâmi","la nourriture de"],["الْمِسْكِينِ","al-miskîn","le pauvre"],["فَوَيْلٌ","fa-waylun","malheur donc"],["لِلْمُصَلِّينَ","li-l-muṣallîn","à ceux qui prient"],["سَاهُونَ","sâhûn","négligents, distraits"],["يُرَاءُونَ","yurâʾûn","ils font étalage"],["وَيَمْنَعُونَ","wa-yamnaʿûn","et ils refusent"],["الْمَاعُونَ","al-mâʿûn","l’ustensile, la petite aide"]],s:[
+["أَرَأَيْتَ الَّذِي يُكَذِّبُ بِالدِّينِ","As-tu vu celui qui traite de mensonge la Rétribution ?",1],
+["فَذٰلِكَ الَّذِي يَدُعُّ الْيَتِيمَ","C’est bien lui qui repousse brutalement l’orphelin,",2],
+["وَلَا يَحُضُّ عَلَى طَعَامِ الْمِسْكِينِ","et qui n’incite pas à nourrir le pauvre.",3],
+["فَوَيْلٌ لِلْمُصَلِّينَ","Malheur donc à ceux qui prient,",4],
+["الَّذِينَ هُمْ عَنْ صَلَاتِهِمْ سَاهُونَ","qui sont négligents dans leur prière,",5],
+["الَّذِينَ هُمْ يُرَاءُونَ","qui font étalage (de leurs œuvres),",6],
+["وَيَمْنَعُونَ الْمَاعُونَ","et refusent la moindre aide.",7]]},
+{id:"zalzala",type:"coran",title:"Az-Zalzala · Le Séisme",src:"Sourate 99 · versets 1 à 8",intro:"Le Jour où la terre raconte tout, et où le poids d’un atome compte.",voc:[
+["زُلْزِلَتِ","zulzilati","elle est secouée"],["زِلْزَالَهَا","zilzâlahâ","son séisme"],["وَأَخْرَجَتِ","wa-akhrajati","et elle fait sortir"],["أَثْقَالَهَا","athqâlahâ","ses fardeaux"],["يَوْمَئِذٍ","yawmaʾidhin","ce jour-là"],["تُحَدِّثُ","tuḥaddithu","elle raconte"],["أَخْبَارَهَا","akhbârahâ","ses nouvelles"],["أَوْحَى","awḥâ","Il a inspiré"],["يَصْدُرُ","yaṣduru","ils sortent"],["أَشْتَاتًا","ashtâtan","en groupes dispersés"],["مِثْقَالَ","mithqâla","le poids de"],["ذَرَّةٍ","dharra","un atome"],["يَرَهُ","yarahu","il le verra"]],s:[
+["إِذَا زُلْزِلَتِ الْأَرْضُ زِلْزَالَهَا","Quand la terre sera secouée de son violent séisme,",1],
+["وَأَخْرَجَتِ الْأَرْضُ أَثْقَالَهَا","que la terre fera sortir ses fardeaux,",2],
+["وَقَالَ الْإِنْسَانُ مَا لَهَا","et que l’homme dira : « Qu’a-t-elle ? »,",3],
+["يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا","ce jour-là, elle racontera ses nouvelles,",4],
+["بِأَنَّ رَبَّكَ أَوْحَى لَهَا","selon ce que ton Seigneur lui aura inspiré.",5],
+["يَوْمَئِذٍ يَصْدُرُ النَّاسُ أَشْتَاتًا لِيُرَوْا أَعْمَالَهُمْ","Ce jour-là, les gens sortiront par groupes séparés pour qu’on leur montre leurs œuvres.",6],
+["فَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُ","Quiconque fait un bien du poids d’un atome le verra,",7],
+["وَمَنْ يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُ","et quiconque fait un mal du poids d’un atome le verra.",8]]},
+{id:"tin",type:"coran",title:"At-Tîn · Le Figuier",src:"Sourate 95 · versets 1 à 8",intro:"L’homme créé sous la plus belle forme.",voc:[
+["وَالتِّينِ","wa-t-tîn","par le figuier"],["وَالزَّيْتُونِ","wa-z-zaytûn","et l’olivier"],["وَطُورِ","wa-ṭûri","et par le mont"],["سِينِينَ","sînîn","Sinaï"],["الْبَلَدِ","al-balad","la cité"],["الْأَمِينِ","al-amîn","sûre"],["أَحْسَنِ","aḥsani","la plus belle"],["تَقْوِيمٍ","taqwîm","forme, constitution"],["رَدَدْنَاهُ","radadnâhu","Nous l’avons ramené"],["أَسْفَلَ","asfala","le plus bas de"],["أَجْرٌ","ajrun","une récompense"],["مَمْنُونٍ","mamnûn","interrompue"],["بِأَحْكَمِ","bi-aḥkami","le plus sage de"],["الْحَاكِمِينَ","al-ḥâkimîn","les juges"]],s:[
+["وَالتِّينِ وَالزَّيْتُونِ","Par le figuier et l’olivier !",1],
+["وَطُورِ سِينِينَ","Par le mont Sinaï !",2],
+["وَهٰذَا الْبَلَدِ الْأَمِينِ","Et par cette cité sûre !",3],
+["لَقَدْ خَلَقْنَا الْإِنْسَانَ فِي أَحْسَنِ تَقْوِيمٍ","Nous avons certes créé l’homme sous la forme la plus parfaite,",4],
+["ثُمَّ رَدَدْنَاهُ أَسْفَلَ سَافِلِينَ","puis Nous l’avons ramené au plus bas des plus bas,",5],
+["إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ فَلَهُمْ أَجْرٌ غَيْرُ مَمْنُونٍ","sauf ceux qui croient et font de bonnes œuvres : à eux une récompense jamais interrompue.",6],
+["فَمَا يُكَذِّبُكَ بَعْدُ بِالدِّينِ","Qu’est-ce qui te fait donc, après cela, démentir la Rétribution ?",7],
+["أَلَيْسَ اللَّهُ بِأَحْكَمِ الْحَاكِمِينَ","Allah n’est-Il pas le plus sage des juges ?",8]]},
+{id:"alaq",type:"coran",title:"Al-ʿAlaq · L’Adhérence",src:"Sourate 96 · versets 1 à 5",intro:"Les tout premiers versets révélés, dans la grotte de Ḥirâʾ.",voc:[
+["اقْرَأْ","iqraʾ","lis ! récite !"],["بِاسْمِ","bi-smi","au nom de"],["عَلَقٍ","ʿalaq","une adhérence (caillot)"],["الْأَكْرَمُ","al-akram","le Très-Généreux"],["عَلَّمَ","ʿallama","Il a enseigné"],["بِالْقَلَمِ","bi-l-qalam","par le calame"],["يَعْلَمْ","yaʿlam","il (ne) savait (pas)"]],s:[
+["اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ","Lis, au nom de ton Seigneur qui a créé,",1],
+["خَلَقَ الْإِنْسَانَ مِنْ عَلَقٍ","qui a créé l’homme d’une adhérence.",2],
+["اقْرَأْ وَرَبُّكَ الْأَكْرَمُ","Lis ! Ton Seigneur est le Très-Généreux,",3],
+["الَّذِي عَلَّمَ بِالْقَلَمِ","qui a enseigné par le calame,",4],
+["عَلَّمَ الْإِنْسَانَ مَا لَمْ يَعْلَمْ","a enseigné à l’homme ce qu’il ne savait pas.",5]]},
+{id:"rahman",type:"coran",title:"Ar-Raḥmân · Le Tout Miséricordieux",src:"Sourate 55 · versets 1 à 13",intro:"L’ouverture de la sourate des bienfaits, avec son refrain : « Lequel donc des bienfaits de votre Seigneur nierez-vous ? »",voc:[
+["عَلَّمَ","ʿallama","Il a enseigné"],["الْبَيَانَ","al-bayân","l’expression claire"],["وَالْقَمَرُ","wa-l-qamar","et la lune"],["بِحُسْبَانٍ","bi-ḥusbân","selon un calcul précis"],["وَالنَّجْمُ","wa-n-najm","et les plantes / l’étoile"],["يَسْجُدَانِ","yasjudân","tous deux se prosternent"],["الْمِيزَانَ","al-mîzân","la balance"],["تَطْغَوْا","taṭghaw","que vous transgressiez"],["بِالْقِسْطِ","bi-l-qisṭ","avec équité"],["لِلْأَنَامِ","li-l-anâm","pour les créatures"],["فَاكِهَةٌ","fâkihatun","des fruits"],["الْأَكْمَامِ","al-akmâm","les spathes, enveloppes"],["آلَاءِ","âlâʾi","les bienfaits de"],["تُكَذِّبَانِ","tukadhdhibân","vous (deux) nierez"]],s:[
+["الرَّحْمٰنُ","Le Tout Miséricordieux",1],
+["عَلَّمَ الْقُرْآنَ","a enseigné le Coran,",2],
+["خَلَقَ الْإِنْسَانَ","a créé l’homme,",3],
+["عَلَّمَهُ الْبَيَانَ","lui a enseigné l’expression claire.",4],
+["الشَّمْسُ وَالْقَمَرُ بِحُسْبَانٍ","Le soleil et la lune suivent un calcul précis.",5],
+["وَالنَّجْمُ وَالشَّجَرُ يَسْجُدَانِ","Les plantes et les arbres se prosternent.",6],
+["وَالسَّمَاءَ رَفَعَهَا وَوَضَعَ الْمِيزَانَ","Le ciel, Il l’a élevé, et Il a établi la balance,",7],
+["أَلَّا تَطْغَوْا فِي الْمِيزَانِ","afin que vous ne transgressiez pas dans la pesée.",8],
+["وَأَقِيمُوا الْوَزْنَ بِالْقِسْطِ وَلَا تُخْسِرُوا الْمِيزَانَ","Donnez le poids exact avec équité, et ne faussez pas la balance.",9],
+["وَالْأَرْضَ وَضَعَهَا لِلْأَنَامِ","La terre, Il l’a disposée pour les créatures :",10],
+["فِيهَا فَاكِهَةٌ وَالنَّخْلُ ذَاتُ الْأَكْمَامِ","il s’y trouve des fruits, et les palmiers aux fruits enveloppés,",11],
+["وَالْحَبُّ ذُو الْعَصْفِ وَالرَّيْحَانُ","les grains aux tiges, et les plantes odorantes.",12],
+["فَبِأَيِّ آلَاءِ رَبِّكُمَا تُكَذِّبَانِ","Lequel donc des bienfaits de votre Seigneur nierez-vous (tous deux) ?",13]]},
+{id:"baqara",type:"coran",title:"Fin d’Al-Baqara · Āmana r-rasûl",src:"Sourate 2 · versets 285 et 286",intro:"Les deux derniers versets de la sourate de la Vache, que l’on récite le soir : une profession de foi puis une invocation.",voc:[
+["الرَّسُولُ","ar-rasûl","le Messager"],["أُنْزِلَ","unzila","a été descendu"],["وَالْمُؤْمِنُونَ","wa-l-muʾminûn","et les croyants"],["وَكُتُبِهِ","wa-kutubihi","et Ses Livres"],["وَرُسُلِهِ","wa-rusulihi","et Ses messagers"],["نُفَرِّقُ","nufarriqu","nous faisons de différence"],["سَمِعْنَا","samiʿnâ","nous avons entendu"],["وَأَطَعْنَا","wa-aṭaʿnâ","et nous avons obéi"],["غُفْرَانَكَ","ghufrânaka","(accorde-nous) Ton pardon"],["الْمَصِيرُ","al-maṣîr","le retour, la destination"],["يُكَلِّفُ","yukallifu","Il impose une charge"],["وُسْعَهَا","wusʿahâ","sa capacité"],["كَسَبَتْ","kasabat","elle a acquis"],["تُؤَاخِذْنَا","tuʾâkhidhnâ","Tu nous tiens rigueur"],["نَسِينَا","nasînâ","nous avons oublié"],["أَخْطَأْنَا","akhṭaʾnâ","nous avons commis une erreur"],["إِصْرًا","iṣran","un fardeau lourd"],["طَاقَةَ","ṭâqata","la force, la capacité"],["وَاعْفُ","wa-ʿfu","et efface"],["مَوْلَانَا","mawlânâ","notre Protecteur"],["فَانْصُرْنَا","fa-nṣurnâ","donne-nous donc la victoire"],["الْقَوْمِ","al-qawm","le peuple, les gens"]],s:[
+["آمَنَ الرَّسُولُ بِمَا أُنْزِلَ إِلَيْهِ مِنْ رَبِّهِ وَالْمُؤْمِنُونَ","Le Messager a cru en ce qui lui a été descendu de la part de son Seigneur, ainsi que les croyants.","285a"],
+["كُلٌّ آمَنَ بِاللَّهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ","Tous ont cru en Allah, en Ses anges, en Ses Livres et en Ses messagers.","285b"],
+["لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِنْ رُسُلِهِ","« Nous ne faisons aucune différence entre Ses messagers. »","285c"],
+["وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ","Et ils ont dit : « Nous avons entendu et obéi. Ton pardon, notre Seigneur ! C’est vers Toi qu’est le retour. »","285d"],
+["لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا","Allah n’impose à aucune âme une charge au-delà de sa capacité.","286a"],
+["لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ","À elle le bien qu’elle a acquis, contre elle le mal qu’elle a commis.","286b"],
+["رَبَّنَا لَا تُؤَاخِذْنَا إِنْ نَسِينَا أَوْ أَخْطَأْنَا","Notre Seigneur, ne nous tiens pas rigueur si nous avons oublié ou commis une erreur.","286c"],
+["رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِنْ قَبْلِنَا","Notre Seigneur, ne nous charge pas d’un fardeau lourd comme Tu en as chargé ceux qui vécurent avant nous.","286d"],
+["رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ","Notre Seigneur, ne nous impose pas ce que nous n’avons pas la force de porter.","286e"],
+["وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا","Efface nos fautes, pardonne-nous et fais-nous miséricorde.","286f"],
+["أَنْتَ مَوْلَانَا فَانْصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ","Tu es notre Protecteur : donne-nous donc la victoire sur le peuple des mécréants.","286g"]]},
+{id:"hadiths1",type:"hadith",title:"Hadiths de Nawawî · sélection",src:"Les 40 hadiths d’An-Nawawî (n° 1, 7, 12, 13, 15, 16, 18)",intro:"Sept paroles du Prophète ﷺ parmi les plus connues, chacune avec sa référence exacte.",voc:[
+["إِنَّمَا","innamâ","seulement, ne… que"],["الْأَعْمَالُ","al-aʿmâl","les actes"],["بِالنِّيَّاتِ","bi-n-niyyât","selon les intentions"],["امْرِئٍ","imriʾin","homme, personne"],["نَوَى","nawâ","il a eu l’intention"],["النَّصِيحَةُ","an-naṣîḥa","le conseil sincère"],["حُسْنِ","ḥusni","la beauté, l’excellence de"],["الْمَرْءِ","al-marʾ","la personne"],["تَرْكُهُ","tarkuhu","le fait qu’il délaisse"],["يَعْنِيهِ","yaʿnîhi","le concerne"],["يُؤْمِنُ","yuʾminu","il croit"],["يُحِبَّ","yuḥibba","il aime"],["لِأَخِيهِ","li-akhîhi","pour son frère"],["لِيَصْمُتْ","li-yaṣmut","qu’il se taise"],["أَوْصِنِي","awṣinî","conseille-moi"],["تَغْضَبْ","taghḍab","(ne) te mets (pas) en colère"],["اتَّقِ","ittaqi","crains, prends garde à"],["حَيْثُمَا","ḥaythumâ","où que"],["السَّيِّئَةَ","as-sayyiʾa","la mauvaise action"],["تَمْحُهَا","tamḥuhâ","elle l’efface"],["وَخَالِقِ","wa-khâliqi","et comporte-toi avec"],["بِخُلُقٍ","bi-khuluq","avec un caractère"]],s:[
+["إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى","Les actes ne valent que par les intentions, et chacun n’obtient que ce qu’il a eu l’intention de faire.","Nawawî 1 · Al-Bukhârî n° 1, Muslim n° 1907"],
+["الدِّينُ النَّصِيحَةُ قُلْنَا لِمَنْ قَالَ لِلَّهِ وَلِكِتَابِهِ وَلِرَسُولِهِ وَلِأَئِمَّةِ الْمُسْلِمِينَ وَعَامَّتِهِمْ","« La religion, c’est le conseil sincère. » Nous avons dit : « Envers qui ? » Il dit : « Envers Allah, Son Livre, Son Messager, les dirigeants des musulmans et l’ensemble d’entre eux. »","Nawawî 7 · Muslim n° 55"],
+["مِنْ حُسْنِ إِسْلَامِ الْمَرْءِ تَرْكُهُ مَا لَا يَعْنِيهِ","Fait partie de la beauté de l’islam d’une personne qu’elle délaisse ce qui ne la concerne pas.","Nawawî 12 · At-Tirmidhî n° 2317"],
+["لَا يُؤْمِنُ أَحَدُكُمْ حَتَّى يُحِبَّ لِأَخِيهِ مَا يُحِبُّ لِنَفْسِهِ","Aucun de vous n’a vraiment la foi tant qu’il n’aime pas pour son frère ce qu’il aime pour lui-même.","Nawawî 13 · Al-Bukhârî n° 13, Muslim n° 45"],
+["مَنْ كَانَ يُؤْمِنُ بِاللَّهِ وَالْيَوْمِ الْآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ","Que celui qui croit en Allah et au Jour dernier dise du bien ou se taise.","Nawawî 15 · Al-Bukhârî n° 6018, Muslim n° 47"],
+["قَالَ رَجُلٌ لِلنَّبِيِّ أَوْصِنِي قَالَ لَا تَغْضَبْ","Un homme dit au Prophète ﷺ : « Conseille-moi. » Il répondit : « Ne te mets pas en colère. »","Nawawî 16 · Al-Bukhârî n° 6116"],
+["اتَّقِ اللَّهَ حَيْثُمَا كُنْتَ وَأَتْبِعِ السَّيِّئَةَ الْحَسَنَةَ تَمْحُهَا وَخَالِقِ النَّاسَ بِخُلُقٍ حَسَنٍ","Crains Allah où que tu sois, fais suivre la mauvaise action d’une bonne qui l’effacera, et comporte-toi avec les gens avec un bon caractère.","Nawawî 18 · At-Tirmidhî n° 1987"]]},
+{id:"poesie",type:"texte",title:"Vers célèbres · Al-Mutanabbî et Ash-Shâfiʿî",src:"Al-Mutanabbî (Xe s.) · Imam Ash-Shâfiʿî (IXe s.), Dîwân",intro:"Quatre vers parmi les plus cités de la poésie arabe classique : la fierté d’Al-Mutanabbî, la sagesse d’Ash-Shâfiʿî. Chaque vers est coupé en deux hémistiches.",voc:[
+["الْخَيْلُ","al-khayl","les chevaux"],["الْبَيْدَاءُ","al-baydâʾ","le désert"],["تَعْرِفُنِي","taʿrifunî","me connaît"],["السَّيْفُ","as-sayf","le sabre"],["الرُّمْحُ","ar-rumḥ","la lance"],["الْقِرْطَاسُ","al-qirṭâs","le parchemin, le papier"],["الْأَعْمَى","al-aʿmâ","l’aveugle"],["أَدَبِي","adabî","mon art, ma littérature"],["وَأَسْمَعَتْ","wa-asmaʿat","et elles ont fait entendre"],["صَمَمُ","ṣamam","surdité"],["دَعِ","daʿi","laisse"],["وَطِبْ","wa-ṭib","et sois serein"],["الْقَضَاءُ","al-qaḍâʾ","le décret divin"],["تَجْزَعْ","tajzaʿ","(ne) t’affole (pas)"],["لِحَادِثَةِ","li-ḥâdithati","pour un malheur de"],["بَقَاءُ","baqâʾ","durée, permanence"]],s:[
+["الْخَيْلُ وَاللَّيْلُ وَالْبَيْدَاءُ تَعْرِفُنِي","Les chevaux, la nuit et le désert me connaissent,","Al-Mutanabbî · vers 1"],
+["وَالسَّيْفُ وَالرُّمْحُ وَالْقِرْطَاسُ وَالْقَلَمُ","ainsi que le sabre, la lance, le papier et le calame.","Al-Mutanabbî · vers 1"],
+["أَنَا الَّذِي نَظَرَ الْأَعْمَى إِلَى أَدَبِي","Je suis celui dont l’aveugle a vu l’art,","Al-Mutanabbî · vers 2"],
+["وَأَسْمَعَتْ كَلِمَاتِي مَنْ بِهِ صَمَمُ","et dont les mots se sont fait entendre de celui qui est sourd.","Al-Mutanabbî · vers 2"],
+["دَعِ الْأَيَّامَ تَفْعَلُ مَا تَشَاءُ","Laisse les jours faire ce qu’ils veulent,","Ash-Shâfiʿî · vers 1"],
+["وَطِبْ نَفْسًا إِذَا حَكَمَ الْقَضَاءُ","et garde l’âme sereine quand le décret s’accomplit.","Ash-Shâfiʿî · vers 1"],
+["وَلَا تَجْزَعْ لِحَادِثَةِ اللَّيَالِي","Ne t’affole pas devant un malheur des nuits,","Ash-Shâfiʿî · vers 2"],
+["فَمَا لِحَوَادِثِ الدُّنْيَا بَقَاءُ","car les malheurs de ce monde ne durent pas.","Ash-Shâfiʿî · vers 2"]]},
+{id:"souk",type:"texte",title:"Au marché",src:"Texte original · niveau facile",intro:"Une matinée au marché avec sa mère : acheter, demander un prix, négocier.",voc:[
+["الْجُمُعَةِ","al-jumuʿa","le vendredi"],["السُّوقِ","as-sûq","le marché"],["أُمِّي","ummî","ma mère"],["مُزْدَحِمًا","muzdaḥiman","bondé"],["اشْتَرَيْنَا","ishtaraynâ","nous avons acheté"],["خُضَارًا","khuḍâran","des légumes"],["وَفَوَاكِهَ","wa-fawâkiha","et des fruits"],["طَازَجَةً","ṭâzajatan","frais"],["الْبَائِعَ","al-bâʾiʿ","le vendeur"],["بِكَمْ","bi-kam","combien (prix)"],["الطَّمَاطِمِ","aṭ-ṭamâṭim","les tomates"],["غَالٍ","ghâlin","cher"],["فَخَفَّضَ","fa-khaffaḍa","alors il a baissé"],["السِّعْرَ","as-siʿr","le prix"],["مَسْرُورِينَ","masrûrîn","contents"],["وَطَبَخَتْ","wa-ṭabakhat","et elle a cuisiné"],["غَدَاءً","ghadâʾan","un déjeuner"],["لَذِيذًا","ladhîdhan","délicieux"]],s:[
+["ذَهَبْتُ يَوْمَ الْجُمُعَةِ إِلَى السُّوقِ مَعَ أُمِّي.","Je suis allé au marché vendredi avec ma mère."],
+["كَانَ السُّوقُ مُزْدَحِمًا بِالنَّاسِ.","Le marché était bondé de monde."],
+["اشْتَرَيْنَا خُضَارًا وَفَوَاكِهَ طَازَجَةً.","Nous avons acheté des légumes et des fruits frais."],
+["سَأَلَتْ أُمِّي الْبَائِعَ: بِكَمْ كِيلُو الطَّمَاطِمِ؟","Ma mère a demandé au vendeur : « Combien le kilo de tomates ? »"],
+["قَالَ الْبَائِعُ: بِثَلَاثَةِ دَنَانِيرَ يَا سَيِّدَتِي.","Le vendeur a dit : « Trois dinars, madame. »"],
+["فَقَالَتْ: هٰذَا غَالٍ! فَخَفَّضَ السِّعْرَ قَلِيلًا.","Elle a dit : « C’est cher ! » Alors il a un peu baissé le prix."],
+["رَجَعْنَا إِلَى الْبَيْتِ مَسْرُورِينَ، وَطَبَخَتْ أُمِّي غَدَاءً لَذِيذًا.","Nous sommes rentrés à la maison contents, et ma mère a préparé un délicieux déjeuner."]]}
+);
+/* ---------- TEXTES — 3e livraison : textes originaux (exercices de lecture et de traduction) ---------- */
+TEXTS.push(
+{id:"famille",type:"texte",title:"Ma famille",src:"Texte original · niveau facile",intro:"Sara présente sa famille : métiers, frères et sœurs, grands-parents.",voc:[
+["أَسْكُنُ","askunu","j’habite"],["عَائِلَتِي","ʿâʾilatî","ma famille"],["مَدِينَةٍ","madîna","une ville"],["صَغِيرَةٍ","ṣaghîra","petite"],["مُهَنْدِسٌ","muhandis","ingénieur"],["طَبِيبَةٌ","ṭabîba","médecin (femme)"],["الْمُسْتَشْفَى","al-mustashfâ","l’hôpital"],["أَخٌ","akh","un frère"],["أُخْتٌ","ukht","une sœur"],["جَدِّي","jaddî","mon grand-père"],["وَجَدَّتِي","wa-jaddatî","et ma grand-mère"],["نَزُورُهُمَا","nazûruhumâ","nous leur rendons visite (à eux deux)"],["قِصَصًا","qiṣaṣan","des histoires"],["الْمَاضِي","al-mâḍî","le passé"],["وَأَشْكُرُ","wa-ashkuru","et je remercie"]],s:[
+["اِسْمِي سَارَةُ، وَأَسْكُنُ مَعَ عَائِلَتِي فِي مَدِينَةٍ صَغِيرَةٍ.","Je m’appelle Sara, et j’habite avec ma famille dans une petite ville."],
+["أَبِي مُهَنْدِسٌ، وَأُمِّي طَبِيبَةٌ فِي الْمُسْتَشْفَى.","Mon père est ingénieur, et ma mère est médecin à l’hôpital."],
+["لِي أَخٌ كَبِيرٌ اسْمُهُ عُمَرُ، وَأُخْتٌ صَغِيرَةٌ اسْمُهَا مَرْيَمُ.","J’ai un grand frère qui s’appelle ʿUmar, et une petite sœur qui s’appelle Maryam."],
+["جَدِّي وَجَدَّتِي يَسْكُنَانِ قَرِيبًا مِنَّا.","Mon grand-père et ma grand-mère habitent près de chez nous."],
+["نَزُورُهُمَا كُلَّ يَوْمِ سَبْتٍ، وَنَأْكُلُ عِنْدَهُمَا طَعَامًا لَذِيذًا.","Nous leur rendons visite chaque samedi, et nous mangeons chez eux un repas délicieux."],
+["جَدَّتِي تَحْكِي لَنَا قِصَصًا جَمِيلَةً عَنِ الْمَاضِي.","Ma grand-mère nous raconte de belles histoires sur le passé."],
+["أُحِبُّ عَائِلَتِي كَثِيرًا، وَأَشْكُرُ اللَّهَ عَلَيْهَا.","J’aime beaucoup ma famille, et je remercie Allah pour elle."]]},
+{id:"aeroport",type:"texte",title:"À l’aéroport",src:"Texte original · niveau facile",intro:"Ahmad prend l’avion : enregistrement, passeport, valise… et un retard.",voc:[
+["الْمَطَارِ","al-maṭâr","l’aéroport"],["مَوْعِدِ","mawʿidi","l’heure (le rendez-vous) de"],["سَاعَاتٍ","sâʿât","heures"],["الْمُوَظَّفُ","al-muwaẓẓaf","l’employé"],["جَوَازَ سَفَرِكَ","jawâza safarika","ton passeport"],["مِنْ فَضْلِكَ","min faḍlika","s’il te plaît"],["وَالتَّذْكِرَةَ","wa-t-tadhkira","et le billet"],["حَقِيبَةً","ḥaqîbatan","une valise"],["فَقَطْ","faqaṭ","seulement"],["انْتَظَرَ","intaẓara","il a attendu"],["قَاعَةِ","qâʿati","la salle de"],["جَرِيدَةً","jarîdatan","un journal"],["فَجْأَةً","fajʾatan","soudain"],["تَأَخَّرَتِ","taʾakhkharati","elle a été retardée"],["كُوبَ","kûba","un verre de"],["وَصَبَرَ","wa-ṣabara","et il a patienté"]],s:[
+["وَصَلَ أَحْمَدُ إِلَى الْمَطَارِ قَبْلَ مَوْعِدِ الرِّحْلَةِ بِثَلَاثِ سَاعَاتٍ.","Ahmad est arrivé à l’aéroport trois heures avant l’heure du vol."],
+["قَالَ لَهُ الْمُوَظَّفُ: جَوَازَ سَفَرِكَ مِنْ فَضْلِكَ.","L’employé lui a dit : « Ton passeport, s’il te plaît. »"],
+["أَعْطَاهُ أَحْمَدُ الْجَوَازَ وَالتَّذْكِرَةَ.","Ahmad lui a donné le passeport et le billet."],
+["سَأَلَهُ الْمُوَظَّفُ: كَمْ حَقِيبَةً مَعَكَ؟ قَالَ: حَقِيبَةٌ وَاحِدَةٌ فَقَطْ.","L’employé lui a demandé : « Combien de valises as-tu ? » Il a dit : « Une seule. »"],
+["ثُمَّ انْتَظَرَ فِي قَاعَةِ الِانْتِظَارِ وَقَرَأَ جَرِيدَةً.","Puis il a attendu dans la salle d’attente et a lu un journal."],
+["فَجْأَةً سَمِعَ صَوْتًا يَقُولُ: تَأَخَّرَتِ الطَّائِرَةُ سَاعَةً.","Soudain, il a entendu une voix dire : « L’avion a une heure de retard. »"],
+["لَمْ يَغْضَبْ أَحْمَدُ، بَلِ اشْتَرَى كُوبَ شَايٍ وَصَبَرَ.","Ahmad ne s’est pas fâché : il a plutôt acheté un verre de thé et a patienté."]]},
+{id:"medecin",type:"texte",title:"Chez le médecin",src:"Texte original · niveau moyen",intro:"Khâlid a mal à la tête : consultation, diagnostic, conseils.",voc:[
+["يَشْعُرُ","yashʿuru","il ressent"],["بِأَلَمٍ","bi-alam","une douleur"],["شَدِيدٍ","shadîd","fort, intense"],["رَأْسِهِ","raʾsihi","sa tête"],["الطَّبِيبِ","aṭ-ṭabîb","le médecin"],["تَشْكُو","tashkû","tu te plains"],["صُدَاعٌ","ṣudâʿ","mal de tête"],["وَحَرَارَةٌ","wa-ḥarâra","et de la fièvre"],["أَمْسِ","amsi","hier"],["فَحَصَهُ","faḥaṣahu","il l’a examiné"],["تَخَفْ","takhaf","(n’)aie (pas) peur"],["زُكَامٌ","zukâm","un rhume"],["الدَّوَاءَ","ad-dawâʾ","le médicament"],["مَرَّتَيْنِ","marratayn","deux fois"],["لِيَرْتَاحَ","li-yartâḥa","pour se reposer"],["شُفِيَ","shufiya","il a guéri"]],s:[
+["اسْتَيْقَظَ خَالِدٌ صَبَاحًا وَهُوَ يَشْعُرُ بِأَلَمٍ شَدِيدٍ فِي رَأْسِهِ.","Khâlid s’est réveillé le matin avec une forte douleur à la tête."],
+["ذَهَبَ إِلَى الطَّبِيبِ، فَسَأَلَهُ: مِمَّ تَشْكُو؟","Il est allé chez le médecin, qui lui a demandé : « De quoi souffres-tu ? »"],
+["قَالَ خَالِدٌ: عِنْدِي صُدَاعٌ وَحَرَارَةٌ مُنْذُ أَمْسِ.","Khâlid a dit : « J’ai mal à la tête et de la fièvre depuis hier. »"],
+["فَحَصَهُ الطَّبِيبُ ثُمَّ قَالَ: لَا تَخَفْ، هٰذَا زُكَامٌ بَسِيطٌ.","Le médecin l’a examiné puis a dit : « N’aie pas peur, c’est un simple rhume. »"],
+["اشْرَبْ مَاءً كَثِيرًا، وَنَمْ جَيِّدًا، وَخُذْ هٰذَا الدَّوَاءَ مَرَّتَيْنِ فِي الْيَوْمِ.","« Bois beaucoup d’eau, dors bien, et prends ce médicament deux fois par jour. »"],
+["شَكَرَ خَالِدٌ الطَّبِيبَ وَرَجَعَ إِلَى بَيْتِهِ لِيَرْتَاحَ.","Khâlid a remercié le médecin et est rentré chez lui pour se reposer."],
+["وَبَعْدَ ثَلَاثَةِ أَيَّامٍ شُفِيَ، وَالْحَمْدُ لِلَّهِ.","Et trois jours plus tard, il était guéri, louange à Allah."]]},
+{id:"honnete",type:"texte",title:"Le boulanger honnête",src:"Texte original · niveau moyen",intro:"Un portefeuille oublié, et une leçon sur l’honnêteté (al-amâna).",voc:[
+["يَبِيعُ","yabîʿu","il vend"],["الْخُبْزَ","al-khubz","le pain"],["دُكَّانٍ","dukkân","une boutique"],["قُرْبَ","qurba","près de"],["مِحْفَظَتَهُ","miḥfaẓatahu","son portefeuille"],["الطَّاوِلَةِ","aṭ-ṭâwila","la table"],["مَالًا","mâlan","de l’argent"],["شَيْئًا","shayʾan","quelque chose"],["بَلِ","bal","mais plutôt, au contraire"],["صَاحِبَهَا","ṣâḥibahâ","son propriétaire"],["خَائِفًا","khâʾifan","inquiet, ayant peur"],["كَامِلَةً","kâmilatan","complet, intact"],["بَارَكَ","bâraka","Il a béni"],["الْأَمَانَةُ","al-amâna","l’honnêteté, la loyauté"],["كَنْزٌ","kanz","un trésor"],["يَفْنَى","yafnâ","il s’épuise, disparaît"],["أَصْبَحَ","aṣbaḥa","il est devenu"]],s:[
+["كَانَ سَعِيدٌ يَبِيعُ الْخُبْزَ فِي دُكَّانٍ صَغِيرٍ قُرْبَ الْمَسْجِدِ.","Saʿîd vendait du pain dans une petite boutique près de la mosquée."],
+["وَفِي يَوْمٍ مِنَ الْأَيَّامِ نَسِيَ رَجُلٌ مِحْفَظَتَهُ عَلَى الطَّاوِلَةِ.","Un jour, un homme a oublié son portefeuille sur la table."],
+["فَتَحَهَا سَعِيدٌ فَوَجَدَ فِيهَا مَالًا كَثِيرًا.","Saʿîd l’a ouvert et y a trouvé beaucoup d’argent."],
+["لَمْ يَأْخُذْ مِنْهَا شَيْئًا، بَلِ انْتَظَرَ صَاحِبَهَا حَتَّى الْمَسَاءِ.","Il n’en a rien pris : au contraire, il a attendu son propriétaire jusqu’au soir."],
+["رَجَعَ الرَّجُلُ خَائِفًا، فَأَعْطَاهُ سَعِيدٌ الْمِحْفَظَةَ كَامِلَةً.","L’homme est revenu, inquiet, et Saʿîd lui a rendu le portefeuille intact."],
+["فَرِحَ الرَّجُلُ وَقَالَ: بَارَكَ اللَّهُ فِيكَ، الْأَمَانَةُ كَنْزٌ لَا يَفْنَى.","L’homme s’est réjoui et a dit : « Qu’Allah te bénisse ! L’honnêteté est un trésor qui ne s’épuise pas. »"],
+["وَمُنْذُ ذٰلِكَ الْيَوْمِ أَصْبَحَ يَشْتَرِي خُبْزَهُ مِنْ دُكَّانِ سَعِيدٍ كُلَّ صَبَاحٍ.","Depuis ce jour, il achète son pain chaque matin à la boutique de Saʿîd."]]},
+{id:"lettre",type:"texte",title:"Lettre du Maroc",src:"Texte original · niveau moyen",intro:"Ibrâhîm écrit à son ami Yûsuf depuis Fès : le style d’une lettre en arabe.",voc:[
+["عَزِيزِي","ʿazîzî","mon cher"],["أَكْتُبُ","aktubu","j’écris"],["الرِّسَالَةَ","ar-risâla","la lettre"],["الْمَغْرِبِ","al-maghrib","le Maroc"],["حَيْثُ","ḥaythu","là où"],["أَقْضِي","aqḍî","je passe (du temps)"],["عُطْلَتِي","ʿuṭlatî","mes vacances"],["الْجَوُّ","al-jaww","le temps (météo)"],["مُعْتَدِلٌ","muʿtadil","doux, modéré"],["كُرَمَاءُ","kuramâʾ","généreux (pl.)"],["زُرْتُ","zurtu","j’ai visité"],["أَزِقَّتِهَا","aziqqatihâ","ses ruelles"],["الضَّيِّقَةِ","aḍ-ḍayyiqa","étroites"],["أَقْدَمِ","aqdami","les plus anciennes de"],["أَتَمَنَّى","atamannâ","j’espère, je souhaite"],["الْقَادِمَةِ","al-qâdima","prochaine"],["وَسَلِّمْ","wa-sallim","et salue"],["أَهْلِكَ","ahlika","ta famille"]],s:[
+["عَزِيزِي يُوسُفُ، السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ.","Cher Yûsuf, que la paix et la miséricorde d’Allah soient sur toi."],
+["أَكْتُبُ إِلَيْكَ هٰذِهِ الرِّسَالَةَ مِنَ الْمَغْرِبِ، حَيْثُ أَقْضِي عُطْلَتِي.","Je t’écris cette lettre du Maroc, où je passe mes vacances."],
+["الْجَوُّ هُنَا مُعْتَدِلٌ، وَالنَّاسُ كُرَمَاءُ جِدًّا.","Ici, le temps est doux, et les gens sont très généreux."],
+["زُرْتُ مَدِينَةَ فَاسَ الْقَدِيمَةَ، وَمَشَيْتُ فِي أَزِقَّتِهَا الضَّيِّقَةِ.","J’ai visité la vieille ville de Fès, et j’ai marché dans ses ruelles étroites."],
+["وَصَلَّيْتُ فِي جَامِعِ الْقَرَوِيِّينَ، وَهُوَ مِنْ أَقْدَمِ الْجَامِعَاتِ فِي الْعَالَمِ.","J’ai prié à la mosquée al-Qarawiyyîn, qui est l’une des plus anciennes universités du monde."],
+["أَتَمَنَّى أَنْ تَزُورَ هٰذَا الْبَلَدَ مَعِي فِي الْمَرَّةِ الْقَادِمَةِ.","J’espère que tu visiteras ce pays avec moi la prochaine fois."],
+["أَرْسِلْ لِي أَخْبَارَكَ، وَسَلِّمْ عَلَى أَهْلِكَ. أَخُوكَ إِبْرَاهِيمُ.","Envoie-moi de tes nouvelles, et salue ta famille. Ton frère, Ibrâhîm."]]},
+{id:"sage",type:"texte",title:"Le roi et le sage",src:"Texte original · niveau soutenu",intro:"Un conte à la manière des récits classiques : la justice, le conseil sincère et la flatterie.",voc:[
+["قَدِيمِ","qadîmi","l’ancien (temps)"],["الزَّمَانِ","az-zamân","le temps, l’époque"],["الْمَدْحَ","al-madḥ","l’éloge"],["وَيَكْرَهُ","wa-yakrahu","et il déteste"],["حَكِيمٌ","ḥakîm","un sage"],["الْعَدْلَ","al-ʿadl","la justice"],["أَسَاسُ","asâsu","le fondement de"],["الْمُلْكِ","al-mulk","le pouvoir, la royauté"],["بِسَجْنِهِ","bi-sajnihi","qu’on l’emprisonne"],["ثَارَ","thâra","il s’est révolté"],["ظَلَمَهُمْ","ẓalamahum","il les a opprimés"],["فَتَذَكَّرَ","fa-tadhakkara","alors il s’est souvenu"],["وَاعْتَذَرَ","wa-ʿtadhara","et il s’est excusé"],["صَدَقَكَ","ṣadaqaka","il t’a dit vrai"],["صَدَّقَكَ","ṣaddaqaka","il t’a approuvé (cru)"],["وَزِيرًا","wazîran","ministre"],["بَقِيَّةَ","baqiyyata","le reste de"],["حَيَاتِهِ","ḥayâtihi","sa vie"]],s:[
+["كَانَ فِي قَدِيمِ الزَّمَانِ مَلِكٌ يُحِبُّ الْمَدْحَ وَيَكْرَهُ النَّصِيحَةَ.","Il était une fois un roi qui aimait les éloges et détestait les conseils."],
+["فَدَخَلَ عَلَيْهِ يَوْمًا حَكِيمٌ وَقَالَ: أَيُّهَا الْمَلِكُ، إِنَّ الْعَدْلَ أَسَاسُ الْمُلْكِ.","Un jour, un sage entra chez lui et dit : « Ô roi, la justice est le fondement du pouvoir. »"],
+["فَغَضِبَ الْمَلِكُ وَأَمَرَ بِسَجْنِهِ.","Le roi se mit en colère et ordonna qu’on l’emprisonne."],
+["وَبَعْدَ أَشْهُرٍ ثَارَ النَّاسُ عَلَى الْمَلِكِ لِأَنَّهُ ظَلَمَهُمْ.","Quelques mois plus tard, le peuple se révolta contre le roi, parce qu’il l’avait opprimé."],
+["فَتَذَكَّرَ كَلَامَ الْحَكِيمِ، وَأَخْرَجَهُ مِنَ السِّجْنِ وَاعْتَذَرَ إِلَيْهِ.","Il se souvint alors des paroles du sage, le fit sortir de prison et s’excusa auprès de lui."],
+["قَالَ الْحَكِيمُ: الصَّدِيقُ مَنْ صَدَقَكَ، لَا مَنْ صَدَّقَكَ.","Le sage dit : « L’ami est celui qui te dit la vérité, et non celui qui te donne toujours raison. »"],
+["فَجَعَلَهُ الْمَلِكُ وَزِيرًا لَهُ، وَحَكَمَ بِالْعَدْلِ بَقِيَّةَ حَيَاتِهِ.","Le roi en fit son ministre, et gouverna avec justice le reste de sa vie."]]}
+);
 /* ---------- ARABE · LES ESSENTIELS (chiffres, alphabet, heure…) ----------
  même format que GRAM ; les lignes qui commencent par | forment un tableau dans la fiche */
 const BASES=[
@@ -1962,8 +2147,8 @@ const BASES=[
 {id:"formules",name:"Les formules du quotidien",c:"Quelle formule dis-tu ?",f:"|Situation|Formule|Sens\n|avant de commencer|بِسْمِ اللَّهِ|au nom d’Allah\n|pour remercier Allah|الْحَمْدُ لِلَّهِ|louange à Allah\n|devant une merveille|سُبْحَانَ اللَّهِ|gloire à Allah\n|pour admirer sans envier|مَا شَاءَ اللَّهُ|ce qu’Allah a voulu\n|pour un projet futur|إِنْ شَاءَ اللَّهُ|si Allah le veut\n|pour remercier quelqu’un|جَزَاكَ اللَّهُ خَيْرًا|qu’Allah te récompense en bien\n|pour bénir quelqu’un|بَارَكَ اللَّهُ فِيكَ|qu’Allah te bénisse\n|à qui éternue|يَرْحَمُكَ اللَّهُ|qu’Allah te fasse miséricorde\n|après une faute|أَسْتَغْفِرُ اللَّهَ|je demande pardon à Allah\n|à l’annonce d’un décès|إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ|nous sommes à Allah et vers Lui nous retournons",x:[
 ["Tu commences à manger.","بِسْمِ اللَّهِ",""],["Quelqu’un te rend service.","جَزَاكَ اللَّهُ خَيْرًا",""],["Tu admires la nouvelle maison d’un ami.","مَا شَاءَ اللَّهُ","Pour admirer sans envie."],["Quelqu’un éternue et dit الْحَمْدُ لِلَّهِ.","يَرْحَمُكَ اللَّهُ",""],["Tu apprends un décès.","إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ","Coran 2:156."],["Tu parles d’un projet pour demain.","إِنْ شَاءَ اللَّهُ",""]]}
 ];
-/* ---------- MOT À MOT : analyse de chaque mot des textes (rédigée à la main) ----------
-   mot|découpage (part=sens + …)|sens dans le texte|racine|schème|pourquoi cette forme|notions liées */
+/* ---------- MOT À MOT : analyse de chaque mot des textes ----------
+   mot|découpage|sens|racine|schème|pourquoi|notions */
 const WA_SRC=`
 بِسْمِ|بِـ=préposition « par, au moyen de » + اسْمِ=nom|au nom de|س م و|اِسْم|Nom très ancien à alif de liaison, de la racine س م و (élever, désigner). Génitif (kasra) car précédé de la préposition بِـ. Dans la basmala, l'alif de اسم ne s'écrit plus.|prepositions,cas
 اللَّهِ|اللَّه=Allah (nom propre)|Allah|أ ل ه|—|Nom propre de Dieu. Génitif (kasra) : complément d'annexion de اسْم (« le nom d'Allah »).|idafa,cas
@@ -2159,6 +2344,215 @@ const WA_SRC=`
 وَهُوَ|وَ=et + هُوَ=Il|et Il|—|—|Pronom isolé.|pronoms
 الْعَلِيُّ|الْ=le + عَلِيّ=Très-Haut|le Très-Haut|ع ل و|فَعِيل (عَلِيو → عَلِيّ)|Schème فَعِيل ; le و final devient ي et fusionne avec celui du schème.|racines
 الْعَظِيمُ|الْ=l' + عَظِيم=immense|l'Immense|ع ظ م|فَعِيل|Qualité stable : schème فَعِيل.|adjectif
+أَعْطَيْنَاكَ|أَعْطَيْ=donner (forme IV) + نَا=Nous + كَ=te|Nous t'avons donné|ع ط و|أَفْعَلَ (forme IV)|Forme IV أَعْطَى « donner ». Devant ـنَا, le ى final redevient ي (أَعْطَيْنَا). كَ = complément « te ».|passe,racines,suffixes
+الْكَوْثَرَ|الْ=l' + كَوْثَر=abondance|l'Abondance (Al-Kawthar)|ك ث ر|فَوْعَل|Schème d'intensité tiré de كَثِير « beaucoup » : un bien immense ; c'est aussi le nom d'un fleuve du Paradis. Accusatif : 2e complément de أعطى.|racines,cas
+فَصَلِّ|فَـ=donc + صَلِّ=prie (forme II)|prie donc|ص ل و|فَعِّ (impératif forme II, racine défective)|Impératif de صَلَّى : la dernière lettre (ي) tombe à l'impératif, d'où صَلِّ. فَـ introduit la conséquence du bienfait.|racines
+لِرَبِّكَ|لِـ=pour + رَبّ=Seigneur + كَ=ton|pour ton Seigneur|ر ب ب|فَعْل|لِـ marque le destinataire : prier pour Lui seul.|prepositions,suffixes
+وَانْحَرْ|وَ=et + انْحَرْ=sacrifie|et sacrifie|ن ح ر|اِفْعَلْ (impératif)|Impératif de نَحَرَ « égorger (un chameau) », de نَحْر « le haut de la poitrine ».|racines
+شَانِئَكَ|شَانِئ=celui qui hait + كَ=te|celui qui te hait|ش ن أ|فَاعِل|Participe actif de شَنِئَ « haïr ». Accusatif : nom de إِنَّ.|inna,racines
+الْأَبْتَرُ|الْ=le + أَبْتَر=coupé, sans postérité|celui qui est sans postérité|ب ت ر|أَفْعَل|Schème أَفْعَل des défauts et qualités physiques (comme أَعْمَى « aveugle ») : بَتَرَ couper → أَبْتَر « coupé ». Nominatif : prédicat.|racines
+أَيُّهَا|أَيُّ=ô (support) + هَا=(particule d'éveil)|ô vous|—|—|يَا أَيُّهَا s'emploie pour appeler un nom avec article : يَا أَيُّهَا النَّاسُ « ô gens ».|
+الْكَافِرُونَ|الْ=les + كَافِر=mécréant + ـُونَ=pluriel|les mécréants|ك ف ر|فَاعِل + ـُون|Participe actif de كَفَرَ « couvrir, renier ». Pluriel masculin sain au nominatif (ـُونَ), car après يا أيها.|plurielsains,racines
+أَعْبُدُ|أَ=je + عْبُدُ=adorer|j'adore|ع ب د|أَفْعُلُ|Présent 1re pers. sing. (préfixe أَ). Précédé de لا : négation du présent / futur.|present,negation
+تَعْبُدُونَ|تَـ=vous + عْبُدُ=adorer + ـُونَ=pluriel|vous adorez|ع ب د|تَفْعُلُونَ|Présent 2e pers. masc. pluriel : préfixe تَـ + suffixe ـُونَ.|present
+أَنْتُمْ|أَنْتُمْ=vous|vous|—|—|Pronom isolé 2e pers. masc. pluriel.|pronoms
+عَابِدُونَ|عَابِد=adorateur + ـُونَ=pluriel|adorateurs|ع ب د|فَاعِل + ـُون|Participe actif « adorateur » au pluriel masculin sain (nominatif) : un état durable, plus fort que le verbe.|plurielsains
+أَنَا|أَنَا=je, moi|je, moi|—|—|Pronom isolé 1re pers. sing.|pronoms
+عَابِدٌ|عَابِد=adorateur|adorateur|ع ب د|فَاعِل|Participe actif singulier, nominatif indéfini : prédicat.|racines
+عَبَدْتُمْ|عَبَدْ=adorer + تُمْ=vous|vous avez adoré|ع ب د|فَعَلَ|Passé 2e pers. masc. pluriel : ـتُمْ.|passe
+لَكُمْ|لَـ=à + كُمْ=vous|à vous|—|—|لِـ devient لَـ devant pronom. Placé en tête : « à vous (seulement) ».|prepositions,suffixes
+دِينُكُمْ|دِين=religion + كُمْ=votre|votre religion|د ي ن|فِعْل|Nominatif : sujet retardé (« votre religion est à vous »).|suffixes
+وَلِيَ|وَ=et + لِـ=à + يَ=moi|et à moi|—|—|لِـ + ي (moi) = لِي ; ici prononcé لِيَ.|prepositions,suffixes
+لِإِيلَافِ|لِـ=pour, à cause de + إِيلَاف=accoutumance, pacte|pour le pacte de|أ ل ف|إِفْعَال (maṣdar forme IV)|Maṣdar de آلَفَ « rendre familier, conclure un pacte » : la sécurité garantie à Quraysh pour leurs caravanes.|racines,idafa
+قُرَيْشٍ|قُرَيْش=Quraysh|Quraysh|ق ر ش|فُعَيْل (diminutif)|Le schème فُعَيْل est un diminutif. Nom de la tribu du Prophète ﷺ. Génitif.|idafa
+إِيلَافِهِمْ|إِيلَاف=pacte + هِمْ=leur|leur pacte|أ ل ف|إِفْعَال|Reprise insistante du mot du verset 1 (badal).|suffixes
+رِحْلَةَ|رِحْلَة=voyage|le voyage de|ر ح ل|فِعْلَة|Accusatif : complément d'objet du maṣdar إيلاف ; 1er terme d'annexion.|idafa
+الشِّتَاءِ|الـ=l' (ش solaire) + شِتَاء=hiver|l'hiver|ش ت و|فِعَال|Voyage d'hiver vers le Yémen. Génitif.|idafa,solaires
+الصَّيْفِ|الـ=l' (ص solaire) + صَيْف=été|l'été|ص ي ف|فَعْل|Voyage d'été vers le Châm. Génitif.|solaires
+وَالصَّيْفِ|وَ=et + الـ=l' + صَيْف=été|et l'été|ص ي ف|فَعْل|Coordonné au génitif.|solaires
+فَلْيَعْبُدُوا|فَـ=donc + لْـ=qu'ils (ordre) + يَعْبُدُوا=adorent|qu'ils adorent donc|ع ب د|يَفْعُلُوا (apocopé)|Le لام de l'ordre (لِـ, ici لْـ après فَـ) + présent apocopé = « qu'ils… ». Le ن de ـُونَ tombe à l'apocopé.|present,racines
+رَبَّ|رَبّ=Seigneur|le Seigneur de|ر ب ب|فَعْل|Accusatif : objet de « qu'ils adorent » ; 1er terme d'annexion.|idafa,cas
+أَطْعَمَهُمْ|أَطْعَمَ=nourrir (forme IV) + هُمْ=les|Il les a nourris|ط ع م|أَفْعَلَ (forme IV)|Forme IV, sens causatif : طَعِمَ manger → أَطْعَمَ « faire manger ».|passe,racines,suffixes
+جُوعٍ|جُوع=faim|la faim|ج و ع|فُعْل|Génitif indéfini après مِنْ.|
+وَآمَنَهُمْ|وَ=et + آمَنَ=mettre en sécurité (forme IV) + هُمْ=les|et les a rassurés|أ م ن|أَفْعَلَ (أَأْمَنَ → آمَنَ)|Même verbe que آمَنَ « croire », ici au sens premier : « mettre en sécurité ».|passe,racines
+خَوْفٍ|خَوْف=peur|la peur|خ و ف|فَعْل|Génitif indéfini après مِنْ.|
+تَرَ|تَـ=tu + رَ=voir (apocopé)|tu (n'as pas) vu|ر أ ي|تَفْعَ (تَرَى → تَرَ)|Présent de رَأَى : تَرَى (la hamza tombe au présent). Après لَمْ, la voyelle longue finale tombe : تَرَ.|negation,racines
+كَيْفَ|كَيْفَ=comment|comment|—|—|Interrogatif de manière.|
+فَعَلَ|فَعَلَ=faire|Il a agi|ف ع ل|فَعَلَ|C'est le verbe qui sert de modèle à tous les schèmes : ف ع ل !|passe,racines
+بِأَصْحَابِ|بِـ=envers + أَصْحَاب=compagnons, gens|envers les gens de|ص ح ب|أَفْعَال (pluriel de صَاحِب)|Pluriel brisé أَفْعَال. Génitif après بِـ.|pluriels,idafa
+الْفِيلِ|الْ=l' + فِيل=éléphant|l'Éléphant|ف ي ل|فِعْل|Génitif : complément d'annexion.|idafa
+يَجْعَلْ|يَـ=il + جْعَلْ=rendre, mettre|Il (n')a (pas) rendu|ج ع ل|يَفْعَلْ|Apocopé après أَلَمْ.|negation
+كَيْدَهُمْ|كَيْد=ruse + هُمْ=leur|leur ruse|ك ي د|فَعْل|Accusatif : objet.|suffixes
+تَضْلِيلٍ|تَضْلِيل=égarement, échec|l'échec|ض ل ل|تَفْعِيل (maṣdar forme II)|Le schème تَفْعِيل est le maṣdar de la forme II : ضَلَّلَ « égarer, faire échouer ».|racines
+وَأَرْسَلَ|وَ=et + أَرْسَلَ=envoyer (forme IV)|et Il a envoyé|ر س ل|أَفْعَلَ (forme IV)|Même racine que رَسُول « messager » (celui qui est envoyé).|passe,racines
+طَيْرًا|طَيْر=oiseaux|des oiseaux|ط ي ر|فَعْل|Nom collectif. Accusatif indéfini : objet.|cas
+أَبَابِيلَ|أَبَابِيل=groupes, volées|par volées|—|فَعَالِيل|Pluriel sans singulier connu : « des groupes successifs ». Diptote : pas de tanwîn.|pluriels
+تَرْمِيهِمْ|تَـ=elles + رْمِي=lancer + هِمْ=eux|qui leur lançaient|ر م ي|تَفْعِلُ|Préfixe تَـ : le sujet (les oiseaux, pluriel non humain) est traité comme féminin singulier.|present,genre
+بِحِجَارَةٍ|بِـ=avec + حِجَارَة=pierres|des pierres|ح ج ر|فِعَالَة (pluriel de حَجَر)|Pluriel brisé de حَجَر. Génitif après بِـ.|pluriels,prepositions
+سِجِّيلٍ|سِجِّيل=argile cuite|argile cuite|—|فِعِّيل|Mot d'origine persane (sang-gil : pierre-argile). Génitif.|
+فَجَعَلَهُمْ|فَـ=alors + جَعَلَ=rendre + هُمْ=les|alors Il les a rendus|ج ع ل|فَعَلَ|Passé forme I + pronom complément.|passe,suffixes
+كَعَصْفٍ|كَـ=comme + عَصْف=paille|comme de la paille|ع ص ف|فَعْل|La particule كَـ (« comme ») met au génitif.|prepositions
+مَأْكُولٍ|مَأْكُول=mangé|rongée|أ ك ل|مَفْعُول (participe passif)|Participe passif de أَكَلَ. Épithète au génitif.|racines,adjectif
+أَرَأَيْتَ|أَ=est-ce que + رَأَيْ=voir + تَ=tu|as-tu vu ?|ر أ ي|فَعَلَ|أَ interrogatif + passé 2e pers.|passe
+يُكَذِّبُ|يُـ=il + كَذِّبُ=traiter de mensonge (forme II)|il dément|ك ذ ب|يُفَعِّلُ (forme II)|Forme II de كَذَبَ « mentir » : كَذَّبَ « accuser de mensonge ».|present,racines
+بِالدِّينِ|بِـ=(démentir) + الـ=la + دِين=rétribution|la Rétribution|د ي ن|فِعْل|كَذَّبَ se construit avec بِـ.|prepositions
+فَذٰلِكَ|فَـ=donc + ذٰلِكَ=celui-là|c'est bien lui|—|—|Démonstratif de l'éloigné (ذٰلِكَ), ici avec une nuance de mépris.|demonstratifs
+يَدُعُّ|يَـ=il + دُعُّ=repousser brutalement|repousse brutalement|د ع ع|يَفْعُلُ (يَدْعُعُ → يَدُعُّ)|Racine sourde : les deux ع fusionnent.|present,racines
+يَحُضُّ|يَـ=il + حُضُّ=inciter|incite|ح ض ض|يَفْعُلُ (يَحْضُضُ → يَحُضُّ)|Racine sourde. Précédé de وَلَا : négation.|present,racines
+طَعَامِ|طَعَام=nourriture|la nourriture de|ط ع م|فَعَال|Génitif après عَلَى ; 1er terme d'annexion.|idafa
+الْمِسْكِينِ|الْ=le + مِسْكِين=pauvre|le pauvre|س ك ن|مِفْعِيل|De سَكَنَ « être immobile » : celui que la misère a figé.|idafa,racines
+فَوَيْلٌ|فَـ=donc + وَيْل=malheur|malheur donc|و ي ل|فَعْل|Nominatif indéfini en tête de phrase : formule de menace.|nominale
+لِلْمُصَلِّينَ|لِـ=à + الْ=les + مُصَلِّين=priants|à ceux qui prient|ص ل و|مُفَعِّل + ـِين (forme II)|Participe actif de صَلَّى au pluriel sain (génitif après لِـ).|plurielsains,racines
+هُمْ|هُمْ=ils, eux|ils|—|—|Pronom isolé 3e pers. masc. pluriel.|pronoms
+عَنْ|عَنْ=de, au sujet de|de (à l'égard de)|—|—|Préposition d'éloignement : « distraits DE leur prière ».|prepositions
+صَلَاتِهِمْ|صَلَاة=prière + هِمْ=leur|leur prière|ص ل و|فَعَلَة|Le ة devient ت devant un pronom suffixe.|suffixes,genre
+سَاهُونَ|سَاه=distrait + ـُونَ=pluriel|négligents|س ه و|فَاعِل (سَاهِيُونَ → سَاهُونَ)|Participe actif de سَهَا « être distrait ». Racine défective : le ي final tombe devant ـُونَ.|plurielsains,racines
+يُرَاءُونَ|يُـ=ils + رَاءُ=se faire voir (forme III) + ونَ|font étalage|ر أ ي|يُفَاعِلُونَ (forme III)|Forme III de رَأَى (voir) : رَاءَى « se faire voir, agir pour être vu » → الرِّيَاء, l'ostentation.|present,racines
+وَيَمْنَعُونَ|وَ=et + يَـ=ils + مْنَعُ=refuser + ـُونَ|et refusent|م ن ع|يَفْعَلُونَ|Présent 3e pers. masc. pluriel.|present
+الْمَاعُونَ|الْ=l' + مَاعُون=ustensile, petite aide|la moindre aide|م ع ن|فَاعُول|Les petits objets qu'on se prête entre voisins (seau, marmite…). Accusatif : objet.|cas
+زُلْزِلَتِ|زُلْزِلَ=être secoué (passif) + تِ=elle|elle sera secouée|ز ل ز ل|فُعْلِلَ (passif, racine de 4 lettres)|Passif d'un verbe quadrilitère redoublé (زل-زل) qui imite le tremblement. ـتْ devient ـتِ devant l'article.|passe,racines
+الْأَرْضُ|الْ=la + أَرْض=terre|la terre|أ ر ض|فَعْل|Nominatif : sujet (ici sujet du passif).|cas
+زِلْزَالَهَا|زِلْزَال=séisme + هَا=son|son séisme|ز ل ز ل|فِعْلَال (maṣdar)|Maṣdar du verbe qui précède : complément absolu qui renforce (« secouée de son séisme »).|racines
+وَأَخْرَجَتِ|وَ=et + أَخْرَجَ=faire sortir (forme IV) + تِ=elle|et elle fera sortir|خ ر ج|أَفْعَلَ (forme IV)|Forme IV causative : خَرَجَ sortir → أَخْرَجَ « faire sortir ».|passe,racines
+أَثْقَالَهَا|أَثْقَال=fardeaux + هَا=ses|ses fardeaux|ث ق ل|أَفْعَال (pluriel de ثِقْل)|Pluriel brisé أَفْعَال ; même racine que مِثْقَال (poids).|pluriels,suffixes
+الْإِنْسَانُ|الْ=l' + إِنْسَان=homme|l'homme|أ ن س|فِعْلَان|Nominatif : sujet.|cas
+لَهَا|لَـ=à + هَا=elle|(qu'a-)t-elle|—|—|مَا لَهَا : « qu'est-ce qu'elle a ? ».|prepositions,suffixes
+يَوْمَئِذٍ|يَوْمَ=jour + إِذٍ=ce moment-là|ce jour-là|ي و م|—|Le tanwîn de إِذٍ remplace toute une phrase sous-entendue (« le jour où cela arrivera »).|
+تُحَدِّثُ|تُـ=elle + حَدِّثُ=raconter (forme II)|elle racontera|ح د ث|تُفَعِّلُ (forme II)|Forme II حَدَّثَ « raconter » ; même racine que حَدِيث (hadith).|present,racines
+أَخْبَارَهَا|أَخْبَار=nouvelles + هَا=ses|ses nouvelles|خ ب ر|أَفْعَال (pluriel de خَبَر)|Pluriel brisé أَفْعَال de خَبَر.|pluriels,suffixes
+بِأَنَّ|بِـ=parce que + أَنَّ=que|parce que|—|—|أَنَّ (sœur de إنّ) met son nom à l'accusatif (رَبَّكَ).|inna
+رَبَّكَ|رَبّ=Seigneur + كَ=ton|ton Seigneur|ر ب ب|فَعْل|Accusatif : nom de أَنَّ.|inna,suffixes
+أَوْحَى|أَوْحَى=inspirer, révéler (forme IV)|a inspiré|و ح ي|أَفْعَلَ (forme IV)|Même racine que وَحْي « la Révélation ».|passe,racines
+يَصْدُرُ|يَـ=il(s) + صْدُرُ=sortir, repartir|sortiront|ص د ر|يَفْعُلُ|Verbe au singulier devant son sujet pluriel (الناس).|present
+أَشْتَاتًا|أَشْتَات=groupes dispersés|en groupes séparés|ش ت ت|أَفْعَال (pluriel de شَتّ)|Accusatif indéfini : ḥâl (état).|pluriels,cas
+لِيُرَوْا|لِـ=pour que + يُرَوْا=on leur montre (passif)|pour qu'on leur montre|ر أ ي|يُفْعَوْا (passif forme IV)|Passif de أَرَى « faire voir ». لِـ + subjonctif : le ن final de ـونَ tombe.|present,racines
+أَعْمَالَهُمْ|أَعْمَال=actes + هُمْ=leurs|leurs œuvres|ع م ل|أَفْعَال (pluriel de عَمَل)|Pluriel brisé. Accusatif : 2e complément.|pluriels,suffixes
+فَمَنْ|فَـ=alors + مَنْ=quiconque|quiconque|—|—|مَنْ conditionnel : met les deux verbes (condition et réponse) à l'apocopé.|
+يَعْمَلْ|يَـ=il + عْمَلْ=faire|fait|ع م ل|يَفْعَلْ|Apocopé : verbe de la condition après مَنْ.|present
+مِثْقَالَ|مِثْقَال=poids|le poids de|ث ق ل|مِفْعَال (nom d'instrument / mesure)|Le schème مِفْعَال sert aux instruments et mesures : ثِقْل poids → مِثْقَال « unité de poids ». Accusatif.|racines,idafa
+ذَرَّةٍ|ذَرَّة=atome, fourmi minuscule|un atome|ذ ر ر|فَعْلَة|La plus petite chose imaginable. Génitif : complément d'annexion.|idafa
+خَيْرًا|خَيْر=bien|en bien|خ ي ر|فَعْل|Accusatif : tamyîz (précise de quoi est fait ce poids).|cas
+يَرَهُ|يَـ=il + رَ=voir (apocopé) + هُ=le|il le verra|ر أ ي|يَفْعَ (يَرَى → يَرَ)|Réponse de la condition : apocopé, la voyelle longue tombe (يَرَى → يَرَ).|present,racines
+وَمَنْ|وَ=et + مَنْ=quiconque|et quiconque|—|—|مَنْ conditionnel.|
+شَرًّا|شَرّ=mal|en mal|ش ر ر|فَعْل|Accusatif : tamyîz.|cas
+وَالتِّينِ|وَ=par (serment) + الـ=le (ت solaire) + تِين=figue, figuier|par le figuier|ت ي ن|فِعْل|وَ du serment → génitif.|prepositions,solaires
+وَالزَّيْتُونِ|وَ=et + الـ=l' (ز solaire) + زَيْتُون=olivier|et l'olivier|ز ي ت|فَيْعُول|Même racine que زَيْت « huile ».|solaires
+وَطُورِ|وَ=et par + طُور=mont|et par le mont|ط و ر|فُعْل|1er terme d'annexion, génitif.|idafa
+سِينِينَ|سِينِين=Sinaï|Sinaï|—|—|Nom de lieu ; génitif (forme en ـِينَ).|idafa
+وَهٰذَا|وَ=et (par) + هٰذَا=ce|et (par) cette|—|—|Démonstratif du proche.|demonstratifs
+الْبَلَدِ|الْ=la + بَلَد=cité|cité (La Mecque)|ب ل د|فَعَل|Génitif.|
+الْأَمِينِ|الْ=la + أَمِين=sûre|sûre|أ م ن|فَعِيل|Même racine que أَمْن « sécurité ». Épithète.|adjectif
+لَقَدْ|لَـ=certes + قَدْ=(confirmation)|certes|—|—|لَقَدْ + passé = affirmation très forte.|passe
+خَلَقْنَا|خَلَقْ=créer + نَا=Nous|Nous avons créé|خ ل ق|فَعَلَ|Passé 1re pers. pluriel.|passe
+أَحْسَنِ|أَحْسَن=le plus beau|la plus belle|ح س ن|أَفْعَل (élatif)|Le schème أَفْعَل sert au comparatif / superlatif : حَسَن beau → أَحْسَن plus beau.|racines,idafa
+تَقْوِيمٍ|تَقْوِيم=forme, constitution|forme|ق و م|تَفْعِيل (maṣdar forme II)|Maṣdar de قَوَّمَ « redresser, bien proportionner ».|racines
+رَدَدْنَاهُ|رَدَدْ=ramener + نَا=Nous + هُ=le|Nous l'avons ramené|ر د د|فَعَلَ|Racine sourde : devant ـنَا les deux د se séparent (رَدَّ → رَدَدْنَا).|passe,racines
+أَسْفَلَ|أَسْفَل=le plus bas|le plus bas de|س ف ل|أَفْعَل (élatif)|Superlatif. Accusatif : ḥâl / complément.|racines
+سَافِلِينَ|سَافِل=bas + ـِينَ=pluriel|des plus bas|س ف ل|فَاعِل + ـِين|Pluriel sain au génitif.|plurielsains
+فَلَهُمْ|فَـ=alors + لَـ=à + هُمْ=eux|à eux|—|—|—|prepositions,suffixes
+أَجْرٌ|أَجْر=récompense|une récompense|أ ج ر|فَعْل|Nominatif indéfini : sujet retardé.|nominale
+غَيْرُ|غَيْر=non|non (jamais)|غ ي ر|فَعْل|Nominatif : il qualifie أجرٌ.|idafa
+مَمْنُونٍ|مَمْنُون=interrompu|interrompue|م ن ن|مَفْعُول|Participe passif de مَنَّ « couper ». Génitif après غير.|racines
+فَمَا|فَـ=donc + مَا=qu'est-ce qui|qu'est-ce donc qui|—|—|مَا interrogatif.|
+يُكَذِّبُكَ|يُـ=il + كَذِّبُ=faire démentir + كَ=te|te fait démentir|ك ذ ب|يُفَعِّلُ (forme II)|Forme II + pronom complément.|present,suffixes
+بَعْدُ|بَعْدُ=après (cela)|après cela|—|—|Ḍamma car le complément est sous-entendu (« après cela »).|
+أَلَيْسَ|أَ=est-ce que + لَيْسَ=n'est pas|n'est-il pas ?|ل ي س|—|لَيْسَ « ne pas être » : verbe figé (seulement au passé), il nie le présent.|negation
+بِأَحْكَمِ|بِـ=(renfort) + أَحْكَم=le plus sage|le plus sage de|ح ك م|أَفْعَل (élatif)|بِـ renforce le prédicat de ليس.|prepositions,racines
+الْحَاكِمِينَ|الْ=les + حَاكِم=juge + ـِينَ=pluriel|des juges|ح ك م|فَاعِل + ـِين|Participe actif de حَكَمَ « juger ».|plurielsains
+اقْرَأْ|اقْرَأْ=lis, récite|lis !|ق ر أ|اِفْعَلْ (impératif)|Impératif de قَرَأَ : alif de liaison + قْرَأْ. Premier mot révélé.|racines
+بِاسْمِ|بِـ=au + اسْم=nom|au nom de|س م و|اِسْم|Ici l'alif reste écrit (contrairement à la basmala).|prepositions,idafa
+عَلَقٍ|عَلَق=adhérence (caillot)|une adhérence|ع ل ق|فَعَل|De عَلِقَ « s'accrocher » : l'embryon qui s'accroche à la paroi.|racines
+وَرَبُّكَ|وَ=et + رَبّ=Seigneur + كَ=ton|et ton Seigneur|ر ب ب|فَعْل|Nominatif : sujet.|suffixes
+الْأَكْرَمُ|الْ=le + أَكْرَم=le plus généreux|le Très-Généreux|ك ر م|أَفْعَل (élatif)|Superlatif de كَرِيم.|racines
+عَلَّمَ|عَلَّمَ=enseigner (forme II)|a enseigné|ع ل م|فَعَّلَ (forme II)|Forme II causative : عَلِمَ savoir → عَلَّمَ « faire savoir, enseigner ».|passe,racines
+بِالْقَلَمِ|بِـ=par + الْ=le + قَلَم=calame|par le calame|ق ل م|فَعَل|بِـ instrumental.|prepositions
+يَعْلَمْ|يَـ=il + عْلَمْ=savoir|il (ne) savait (pas)|ع ل م|يَفْعَلْ|Apocopé après لَمْ.|negation
+الرَّحْمٰنُ|الـ=le (ر solaire) + رَحْمٰن=Tout-Miséricordieux|le Tout Miséricordieux|ر ح م|فَعْلَان|Schème فَعْلَان : une qualité à son comble. Ici au nominatif : sujet, et même titre de la sourate.|adjectif,solaires
+الْقُرْآنَ|الْ=le + قُرْآن=Coran|le Coran|ق ر أ|فُعْلَان|Maṣdar de قَرَأَ : « la Récitation ». Accusatif : objet.|cas
+عَلَّمَهُ|عَلَّمَ=enseigner + هُ=lui|lui a enseigné|ع ل م|فَعَّلَ (forme II)|عَلَّمَ prend deux compléments : lui + l'expression.|passe,suffixes
+الْبَيَانَ|الْ=l' + بَيَان=expression claire|l'expression claire|ب ي ن|فَعَال|De بَانَ « être clair » : la capacité de s'exprimer et de comprendre.|cas
+الشَّمْسُ|الـ=le (ش solaire) + شَمْس=soleil|le soleil|ش م س|فَعْل|Nominatif : sujet. Nom féminin.|solaires,genre
+وَالْقَمَرُ|وَ=et + الْ=la + قَمَر=lune|et la lune|ق م ر|فَعَل|ق est lunaire : le lâm se prononce (al-qamar), d'où le nom « lettres lunaires ».|solaires
+بِحُسْبَانٍ|بِـ=selon + حُسْبَان=calcul|selon un calcul précis|ح س ب|فُعْلَان|Maṣdar de حَسَبَ « compter ».|prepositions
+وَالنَّجْمُ|وَ=et + الـ=les (ن solaire) + نَجْم=plantes sans tige / étoile|et les plantes|ن ج م|فَعْل|نَجْم : l'étoile, mais aussi la plante qui « pointe » du sol sans tige.|solaires
+وَالشَّجَرُ|وَ=et + الـ=les (ش solaire) + شَجَر=arbres|et les arbres|ش ج ر|فَعَل|Nom collectif (singulier : شَجَرَة).|solaires
+يَسْجُدَانِ|يَـ=ils + سْجُدُ=se prosterner + ـَانِ=duel|tous deux se prosternent|س ج د|يَفْعُلَانِ|Présent au DUEL : suffixe ـَانِ, car deux sujets (plantes et arbres).|duel,present
+وَالسَّمَاءَ|وَ=et + الـ=le (س solaire) + سَمَاء=ciel|et le ciel|س م و|فَعَال|Accusatif : objet placé en tête puis repris par هَا.|cas
+رَفَعَهَا|رَفَعَ=élever + هَا=le|Il l'a élevé|ر ف ع|فَعَلَ|هَا : le ciel (féminin).|passe,suffixes
+وَوَضَعَ|وَ=et + وَضَعَ=établir, poser|et a établi|و ض ع|فَعَلَ|Le 2e و fait partie de la racine.|passe
+الْمِيزَانَ|الْ=la + مِيزَان=balance|la balance|و ز ن|مِفْعَال (مِوْزَان → مِيزَان)|Schème d'instrument مِفْعَال : وَزَنَ peser → مِيزَان « l'instrument pour peser ». Le و devient ي après kasra.|racines
+أَلَّا|أَنْ=que + لَا=ne… pas|afin que… ne… pas|—|—|أَنْ + لَا s'écrivent أَلَّا. أَنْ met le verbe au subjonctif.|negation
+تَطْغَوْا|تَـ=vous + طْغَوْا=transgresser|vous transgressiez|ط غ و|تَفْعَلُوا (subjonctif)|Subjonctif après أَنْ : le ن de ـونَ tombe.|present,racines
+الْمِيزَانِ|الْ=la + مِيزَان=balance|la balance (la pesée)|و ز ن|مِفْعَال|Génitif après فِي.|racines
+وَأَقِيمُوا|وَ=et + أَقِيمُوا=établissez (forme IV)|et établissez|ق و م|أَفِيلُوا (impératif forme IV, verbe creux)|Impératif forme IV أَقَامَ « établir, faire tenir debout ». ـُوا : vous.|racines
+الْوَزْنَ|الْ=le + وَزْن=poids, pesée|le poids|و ز ن|فَعْل|Maṣdar de وَزَنَ.|cas
+بِالْقِسْطِ|بِـ=avec + الْ=l' + قِسْط=équité|avec équité|ق س ط|فِعْل|Génitif après بِـ.|prepositions
+تُخْسِرُوا|تُـ=vous + خْسِرُوا=faire perdre (forme IV)|(ne) faussez (pas)|خ س ر|تُفْعِلُوا (forme IV, apocopé)|Forme IV « faire perdre » ; apocopé après لا d'interdiction (le ن tombe).|negation,racines
+وَضَعَهَا|وَضَعَ=disposer + هَا=la|Il l'a disposée|و ض ع|فَعَلَ|هَا : la terre.|passe,suffixes
+لِلْأَنَامِ|لِـ=pour + الْ=les + أَنَام=créatures|pour les créatures|أ ن م|فَعَال|Génitif après لِـ.|prepositions
+فَاكِهَةٌ|فَاكِهَة=fruits|des fruits|ف ك ه|فَاعِلَة|Nominatif indéfini : sujet retardé.|genre
+وَالنَّخْلُ|وَ=et + الـ=les (ن solaire) + نَخْل=palmiers|et les palmiers|ن خ ل|فَعْل|Nom collectif.|solaires
+ذَاتُ|ذَات=qui possède (fém.)|aux (pourvus de)|—|—|Féminin de ذُو « possesseur de » : accordé avec النخل traité comme féminin.|genre,idafa
+الْأَكْمَامِ|الْ=les + أَكْمَام=enveloppes|enveloppes (spathes)|ك م م|أَفْعَال (pluriel de كِمّ)|Pluriel brisé. Même racine que كُمّ « manche ».|pluriels
+وَالْحَبُّ|وَ=et + الْ=les + حَبّ=grains|et les grains|ح ب ب|فَعْل|Racine sourde.|racines
+ذُو|ذُو=qui possède (masc.)|aux (pourvus de)|—|—|Un des « cinq noms » : ذُو / ذَا / ذِي selon le cas. Ici nominatif.|idafa,cas
+الْعَصْفِ|الْ=la + عَصْف=paille, tige|tiges, paille|ع ص ف|فَعْل|Même mot qu'Al-Fîl (كَعَصْفٍ).|idafa
+وَالرَّيْحَانُ|وَ=et + الـ=les (ر solaire) + رَيْحَان=plantes odorantes|et les plantes odorantes|ر و ح|فَيْعَلَان|Même racine que رَائِحَة « odeur ».|solaires
+فَبِأَيِّ|فَـ=donc + بِـ=(nier) + أَيّ=lequel|lequel donc|—|—|أَيّ interrogatif, au génitif après بِـ ; s'annexe au mot suivant.|prepositions,idafa
+آلَاءِ|آلَاء=bienfaits|des bienfaits de|أ ل ي|أَفْعَال (pluriel de إِلًى)|Pluriel brisé ; génitif.|pluriels,idafa
+رَبِّكُمَا|رَبّ=Seigneur + كُمَا=vous deux|de votre Seigneur (à tous deux)|ر ب ب|فَعْل|كُمَا : pronom DUEL — s'adresse aux deux espèces : hommes et djinns.|duel,suffixes
+تُكَذِّبَانِ|تُـ=vous + كَذِّبُ=nier + ـَانِ=duel|nierez-vous (tous deux)|ك ذ ب|تُفَعِّلَانِ (forme II, duel)|Présent forme II au duel (ـَانِ).|duel,present
+آمَنَ|آمَنَ=croire (forme IV)|a cru|أ م ن|أَفْعَلَ (أَأْمَنَ → آمَنَ)|Deux hamzas fusionnent en آ. Verbe au singulier en tête de phrase.|passe,racines
+الرَّسُولُ|الـ=le (ر solaire) + رَسُول=messager|le Messager|ر س ل|فَعُول|De أَرْسَلَ « envoyer » : « celui qui est envoyé ». Nominatif : sujet.|solaires
+أُنْزِلَ|أُنْزِلَ=a été descendu (passif forme IV)|a été descendu|ن ز ل|أُفْعِلَ (passif forme IV)|Passif : voyelles u-i (أُفْعِلَ). Actif : أَنْزَلَ.|passe,racines
+إِلَيْهِ|إِلَى=vers + هِ=lui|vers lui (à lui)|—|—|إِلَى devient إِلَيْـ devant pronom.|prepositions,suffixes
+رَبِّهِ|رَبّ=Seigneur + هِ=son|son Seigneur|ر ب ب|فَعْل|هُ → هِ après kasra.|suffixes
+وَالْمُؤْمِنُونَ|وَ=et + الْ=les + مُؤْمِن=croyant + ـُونَ|et les croyants|أ م ن|مُفْعِل (forme IV) + ـُون|Participe actif de آمَنَ au pluriel sain (nominatif).|plurielsains,racines
+كُلٌّ|كُلّ=tous|tous|ك ل ل|فُعْل|Le tanwîn remplace le complément sous-entendu (« chacun d'eux »).|
+بِاللَّهِ|بِـ=en + اللَّه=Allah|en Allah|أ ل ه|—|آمَنَ بِـ = croire en.|prepositions
+وَمَلَائِكَتِهِ|وَ=et + مَلَائِكَة=anges + هِ=Ses|et en Ses anges|م ل ك|فَعَائِلَة|Pluriel brisé ; ة → ت devant pronom.|pluriels,suffixes
+وَكُتُبِهِ|وَ=et + كُتُب=livres + هِ=Ses|et Ses Livres|ك ت ب|فُعُل (pluriel de كِتَاب)|Pluriel brisé فُعُل.|pluriels,suffixes
+وَرُسُلِهِ|وَ=et + رُسُل=messagers + هِ=Ses|et Ses messagers|ر س ل|فُعُل (pluriel de رَسُول)|Pluriel brisé فُعُل.|pluriels,suffixes
+نُفَرِّقُ|نُـ=nous + فَرِّقُ=séparer, distinguer (forme II)|nous faisons de différence|ف ر ق|نُفَعِّلُ (forme II)|Préfixe نُـ avec ḍamma : forme II au présent.|present,racines
+أَحَدٍ|أَحَد=un, quelqu'un|aucun|و ح د|فَعَل|Génitif après بَيْنَ.|
+رُسُلِهِ|رُسُل=messagers + هِ=Ses|Ses messagers|ر س ل|فُعُل|Génitif après مِنْ.|pluriels,suffixes
+وَقَالُوا|وَ=et + قَالُ=dire + ـُوا=ils|et ils ont dit|ق و ل|فَعَلُوا|Passé 3e pers. masc. pluriel.|passe
+سَمِعْنَا|سَمِعْ=entendre + نَا=nous|nous avons entendu|س م ع|فَعِلَ|Passé 1re pers. pluriel.|passe
+وَأَطَعْنَا|وَ=et + أَطَعْ=obéir (forme IV) + نَا=nous|et nous avons obéi|ط و ع|أَفْعَلَ (أَطَاعَ → أَطَعْنَا)|Verbe creux : le alif long tombe devant ـنَا.|passe,racines
+غُفْرَانَكَ|غُفْرَان=pardon + كَ=Ton|(accorde-nous) Ton pardon|غ ف ر|فُعْلَان (maṣdar)|Accusatif : objet d'un verbe sous-entendu (« nous demandons »).|cas,suffixes
+رَبَّنَا|رَبّ=Seigneur + نَا=notre|notre Seigneur|ر ب ب|فَعْل|Vocatif sans يا : accusatif (fatha).|cas,suffixes
+وَإِلَيْكَ|وَ=et + إِلَى=vers + كَ=Toi|et vers Toi|—|—|Placé avant : « vers Toi seul ».|prepositions
+الْمَصِيرُ|الْ=le + مَصِير=retour, destination|le retour|ص ي ر|مَفْعِل (nom de lieu / temps)|De صَارَ « devenir, aboutir » : le lieu où l'on aboutit.|racines
+يُكَلِّفُ|يُـ=il + كَلِّفُ=charger (forme II)|impose une charge|ك ل ف|يُفَعِّلُ (forme II)|Même racine que مُكَلَّف « responsable » (celui qui a des obligations).|present,racines
+نَفْسًا|نَفْس=âme|une âme|ن ف س|فَعْل|Accusatif indéfini : objet. Après négation = « aucune âme ».|cas
+وُسْعَهَا|وُسْع=capacité + هَا=sa|sa capacité|و س ع|فُعْل|Même racine que وَسِعَ (Âyat al-Kursî).|suffixes
+كَسَبَتْ|كَسَبَ=acquérir + تْ=elle|elle a acquis|ك س ب|فَعَلَ|Forme I : acquisition facile (le bien).|passe
+وَعَلَيْهَا|وَ=et + عَلَى=contre + هَا=elle|et contre elle|—|—|لَهَا (pour elle) / عَلَيْهَا (contre elle).|prepositions
+اكْتَسَبَتْ|اكْتَسَبَ=commettre (forme VIII) + تْ=elle|elle a commis|ك س ب|اِفْتَعَلَ (forme VIII)|La forme VIII marque l'effort : le mal demande un effort contre sa nature. Le ت inséré après la 1re radicale.|passe,racines
+تُؤَاخِذْنَا|تُـ=Tu + ؤَاخِذْ=tenir rigueur (forme III) + نَا=nous|Tu nous tiens rigueur|أ خ ذ|تُفَاعِلْ (forme III)|Forme III de أَخَذَ (prendre). Apocopé après لا d'interdiction / supplication.|negation,racines
+إِنْ|إِنْ=si|si|—|—|Particule de condition.|
+نَسِينَا|نَسِي=oublier + نَا=nous|nous avons oublié|ن س ي|فَعِلَ|Passé 1re pers. pluriel.|passe
+أَوْ|أَوْ=ou|ou|—|—|Coordination « ou ».|
+أَخْطَأْنَا|أَخْطَأْ=se tromper (forme IV) + نَا=nous|nous avons commis une erreur|خ ط أ|أَفْعَلَ (forme IV)|Même racine que خَطَأ « erreur ».|passe,racines
+تَحْمِلْ|تَـ=Tu + حْمِلْ=charger|(ne) charge (pas)|ح م ل|تَفْعِلْ|Apocopé après لا.|negation
+عَلَيْنَا|عَلَى=sur + نَا=nous|sur nous|—|—|عَلَى → عَلَيْـ devant pronom.|prepositions,suffixes
+إِصْرًا|إِصْر=lourd fardeau|un fardeau lourd|أ ص ر|فِعْل|Accusatif indéfini : objet.|cas
+كَمَا|كَـ=comme + مَا=ce que|comme|—|—|—|prepositions
+حَمَلْتَهُ|حَمَلْ=charger + تَ=Tu + هُ=le|Tu l'as fait porter|ح م ل|فَعَلَ|Passé 2e pers. + pronom complément.|passe,suffixes
+قَبْلِنَا|قَبْل=avant + نَا=nous|avant nous|ق ب ل|فَعْل|Génitif après مِنْ.|suffixes
+تُحَمِّلْنَا|تُـ=Tu + حَمِّلْ=imposer (forme II) + نَا=nous|(ne) nous impose (pas)|ح م ل|تُفَعِّلْ (forme II)|Forme II : faire porter. Apocopé après لا.|negation,racines
+طَاقَةَ|طَاقَة=force, capacité|force|ط و ق|فَعَالَة|Fatha sans tanwîn : nom de لا de négation absolue.|negation
+لَنَا|لَـ=à + نَا=nous|à nous|—|—|—|prepositions,suffixes
+بِهِ|بِـ=pour + هِ=cela|pour cela|—|—|—|prepositions,suffixes
+وَاعْفُ|وَ=et + اعْفُ=efface, pardonne|et efface (nos fautes)|ع ف و|اُفْعُ (impératif, racine défective)|Impératif de عَفَا : la dernière radicale tombe (اعْفُ).|racines
+عَنَّا|عَنْ=de + نَا=nous|de nous|—|—|عَنْ + نَا → عَنَّا.|prepositions
+وَاغْفِرْ|وَ=et + اغْفِرْ=pardonne|et pardonne|غ ف ر|اِفْعِلْ (impératif)|Impératif de غَفَرَ.|racines
+وَارْحَمْنَا|وَ=et + ارْحَمْ=fais miséricorde + نَا=nous|et fais-nous miséricorde|ر ح م|اِفْعَلْ (impératif)|Même racine que رَحْمَة, الرَّحْمٰن.|racines,suffixes
+أَنْتَ|أَنْتَ=Tu, Toi|Tu|—|—|Pronom isolé 2e pers. masc. sing.|pronoms
+مَوْلَانَا|مَوْلَى=protecteur + نَا=notre|notre Protecteur|و ل ي|مَفْعَل|Nom de schème مَفْعَل de و ل ي (proximité, alliance).|suffixes,racines
+فَانْصُرْنَا|فَـ=donc + انْصُرْ=secours + نَا=nous|donne-nous donc la victoire|ن ص ر|اُفْعُلْ (impératif)|Impératif de نَصَرَ (présent يَنْصُرُ → alif de liaison avec ḍamma).|racines,suffixes
+الْقَوْمِ|الْ=le + قَوْم=peuple|le peuple|ق و م|فَعْل|Génitif après عَلَى.|
+الْكَافِرِينَ|الْ=les + كَافِر=mécréant + ـِينَ|mécréants|ك ف ر|فَاعِل + ـِين|Pluriel sain au génitif (ـِينَ) : épithète de القوم.|plurielsains,adjectif
 اِسْمِي|اِسْم=nom + ي=mon|mon nom|س م و|اِسْم|Le pronom suffixe ي (« mon ») rend le nom défini. Phrase nominale sans verbe « être » : « mon nom (est) Yûsuf ».|suffixes,nominale
 يُوسُفُ|يُوسُف=Yûsuf (Joseph)|Yûsuf|—|—|Nom propre d'origine non arabe : pas de tanwîn (diptote). Nominatif : prédicat.|cas
 وَأَنَا|وَ=et + أَنَا=je, moi|et je (suis)|—|—|Pronom isolé 1re pers. sing. : sujet de la phrase nominale.|pronoms,nominale
@@ -2337,6 +2731,351 @@ const WA_SRC=`
 يَعِيشُ|يَـ=il + عِيشُ=vivre|vit|ع ي ش|يَفْعِلُ (يَعْيِشُ → يَعِيشُ)|Racine creuse (ي central).|present,racines
 حِسَابِ|حِسَاب=compte|aux dépens de|ح س ب|فِعَال|Génitif après عَلَى : عَلَى حِسَابِ « au compte de ».|idafa
 يَسْمَعُهُ|يَـ=il + سْمَعُ=écouter + هُ=le|l'écoute|س م ع|يَفْعَلُ|Présent de سَمِعَ + pronom complément.|present,suffixes
+إِنَّمَا|إِنَّ=certes + مَا=(restriction)|ne… que, seulement|—|—|إِنَّ + مَا « inhibiteur » = particule de restriction : « les actes ne valent QUE par… ». Elle n'agit plus sur les cas.|inna
+الْأَعْمَالُ|الْ=les + أَعْمَال=actes|les actes|ع م ل|أَفْعَال (pluriel de عَمَل)|Pluriel brisé أَفْعَال. Nominatif : sujet.|pluriels
+بِالنِّيَّاتِ|بِـ=par, selon + الـ=les (ن solaire) + نِيَّات=intentions|selon les intentions|ن و ي|فِعْلَة + ـَات|Pluriel féminin de نِيَّة (نِوْيَة → نِيَّة : و et ي fusionnent).|plurielsains,prepositions
+وَإِنَّمَا|وَ=et + إِنَّمَا=seulement|et seulement|—|—|Restriction.|inna
+لِكُلِّ|لِـ=à + كُلّ=chaque|à chaque|ك ل ل|فُعْل|Génitif après لِـ.|prepositions,idafa
+امْرِئٍ|امْرِئ=homme, personne|personne|م ر أ|اِفْعِل|Mot à alif de liaison ; sa voyelle intérieure suit celle de la fin (امْرُؤٌ / امْرَأً / امْرِئٍ). Génitif.|idafa
+نَوَى|نَوَى=avoir l'intention|il a eu l'intention|ن و ي|فَعَلَ|Racine défective. Même racine que نِيَّة.|passe
+الدِّينُ|الـ=la (د solaire) + دِين=religion|la religion|د ي ن|فِعْل|Nominatif : sujet.|solaires
+النَّصِيحَةُ|الـ=le (ن solaire) + نَصِيحَة=conseil sincère|le conseil sincère|ن ص ح|فَعِيلَة|De نَصَحَ « être pur, sincère ». Nominatif : prédicat. Phrase nominale de deux mots seulement !|nominale
+قُلْنَا|قُلْ=dire + نَا=nous|nous avons dit|ق و ل|فَعَلَ (قَالَ → قُلْنَا)|Verbe creux : devant ـنَا le alif long tombe et devient ḍamma.|passe,racines
+لِمَنْ|لِـ=pour + مَنْ=qui|envers qui ?|—|—|—|prepositions
+قَالَ|قَالَ=dire|il a dit|ق و ل|فَعَلَ (قَوَلَ → قَالَ)|Racine creuse : le و central devient alif.|passe,racines
+وَلِكِتَابِهِ|وَ=et + لِـ=envers + كِتَاب=Livre + هِ=Son|et envers Son Livre|ك ت ب|فِعَال|—|prepositions,suffixes
+وَلِرَسُولِهِ|وَ=et + لِـ=envers + رَسُول=Messager + هِ=Son|et envers Son Messager|ر س ل|فَعُول|—|prepositions,suffixes
+وَلِأَئِمَّةِ|وَ=et + لِـ=envers + أَئِمَّة=dirigeants|et envers les dirigeants de|أ م م|أَفْعِلَة (pluriel de إِمَام)|Pluriel brisé أَفْعِلَة (أَأْمِمَة → أَئِمَّة).|pluriels,idafa
+الْمُسْلِمِينَ|الْ=les + مُسْلِم=musulman + ـِينَ|des musulmans|س ل م|مُفْعِل + ـِين (forme IV)|Pluriel sain au génitif.|plurielsains
+وَعَامَّتِهِمْ|وَ=et + عَامَّة=ensemble, commun + هِمْ=d'eux|et l'ensemble d'entre eux|ع م م|فَاعَّة (عَامِمَة → عَامَّة)|Racine sourde.|suffixes
+حُسْنِ|حُسْن=beauté, excellence|la beauté de|ح س ن|فُعْل|Génitif après مِنْ ; 1er terme d'annexion.|idafa
+إِسْلَامِ|إِسْلَام=islam, soumission|l'islam de|س ل م|إِفْعَال (maṣdar forme IV)|Maṣdar de أَسْلَمَ « se soumettre ».|racines,idafa
+الْمَرْءِ|الْ=la + مَرْء=personne|la personne|م ر أ|فَعْل|Même mot que امْرِئ, ici avec article.|idafa
+تَرْكُهُ|تَرْك=délaissement + هُ=son|le fait qu'il délaisse|ت ر ك|فَعْل (maṣdar)|Maṣdar de تَرَكَ ; nominatif : sujet retardé.|suffixes
+يَعْنِيهِ|يَـ=il + عْنِي=concerner + هِ=le|le concerne|ع ن ي|يَفْعِلُ|Précédé de لا : « ce qui ne le concerne pas ».|present,suffixes
+يُؤْمِنُ|يُـ=il + ؤْمِنُ=croire (forme IV)|il croit|أ م ن|يُفْعِلُ (forme IV)|Présent de آمَنَ (يُؤَأْمِنُ → يُؤْمِنُ).|present,racines
+أَحَدُكُمْ|أَحَد=un + كُمْ=de vous|l'un de vous|و ح د|فَعَل|Nominatif : sujet.|suffixes
+يُحِبَّ|يُـ=il + حِبَّ=aimer (forme IV)|il aime|ح ب ب|يُفْعِلَ (forme IV, subjonctif)|Après حَتَّى (« jusqu'à ce que ») : subjonctif, fatha finale.|present,racines
+لِأَخِيهِ|لِـ=pour + أَخ=frère + ي=(génitif) + هِ=son|pour son frère|أ خ و|فَعَل|أَخ fait partie des « cinq noms » : أَخُوهُ / أَخَاهُ / أَخِيهِ selon le cas — ici génitif.|prepositions,cas
+يُحِبُّ|يُـ=il + حِبُّ=aimer|il aime|ح ب ب|يُفْعِلُ (forme IV)|Indicatif (ḍamma).|present
+لِنَفْسِهِ|لِـ=pour + نَفْس=soi + هِ=lui|pour lui-même|ن ف س|فَعْل|نَفْس + pronom = « soi-même ».|prepositions,suffixes
+وَالْيَوْمِ|وَ=et + الْ=le + يَوْم=jour|et au Jour|ي و م|فَعْل|Génitif coordonné à الله.|
+الْآخِرِ|الْ=le + آخِر=dernier|dernier|أ خ ر|فَاعِل|Épithète au génitif.|adjectif
+فَلْيَقُلْ|فَـ=alors + لْـ=qu'il (ordre) + يَقُلْ=dise|qu'il dise|ق و ل|يَفْعُلْ (apocopé)|Lâm de l'ordre + apocopé : يَقُولُ → يَقُلْ (le û tombe).|present,racines
+لِيَصْمُتْ|لِـ=qu'il (ordre) + يَصْمُتْ=se taise|qu'il se taise|ص م ت|يَفْعُلْ|Lâm de l'ordre, verbe apocopé.|present
+رَجُلٌ|رَجُل=homme|un homme|ر ج ل|فَعُل|Nominatif indéfini : sujet.|
+لِلنَّبِيِّ|لِـ=à + الـ=le (ن solaire) + نَبِيّ=Prophète|au Prophète|ن ب أ|فَعِيل (نَبِيء → نَبِيّ)|De نَبَأ « nouvelle » : celui qui annonce. Génitif.|prepositions,solaires
+أَوْصِنِي|أَوْصِ=conseille (forme IV) + نِي=moi|conseille-moi|و ص ي|أَفْعِ (impératif forme IV)|Impératif de أَوْصَى ; la dernière radicale tombe. نِي = moi (complément).|racines,suffixes
+تَغْضَبْ|تَـ=tu + غْضَبْ=se mettre en colère|(ne) te mets (pas) en colère|غ ض ب|تَفْعَلْ|Apocopé après لا d'interdiction.|negation
+اتَّقِ|اتَّقِ=crains, protège-toi|crains|و ق ي|اِفْتَعِ (impératif forme VIII)|Forme VIII de وَقَى (protéger) : اتَّقَى « se protéger, craindre ». و + ت → تّ. La dernière radicale tombe à l'impératif. Même racine que تَقْوَى.|racines
+اللَّهَ|اللَّه=Allah|Allah|أ ل ه|—|Accusatif (fatha) : complément d'objet.|cas
+حَيْثُمَا|حَيْثُ=où + مَا=(généralisation)|où que|—|—|—|
+كُنْتَ|كُنْ=être + تَ=tu|tu sois|ك و ن|فَعَلَ (كَانَ → كُنْتَ)|Verbe creux : devant ـتَ le alif tombe et devient ḍamma.|passe,racines
+وَأَتْبِعِ|وَ=et + أَتْبِعْ=fais suivre (forme IV)|et fais suivre|ت ب ع|أَفْعِلْ (impératif forme IV)|Impératif forme IV avec hamza fixe (أَ). Soukoun → kasra devant l'article.|racines
+السَّيِّئَةَ|الـ=la (س solaire) + سَيِّئَة=mauvaise action|la mauvaise action|س و أ|فَيْعِلَة (سَيْوِئَة → سَيِّئَة)|و et ي fusionnent. Accusatif : 1er complément.|racines
+الْحَسَنَةَ|الْ=la + حَسَنَة=bonne action|une bonne action|ح س ن|فَعَلَة|Accusatif : 2e complément.|genre
+تَمْحُهَا|تَـ=elle + مْحُ=effacer (apocopé) + هَا=la|qui l'effacera|م ح و|تَفْعُ (تَمْحُو → تَمْحُ)|Apocopé (réponse d'un impératif) : le و long final tombe.|present,racines
+وَخَالِقِ|وَ=et + خَالِقْ=comporte-toi avec (forme III)|et comporte-toi avec|خ ل ق|فَاعِلْ (impératif forme III)|Forme III de خ ل ق : traiter les gens selon le خُلُق (caractère).|racines
+بِخُلُقٍ|بِـ=avec + خُلُق=caractère|avec un caractère|خ ل ق|فُعُل|Même racine que خَلَقَ (créer) : ta nature créée.|prepositions
+حَسَنٍ|حَسَن=beau, bon|bon|ح س ن|فَعَل|Épithète au génitif indéfini.|adjectif
+الْخَيْلُ|الْ=les + خَيْل=chevaux|les chevaux|خ ي ل|فَعْل|Nom collectif. Nominatif : sujet.|
+وَاللَّيْلُ|وَ=et + الـ=la (ل solaire) + لَيْل=nuit|et la nuit|ل ي ل|فَعْل|Nominatif coordonné.|solaires
+وَالْبَيْدَاءُ|وَ=et + الْ=le + بَيْدَاء=désert|et le désert|ب ي د|فَعْلَاء|De بَادَ « périr » : le lieu où l'on se perd.|genre
+الْبَيْدَاءُ|الْ=le + بَيْدَاء=désert|le désert|ب ي د|فَعْلَاء|De بَادَ « périr » : le lieu où l'on se perd.|genre
+تَعْرِفُنِي|تَـ=elle(s) + عْرِفُ=connaître + نِي=me|me connaissent|ع ر ف|تَفْعِلُ|Sujets non humains → verbe au féminin singulier.|present,suffixes
+وَالسَّيْفُ|وَ=et + الـ=le (س solaire) + سَيْف=sabre|et le sabre|س ي ف|فَعْل|—|solaires
+السَّيْفُ|الـ=le (س solaire) + سَيْف=sabre|le sabre|س ي ف|فَعْل|—|solaires
+وَالرُّمْحُ|وَ=et + الـ=la (ر solaire) + رُمْح=lance|et la lance|ر م ح|فُعْل|—|solaires
+الرُّمْحُ|الـ=la (ر solaire) + رُمْح=lance|la lance|ر م ح|فُعْل|—|solaires
+وَالْقِرْطَاسُ|وَ=et + الْ=le + قِرْطَاس=papier|et le papier|ق ر ط س|فِعْلَال (4 lettres)|Mot ancien venu du grec (chartês).|
+الْقِرْطَاسُ|الْ=le + قِرْطَاس=papier|le papier|ق ر ط س|فِعْلَال|Mot ancien venu du grec (chartês).|
+وَالْقَلَمُ|وَ=et + الْ=le + قَلَم=calame|et le calame|ق ل م|فَعَل|La rime du poème est en ـمُ (qâfiya mîmiyya).|
+نَظَرَ|نَظَرَ=regarder|a regardé (vu)|ن ظ ر|فَعَلَ|Passé forme I.|passe
+الْأَعْمَى|الْ=l' + أَعْمَى=aveugle|l'aveugle|ع م ي|أَفْعَل (défauts)|Schème أَفْعَل des infirmités (comme أَبْتَر). Nominatif (voyelle invisible).|racines
+أَدَبِي|أَدَب=littérature, art + ي=mon|mon art|أ د ب|فَعَل|أَدَب : la littérature, mais aussi la bonne éducation.|suffixes
+وَأَسْمَعَتْ|وَ=et + أَسْمَعَ=faire entendre (forme IV) + تْ=elles|et (mes mots) ont fait entendre|س م ع|أَفْعَلَ (forme IV)|Forme IV causative : سَمِعَ entendre → أَسْمَعَ « faire entendre ».|passe,racines
+كَلِمَاتِي|كَلِمَات=mots + ي=mes|mes mots|ك ل م|فَعِلَات|Nominatif : sujet.|plurielsains,suffixes
+صَمَمُ|صَمَم=surdité|surdité|ص م م|فَعَل|Nominatif : sujet de la relative (مَنْ بِهِ صَمَمٌ).|
+دَعِ|دَعْ=laisse|laisse|و د ع|عَلْ (impératif, le و tombe)|Impératif de يَدَعُ (racine و د ع) ; soukoun → kasra devant l'article.|racines
+الْأَيَّامَ|الْ=les + أَيَّام=jours|les jours|ي و م|أَفْعَال (أَيْوَام → أَيَّام)|Pluriel de يَوْم : و et ي fusionnent.|pluriels
+تَفْعَلُ|تَـ=ils + فْعَلُ=faire|faire|ف ع ل|تَفْعَلُ|Pluriel non humain → féminin singulier.|present
+تَشَاءُ|تَـ=ils + شَاءُ=vouloir|veulent|ش ي أ|تَفْعَلُ (تَشْيَأُ → تَشَاءُ)|Verbe creux.|present,racines
+وَطِبْ|وَ=et + طِبْ=sois bon, serein|et sois serein|ط ي ب|فِلْ (impératif d'un verbe creux)|Impératif de طَابَ / يَطِيبُ : le ي long tombe (طِيبْ → طِبْ).|racines
+حَكَمَ|حَكَمَ=juger, décréter|décrète|ح ك م|فَعَلَ|Passé après إِذَا : sens général.|passe
+الْقَضَاءُ|الْ=le + قَضَاء=décret divin|le décret|ق ض ي|فَعَال|Maṣdar de قَضَى « décider ». Nominatif : sujet.|
+تَجْزَعْ|تَـ=tu + جْزَعْ=s'affoler|(ne) t'affole (pas)|ج ز ع|تَفْعَلْ|Apocopé après لا d'interdiction.|negation
+لِحَادِثَةِ|لِـ=pour + حَادِثَة=événement, malheur|pour un malheur de|ح د ث|فَاعِلَة|Même racine que حَدِيث.|prepositions,idafa
+اللَّيَالِي|الـ=les (ل solaire) + لَيَالِي=nuits|les nuits|ل ي ل|فَعَالِي (pluriel de لَيْلَة)|Pluriel brisé irrégulier.|pluriels
+لِحَوَادِثِ|لِـ=à + حَوَادِث=malheurs|aux malheurs de|ح د ث|فَوَاعِل (pluriel de حَادِثَة)|Pluriel brisé فَوَاعِل.|pluriels
+الدُّنْيَا|الـ=le (د solaire) + دُنْيَا=bas monde|ce monde|د ن و|فُعْلَى|Féminin de أَدْنَى « le plus proche, le plus bas ».|genre
+بَقَاءُ|بَقَاء=durée, permanence|durée|ب ق ي|فَعَال|Maṣdar de بَقِيَ « rester ». Nominatif.|
+ذَهَبْتُ|ذَهَبْ=aller + تُ=je|je suis allé|ذ ه ب|فَعَلَ|Passé 1re pers. sing.|passe
+الْجُمُعَةِ|الْ=le + جُمُعَة=vendredi|vendredi|ج م ع|فُعُلَة|Le jour du rassemblement (même racine que جَامِعَة, اجْتَمَعَ).|racines,idafa
+السُّوقِ|الـ=le (س solaire) + سُوق=marché|le marché|س و ق|فُعْل|Génitif après إِلَى.|solaires
+السُّوقُ|الـ=le (س solaire) + سُوق=marché|le marché|س و ق|فُعْل|Nominatif : nom de كان.|solaires
+أُمِّي|أُمّ=mère + ي=ma|ma mère|أ م م|فُعْل|Racine sourde.|suffixes
+مُزْدَحِمًا|مُزْدَحِم=bondé|bondé|ز ح م|مُفْتَعِل (forme VIII : ت → د)|Forme VIII de زَحَمَ : après ز, le ت de la forme VIII devient د (مُزْتَحِم → مُزْدَحِم). Accusatif : prédicat de كان.|racines,cas
+بِالنَّاسِ|بِـ=de + الـ=les (ن solaire) + نَاس=gens|de monde|ن و س|فَعَال|—|prepositions
+اشْتَرَيْنَا|اشْتَرَيْ=acheter (forme VIII) + نَا=nous|nous avons acheté|ش ر ي|اِفْتَعَلَ (forme VIII)|Forme VIII de شَرَى : اشْتَرَى « acheter ».|passe,racines
+خُضَارًا|خُضَار=légumes|des légumes|خ ض ر|فُعَال|Même racine que أَخْضَر « vert ».|cas
+وَفَوَاكِهَ|وَ=et + فَوَاكِه=fruits|et des fruits|ف ك ه|فَوَاعِل (pluriel de فَاكِهَة)|Pluriel brisé diptote : pas de tanwîn.|pluriels
+طَازَجَةً|طَازَج=frais + ـَة|frais|—|فَاعَل|Mot d'origine persane (tâza). Pluriel non humain → féminin singulier.|adjectif
+سَأَلَتْ|سَأَلَ=demander + تْ=elle|a demandé|س أ ل|فَعَلَ|ـتْ : sujet féminin (أمي).|passe,genre
+الْبَائِعَ|الْ=le + بَائِع=vendeur|le vendeur|ب ي ع|فَاعِل (بَايِع → بَائِع)|Participe actif de بَاعَ « vendre ». Accusatif : objet.|racines,cas
+بِكَمْ|بِـ=à + كَمْ=combien|combien (prix)|—|—|بِكَمْ = « à combien ? ».|
+كِيلُو|كِيلُو=kilo|kilo|—|—|Mot emprunté, invariable.|
+الطَّمَاطِمِ|الـ=les (ط solaire) + طَمَاطِم=tomates|tomates|—|—|Mot emprunté (tomate). Génitif.|solaires
+الْبَائِعُ|الْ=le + بَائِع=vendeur|le vendeur|ب ي ع|فَاعِل|Nominatif : sujet.|cas
+بِثَلَاثَةِ|بِـ=à + ثَلَاثَة=trois|à trois|ث ل ث|فَعَالَة|Avec 3 à 10, accord inversé : دِينَار est masculin → ثَلَاثَة au féminin.|
+دَنَانِيرَ|دَنَانِير=dinars|dinars|—|فَعَالِيل (pluriel de دِينَار)|Pluriel brisé diptote (fatha au génitif).|pluriels,cas
+سَيِّدَتِي|سَيِّدَة=dame + ي=ma|madame|س و د|فَيْعِلَة|ة → ت devant le pronom.|suffixes,genre
+فَقَالَتْ|فَـ=alors + قَالَ=dire + تْ=elle|alors elle a dit|ق و ل|فَعَلَ|—|passe,genre
+غَالٍ|غَالٍ=cher|cher|غ ل و|فَاعِل (غَالِوٌ → غَالٍ)|Nom défectif : le ي final disparaît au nominatif/génitif indéfini, remplacé par le tanwîn ـٍ.|racines
+فَخَفَّضَ|فَـ=alors + خَفَّضَ=baisser (forme II)|alors il a baissé|خ ف ض|فَعَّلَ (forme II)|Forme II de خَفَضَ « abaisser ».|passe,racines
+السِّعْرَ|الـ=le (س solaire) + سِعْر=prix|le prix|س ع ر|فِعْل|Accusatif : objet.|cas
+رَجَعْنَا|رَجَعْ=revenir + نَا=nous|nous sommes rentrés|ر ج ع|فَعَلَ|—|passe
+مَسْرُورِينَ|مَسْرُور=content + ـِينَ|contents|س ر ر|مَفْعُول + ـِين|Participe passif de سَرَّ « réjouir ». Accusatif pluriel : ḥâl.|plurielsains,cas
+وَطَبَخَتْ|وَ=et + طَبَخَ=cuisiner + تْ=elle|et elle a cuisiné|ط ب خ|فَعَلَ|Même racine que مَطْبَخ « cuisine » (nom de lieu).|passe,genre
+غَدَاءً|غَدَاء=déjeuner|un déjeuner|غ د و|فَعَال|Accusatif indéfini : objet.|cas
+لَذِيذًا|لَذِيذ=délicieux|délicieux|ل ذ ذ|فَعِيل|Épithète à l'accusatif.|adjectif
+سَارَةُ|سَارَة=Sara|Sara|س ر ر|فَاعِلَة|Prénom féminin (« celle qui réjouit »). Nom propre féminin : diptote, pas de tanwîn.|cas
+وَأَسْكُنُ|وَ=et + أَ=je + سْكُنُ=habiter|et j'habite|س ك ن|أَفْعُلُ|Présent 1re pers. sing. de سَكَنَ ; même racine que مَسْكَن (logement) et سَكِينَة (sérénité).|present
+أَسْكُنُ|أَ=je + سْكُنُ=habiter|j'habite|س ك ن|أَفْعُلُ|Présent 1re pers. sing. de سَكَنَ.|present
+عَائِلَتِي|عَائِلَة=famille + ي=ma|ma famille|ع و ل|فَاعِلَة|Le ة devient ت devant le pronom ي.|suffixes,genre
+مَدِينَةٍ|مَدِينَة=ville|une ville|م د ن|فَعِيلَة|Génitif indéfini après فِي.|genre
+صَغِيرَةٍ|صَغِير=petit + ـَة=féminin|petite|ص غ ر|فَعِيل|Épithète : féminin, génitif, indéfini comme مدينة.|adjectif,genre
+صَغِيرَةٌ|صَغِير=petit + ـَة=féminin|petite|ص غ ر|فَعِيل|Épithète au nominatif indéfini (comme أختٌ).|adjectif,genre
+مُهَنْدِسٌ|مُهَنْدِس=ingénieur|ingénieur|ه ن د س|مُفَعْلِل (racine de 4 lettres)|Participe actif d'un verbe quadrilitère هَنْدَسَ « dessiner des plans ». Nominatif : prédicat.|nominale
+وَأُمِّي|وَ=et + أُمّ=mère + ي=ma|et ma mère|أ م م|فُعْل|Racine sourde.|suffixes
+طَبِيبَةٌ|طَبِيب=médecin + ـَة=féminin|médecin (femme)|ط ب ب|فَعِيل|Le ة forme le féminin des métiers. Prédicat au nominatif.|genre,nominale
+الْمُسْتَشْفَى|الْ=l' + مُسْتَشْفَى=hôpital|l'hôpital|ش ف ي|مُسْتَفْعَل (nom de lieu, forme X)|Forme X de شَفَى (guérir) : « le lieu où l'on cherche la guérison ». Le préfixe مُسْتَـ + voyelle a = nom de lieu.|racines
+لِي|لِـ=à + ي=moi|j'ai (à moi)|—|—|L'arabe n'a pas de verbe « avoir » : لِي أَخٌ = « à moi un frère » = j'ai un frère.|prepositions,nominale
+أَخٌ|أَخ=frère|un frère|أ خ و|فَعَل|Nominatif indéfini : sujet retardé.|cas
+كَبِيرٌ|كَبِير=grand|grand|ك ب ر|فَعِيل|Épithète au nominatif indéfini.|adjectif
+اسْمُهُ|اسْم=nom + هُ=son|son nom (est)|س م و|اِسْم|Phrase nominale : « son nom (est) ʿUmar ».|suffixes,nominale
+عُمَرُ|عُمَر=ʿUmar|ʿUmar|ع م ر|فُعَل|Prénom diptote : pas de tanwîn.|cas
+وَأُخْتٌ|وَ=et + أُخْت=sœur|et une sœur|أ خ و|فُعْل|Féminin de أَخ (le ت remplace le و).|genre
+أُخْتٌ|أُخْت=sœur|une sœur|أ خ و|فُعْل|Féminin de أَخ.|genre
+اسْمُهَا|اسْم=nom + هَا=son (à elle)|son nom (à elle)|س م و|اِسْم|هَا : pronom féminin.|suffixes
+مَرْيَمُ|مَرْيَم=Maryam|Maryam|—|—|Prénom (Marie). Diptote.|cas
+جَدِّي|جَدّ=grand-père + ي=mon|mon grand-père|ج د د|فَعْل|Racine sourde.|suffixes
+وَجَدَّتِي|وَ=et + جَدَّة=grand-mère + ي=ma|et ma grand-mère|ج د د|فَعْلَة|ة → ت devant le pronom.|suffixes,genre
+جَدَّتِي|جَدَّة=grand-mère + ي=ma|ma grand-mère|ج د د|فَعْلَة|Nominatif : sujet.|suffixes,genre
+يَسْكُنَانِ|يَـ=ils + سْكُنُ=habiter + ـَانِ=duel|habitent (tous les deux)|س ك ن|يَفْعُلَانِ|Présent au DUEL : deux sujets (grand-père et grand-mère).|duel,present
+قَرِيبًا|قَرِيب=proche|près|ق ر ب|فَعِيل|Accusatif : complément de lieu.|cas
+مِنَّا|مِنْ=de + نَا=nous|de nous|—|—|مِنْ + نَا → مِنَّا.|prepositions
+نَزُورُهُمَا|نَـ=nous + زُورُ=visiter + هُمَا=eux deux|nous leur rendons visite|ز و ر|نَفْعُلُ (verbe creux)|Présent de زَارَ / يَزُورُ ; هُمَا = pronom duel.|present,duel,suffixes
+سَبْتٍ|سَبْت=samedi|samedi|س ب ت|فَعْل|De سَبَتَ « se reposer » (le shabbat). Génitif : « le jour de samedi ».|idafa
+وَنَأْكُلُ|وَ=et + نَـ=nous + أْكُلُ=manger|et nous mangeons|أ ك ل|نَفْعُلُ|Présent 1re pers. pluriel.|present
+عِنْدَهُمَا|عِنْدَ=chez + هُمَا=eux deux|chez eux|—|—|هُمَا : duel.|prepositions,duel
+طَعَامًا|طَعَام=repas|un repas|ط ع م|فَعَال|Accusatif : objet.|cas
+تَحْكِي|تَـ=elle + حْكِي=raconter|raconte|ح ك ي|تَفْعِلُ|Racine défective : finale ي.|present
+قِصَصًا|قِصَص=histoires|des histoires|ق ص ص|فِعَل (pluriel de قِصَّة)|Pluriel brisé ; les deux ص restent séparés.|pluriels
+جَمِيلَةً|جَمِيل=beau + ـَة|belles|ج م ل|فَعِيل|Pluriel non humain → féminin singulier.|adjectif,genre
+عَنِ|عَنْ=sur, au sujet de|sur|—|—|Le soukoun devient kasra devant l'article.|prepositions
+الْمَاضِي|الْ=le + مَاضِي=passé|le passé|م ض ي|فَاعِل|Participe actif de مَضَى « passer ». Aussi : le temps « passé » en grammaire.|racines
+أُحِبُّ|أُ=je + حِبُّ=aimer (forme IV)|j'aime|ح ب ب|أُفْعِلُ (forme IV)|Présent de أَحَبَّ : préfixe أُ avec ḍamma (forme IV).|present,racines
+كَثِيرًا|كَثِير=beaucoup|beaucoup|ك ث ر|فَعِيل|Accusatif : adverbe.|cas
+وَأَشْكُرُ|وَ=et + أَ=je + شْكُرُ=remercier|et je remercie|ش ك ر|أَفْعُلُ|Même racine que شُكْرًا « merci ».|present
+عَلَيْهَا|عَلَى=pour + هَا=elle|pour elle|—|—|شَكَرَ عَلَى = remercier pour.|prepositions,suffixes
+وَصَلَ|وَصَلَ=arriver|est arrivé|و ص ل|فَعَلَ|Passé forme I.|passe
+أَحْمَدُ|أَحْمَد=Ahmad|Ahmad|ح م د|أَفْعَل|Prénom sur le schème du superlatif : « le plus louable ». Diptote.|cas,racines
+الْمَطَارِ|الْ=l' + مَطَار=aéroport|l'aéroport|ط ي ر|مَفْعَل (nom de lieu)|Nom de lieu de طَارَ « voler » : « le lieu d'où l'on s'envole ».|racines
+مَوْعِدِ|مَوْعِد=rendez-vous, heure prévue|l'heure de|و ع د|مَفْعِل (nom de temps)|De وَعَدَ « promettre » : le moment promis.|idafa,racines
+الرِّحْلَةِ|الـ=le (ر solaire) + رِحْلَة=voyage, vol|du vol|ر ح ل|فِعْلَة|Génitif.|idafa
+بِثَلَاثِ|بِـ=de + ثَلَاث=trois|de trois|ث ل ث|فَعَال|Accord inversé : سَاعَة est féminin → ثَلَاث sans ة.|
+سَاعَاتٍ|سَاعَات=heures|heures|س و ع|فَعَلَات (pluriel de سَاعَة)|Pluriel féminin sain au génitif.|plurielsains
+الْمُوَظَّفُ|الْ=l' + مُوَظَّف=employé|l'employé|و ظ ف|مُفَعَّل (participe passif, forme II)|Participe passif de وَظَّفَ « employer » : « celui qui est employé ».|racines
+جَوَازَ|جَوَاز=passage, passeport|le passeport (de)|ج و ز|فَعَال|جَوَاز سَفَر = « autorisation de voyage ». Accusatif : objet d'un verbe sous-entendu (« donne »).|idafa,cas
+سَفَرِكَ|سَفَر=voyage + كَ=ton|ton voyage|س ف ر|فَعَل|Complément d'annexion de جواز.|idafa,suffixes
+مِنْ|مِنْ=de|de|—|—|Préposition « de, à partir de ».|prepositions
+فَضْلِكَ|فَضْل=faveur + كَ=ta|s'il te plaît (« de ta faveur »)|ف ض ل|فَعْل|مِنْ فَضْلِكَ = « par ta faveur » = s'il te plaît.|suffixes
+أَعْطَاهُ|أَعْطَى=donner (forme IV) + هُ=lui|lui a donné|ع ط و|أَفْعَلَ (forme IV)|Le ى devient alif devant un pronom.|passe,suffixes
+الْجَوَازَ|الْ=le + جَوَاز=passeport|le passeport|ج و ز|فَعَال|Accusatif : 2e complément.|cas
+وَالتَّذْكِرَةَ|وَ=et + الـ=le (ت solaire) + تَذْكِرَة=billet|et le billet|ذ ك ر|تَفْعِلَة|De ذَكَرَ « se rappeler » : un « mémo », un ticket.|racines,solaires
+سَأَلَهُ|سَأَلَ=demander + هُ=lui|lui a demandé|س أ ل|فَعَلَ|—|passe,suffixes
+كَمْ|كَمْ=combien|combien|—|—|Après كَمْ interrogatif, le nom est au singulier accusatif : كَمْ حَقِيبَةً.|
+حَقِيبَةً|حَقِيبَة=valise|valise(s)|ح ق ب|فَعِيلَة|Accusatif singulier : tamyîz après كَمْ.|cas
+مَعَكَ|مَعَ=avec + كَ=toi|avec toi|—|—|مَعَكَ = « tu as sur toi ».|prepositions
+حَقِيبَةٌ|حَقِيبَة=valise|une valise|ح ق ب|فَعِيلَة|Nominatif indéfini.|
+وَاحِدَةٌ|وَاحِد=un + ـَة=féminin|une seule|و ح د|فَاعِل|Après le nom, s'accorde comme un adjectif.|adjectif
+فَقَطْ|فَـ + قَطْ=seulement|seulement|—|—|Invariable.|
+انْتَظَرَ|انْتَظَرَ=attendre (forme VIII)|il a attendu|ن ظ ر|اِفْتَعَلَ (forme VIII)|Forme VIII de نَظَرَ « regarder » : « regarder en avant » = attendre.|passe,racines
+قَاعَةِ|قَاعَة=salle|la salle de|ق و ع|فَاعَة|Génitif, 1er terme d'annexion.|idafa
+الِانْتِظَارِ|الـ=l' + انْتِظَار=attente|l'attente|ن ظ ر|اِفْتِعَال (maṣdar forme VIII)|Maṣdar forme VIII. L'alif de liaison prend une kasra après l'article : الِانْتِظَار.|racines
+وَقَرَأَ|وَ=et + قَرَأَ=lire|et il a lu|ق ر أ|فَعَلَ|—|passe
+جَرِيدَةً|جَرِيدَة=journal|un journal|ج ر د|فَعِيلَة|Accusatif indéfini : objet.|cas
+فَجْأَةً|فَجْأَة=soudain|soudain|ف ج أ|فَعْلَة|Accusatif indéfini employé comme adverbe.|cas
+سَمِعَ|سَمِعَ=entendre|il a entendu|س م ع|فَعِلَ|—|passe
+صَوْتًا|صَوْت=voix|une voix|ص و ت|فَعْل|Accusatif : objet.|cas
+يَقُولُ|يَـ=il + قُولُ=dire|qui disait|ق و ل|يَفْعُلُ (verbe creux)|Présent de قَالَ ; phrase qui qualifie صوتًا.|present,racines
+تَأَخَّرَتِ|تَأَخَّرَ=être en retard (forme V) + تِ=elle|a été retardée|أ خ ر|تَفَعَّلَ (forme V)|Forme V de أ خ ر : « se mettre en arrière ». ـتْ → ـتِ devant l'article.|passe,racines
+الطَّائِرَةُ|الـ=l' (ط solaire) + طَائِرَة=avion|l'avion|ط ي ر|فَاعِلَة|Nominatif : sujet.|cas
+سَاعَةً|سَاعَة=heure|d'une heure|س و ع|فَاعَة|Accusatif : durée.|cas
+يَغْضَبْ|يَـ=il + غْضَبْ=se fâcher|(ne) s'est (pas) fâché|غ ض ب|يَفْعَلْ|Apocopé après لَمْ.|negation
+بَلِ|بَلْ=mais plutôt|au contraire|—|—|بَلْ corrige ce qui précède ; soukoun → kasra devant l'alif de liaison.|
+اشْتَرَى|اشْتَرَى=acheter (forme VIII)|il a acheté|ش ر ي|اِفْتَعَلَ (forme VIII)|Forme VIII de شَرَى.|passe,racines
+كُوبَ|كُوب=verre, tasse|un verre de|ك و ب|فُعْل|Accusatif, 1er terme d'annexion.|idafa
+شَايٍ|شَاي=thé|thé|—|—|Mot emprunté (chinois chá). Génitif.|idafa
+وَصَبَرَ|وَ=et + صَبَرَ=patienter|et il a patienté|ص ب ر|فَعَلَ|Même racine que صَبْر (Al-ʿAṣr).|passe
+اسْتَيْقَظَ|اسْتَيْقَظَ=se réveiller (forme X)|s'est réveillé|ي ق ظ|اِسْتَفْعَلَ (forme X)|Forme X de ي ق ظ.|passe,racines
+خَالِدٌ|خَالِد=Khâlid|Khâlid|خ ل د|فَاعِل|Prénom : « éternel ». Nominatif avec tanwîn.|cas
+صَبَاحًا|صَبَاح=matin|le matin|ص ب ح|فَعَال|Accusatif : complément de temps.|cas
+يَشْعُرُ|يَـ=il + شْعُرُ=ressentir|il ressent|ش ع ر|يَفْعُلُ|وَهُوَ يَشْعُرُ = « alors qu'il ressentait » (ḥâl).|present
+بِأَلَمٍ|بِـ=(ressentir) + أَلَم=douleur|une douleur|أ ل م|فَعَل|شَعَرَ بِـ = ressentir.|prepositions
+شَدِيدٍ|شَدِيد=fort, intense|forte|ش د د|فَعِيل|Épithète au génitif.|adjectif
+رَأْسِهِ|رَأْس=tête + هِ=sa|sa tête|ر أ س|فَعْل|Génitif après فِي.|suffixes
+ذَهَبَ|ذَهَبَ=aller|il est allé|ذ ه ب|فَعَلَ|—|passe
+الطَّبِيبِ|الـ=le (ط solaire) + طَبِيب=médecin|le médecin|ط ب ب|فَعِيل|Génitif après إِلَى.|solaires
+فَسَأَلَهُ|فَـ=alors + سَأَلَ=demander + هُ=lui|qui lui a demandé|س أ ل|فَعَلَ|—|passe,suffixes
+مِمَّ|مِنْ=de + مَ=quoi|de quoi|—|—|مِنْ + مَا → مِمَّ (le ا tombe dans une question).|prepositions
+تَشْكُو|تَـ=tu + شْكُو=se plaindre|souffres-tu|ش ك و|تَفْعُلُ|Racine défective (و final).|present
+عِنْدِي|عِنْدَ=chez + ي=moi|j'ai|—|—|عِنْدِي = « chez moi » = j'ai.|prepositions,nominale
+صُدَاعٌ|صُدَاع=mal de tête|mal de tête|ص د ع|فُعَال|Le schème فُعَال sert à beaucoup de noms de maladies (سُعَال toux, زُكَام rhume).|racines
+وَحَرَارَةٌ|وَ=et + حَرَارَة=chaleur, fièvre|et de la fièvre|ح ر ر|فَعَالَة|Même racine que حَارّ « chaud ».|
+مُنْذُ|مُنْذُ=depuis|depuis|—|—|—|
+أَمْسِ|أَمْسِ=hier|hier|—|—|Invariable avec kasra.|
+فَحَصَهُ|فَحَصَ=examiner + هُ=le|l'a examiné|ف ح ص|فَعَلَ|—|passe,suffixes
+الطَّبِيبُ|الـ=le (ط solaire) + طَبِيب=médecin|le médecin|ط ب ب|فَعِيل|Nominatif : sujet.|cas
+تَخَفْ|تَـ=tu + خَفْ=avoir peur|(n')aie (pas) peur|خ و ف|تَفَلْ (تَخَافُ → تَخَفْ)|Apocopé après لا : le alif long tombe (verbe creux).|negation,racines
+زُكَامٌ|زُكَام=rhume|un rhume|ز ك م|فُعَال|Schème des maladies (comme صُدَاع).|
+بَسِيطٌ|بَسِيط=simple|simple|ب س ط|فَعِيل|Épithète au nominatif.|adjectif
+اشْرَبْ|اشْرَبْ=bois|bois|ش ر ب|اِفْعَلْ (impératif)|Impératif de شَرِبَ.|racines
+مَاءً|مَاء=eau|de l'eau|م و ه|فَعَل|Accusatif indéfini.|cas
+وَنَمْ|وَ=et + نَمْ=dors|et dors|ن و م|فَلْ (impératif verbe creux)|Impératif de نَامَ / يَنَامُ : نَامْ → نَمْ (le alif tombe).|racines
+جَيِّدًا|جَيِّد=bien|bien|ج و د|فَيْعِل (جَيْوِد → جَيِّد)|و et ي fusionnent. Accusatif : adverbe.|
+وَخُذْ|وَ=et + خُذْ=prends|et prends|أ خ ذ|عُلْ (impératif irrégulier)|Impératif de أَخَذَ : la hamza tombe → خُذْ.|racines
+الدَّوَاءَ|الـ=le (د solaire) + دَوَاء=médicament|le médicament|د و ي|فَعَال|Accusatif : objet.|cas
+مَرَّتَيْنِ|مَرَّة=fois + ـَتَيْنِ=duel|deux fois|م ر ر|فَعْلَة + duel|Duel à l'accusatif : ـَيْنِ.|duel
+الْيَوْمِ|الْ=le + يَوْم=jour|le jour|ي و م|فَعْل|Génitif après فِي.|
+شَكَرَ|شَكَرَ=remercier|a remercié|ش ك ر|فَعَلَ|—|passe
+الطَّبِيبَ|الـ=le + طَبِيب=médecin|le médecin|ط ب ب|فَعِيل|Accusatif : objet.|cas
+وَرَجَعَ|وَ=et + رَجَعَ=revenir|et est rentré|ر ج ع|فَعَلَ|—|passe
+بَيْتِهِ|بَيْت=maison + هِ=sa|sa maison|ب ي ت|فَعْل|—|suffixes
+لِيَرْتَاحَ|لِـ=pour + يَرْتَاحَ=se reposer (forme VIII)|pour se reposer|ر و ح|يَفْتَعِلَ (forme VIII, subjonctif)|Forme VIII de ر و ح : ارْتَاحَ « se reposer ». Subjonctif après لِـ.|present,racines
+وَبَعْدَ|وَ=et + بَعْدَ=après|et après|—|—|—|prepositions
+ثَلَاثَةِ|ثَلَاثَة=trois|trois|ث ل ث|فَعَالَة|يَوْم est masculin → ثَلَاثَة au féminin (accord inversé).|
+أَيَّامٍ|أَيَّام=jours|jours|ي و م|أَفْعَال|Pluriel de يَوْم.|pluriels
+شُفِيَ|شُفِيَ=être guéri (passif)|il était guéri|ش ف ي|فُعِلَ (passif)|Passif de شَفَى : voyelles u-i.|passe,racines
+وَالْحَمْدُ|وَ=et + الْ=la + حَمْد=louange|et louange (à Allah)|ح م د|فَعْل|—|
+يَبِيعُ|يَـ=il + بِيعُ=vendre|vendait|ب ي ع|يَفْعِلُ (verbe creux)|Présent de بَاعَ ; كَانَ + présent = imparfait (« il vendait »).|present,racines
+الْخُبْزَ|الْ=le + خُبْز=pain|le pain|خ ب ز|فُعْل|Accusatif : objet.|cas
+دُكَّانٍ|دُكَّان=boutique|une boutique|د ك ن|فُعَّال|Génitif indéfini après فِي.|
+صَغِيرٍ|صَغِير=petit|petite|ص غ ر|فَعِيل|دُكَّان est masculin en arabe.|adjectif
+قُرْبَ|قُرْب=près de|près de|ق ر ب|فُعْل|Accusatif : complément de lieu.|prepositions
+الْأَيَّامِ|الْ=les + أَيَّام=jours|les jours|ي و م|أَفْعَال|فِي يَوْمٍ مِنَ الْأَيَّامِ = « un jour parmi les jours » = un beau jour.|pluriels
+نَسِيَ|نَسِيَ=oublier|a oublié|ن س ي|فَعِلَ|—|passe
+مِحْفَظَتَهُ|مِحْفَظَة=portefeuille + هُ=son|son portefeuille|ح ف ظ|مِفْعَلَة (nom d'instrument)|Schème d'instrument مِفْعَلَة : حَفِظَ garder → « ce qui sert à garder ».|racines,suffixes
+الطَّاوِلَةِ|الـ=la (ط solaire) + طَاوِلَة=table|la table|—|—|Mot emprunté (italien tavola).|solaires
+فَتَحَهَا|فَتَحَ=ouvrir + هَا=le (portefeuille)|l'a ouvert|ف ت ح|فَعَلَ|هَا : مِحْفَظَة est féminin.|passe,suffixes
+فَوَجَدَ|فَـ=et + وَجَدَ=trouver|et a trouvé|و ج د|فَعَلَ|—|passe
+مَالًا|مَال=argent|de l'argent|م و ل|فَعَل|Accusatif.|cas
+يَأْخُذْ|يَـ=il + أْخُذْ=prendre|(n')a (rien) pris|أ خ ذ|يَفْعُلْ|Apocopé après لَمْ.|negation
+مِنْهَا|مِنْ=de + هَا=lui (le portefeuille)|en (de lui)|—|—|—|prepositions,suffixes
+شَيْئًا|شَيْء=chose|rien (quelque chose)|ش ي أ|فَعْل|Après négation : « rien ».|cas
+صَاحِبَهَا|صَاحِب=propriétaire + هَا=sa|son propriétaire|ص ح ب|فَاعِل|صَاحِب : compagnon, mais aussi « possesseur de ».|suffixes
+رَجَعَ|رَجَعَ=revenir|est revenu|ر ج ع|فَعَلَ|—|passe
+الرَّجُلُ|الـ=l' (ر solaire) + رَجُل=homme|l'homme|ر ج ل|فَعُل|Nominatif : sujet.|cas
+خَائِفًا|خَائِف=ayant peur|inquiet|خ و ف|فَاعِل (خَاوِف → خَائِف)|Participe actif de خَافَ. Accusatif : ḥâl.|cas
+فَأَعْطَاهُ|فَـ=alors + أَعْطَى=donner + هُ=lui|alors il lui a rendu|ع ط و|أَفْعَلَ (forme IV)|—|passe,suffixes
+الْمِحْفَظَةَ|الْ=le + مِحْفَظَة=portefeuille|le portefeuille|ح ف ظ|مِفْعَلَة|Accusatif : 2e complément.|cas
+كَامِلَةً|كَامِل=complet + ـَة|intact|ك م ل|فَاعِل|Accusatif : ḥâl (dans quel état il le rend).|cas
+بَارَكَ|بَارَكَ=bénir (forme III)|qu'(Allah) bénisse|ب ر ك|فَاعَلَ (forme III)|Passé à valeur de souhait (du'â') : « qu'Allah bénisse ».|passe,racines
+فِيكَ|فِي=en + كَ=toi|en toi|—|—|—|prepositions
+الْأَمَانَةُ|الْ=l' + أَمَانَة=honnêteté, dépôt|l'honnêteté|أ م ن|فَعَالَة|Même racine que أَمِين (digne de confiance) et أَمْن (sécurité).|racines
+كَنْزٌ|كَنْز=trésor|un trésor|ك ن ز|فَعْل|Nominatif : prédicat.|nominale
+يَفْنَى|يَـ=il + فْنَى=s'épuiser|(ne) s'épuise (pas)|ف ن ي|يَفْعَلُ|Racine défective.|present
+وَمُنْذُ|وَ=et + مُنْذُ=depuis|et depuis|—|—|—|
+ذٰلِكَ|ذٰلِكَ=ce, celui-là|ce (jour-là)|—|—|Démonstratif de l'éloigné.|demonstratifs
+أَصْبَحَ|أَصْبَحَ=devenir (forme IV)|il est devenu|ص ب ح|أَفْعَلَ|Sœur de كَانَ : « devenir » (à l'origine : « entrer dans le matin »).|passe
+يَشْتَرِي|يَـ=il + شْتَرِي=acheter (forme VIII)|il achète|ش ر ي|يَفْتَعِلُ|Forme VIII ; racine défective.|present,racines
+خُبْزَهُ|خُبْز=pain + هُ=son|son pain|خ ب ز|فُعْل|—|suffixes
+دُكَّانِ|دُكَّان=boutique|la boutique de|د ك ن|فُعَّال|1er terme d'annexion.|idafa
+سَعِيدٍ|سَعِيد=Saʿîd|Saʿîd|س ع د|فَعِيل|Prénom (« heureux ») ; ici triptote avec tanwîn.|idafa
+صَبَاحٍ|صَبَاح=matin|matin|ص ب ح|فَعَال|كُلَّ صَبَاحٍ = chaque matin.|idafa
+عَزِيزِي|عَزِيز=cher + ي=mon|mon cher|ع ز ز|فَعِيل|Formule d'ouverture d'une lettre.|suffixes
+يُوسُفُ|يُوسُف=Yûsuf|Yûsuf|—|—|Vocatif sans يَا : nominatif sans tanwîn.|cas
+السَّلَامُ|الـ=la (س solaire) + سَلَام=paix|la paix|س ل م|فَعَال|Nominatif : sujet de la formule de salut.|solaires
+عَلَيْكُمْ|عَلَى=sur + كُمْ=vous|sur vous|—|—|Le pluriel كُمْ s'emploie même pour une seule personne, par respect.|prepositions,suffixes
+وَرَحْمَةُ|وَ=et + رَحْمَة=miséricorde|et la miséricorde de|ر ح م|فَعْلَة|1er terme d'annexion.|idafa
+أَكْتُبُ|أَ=je + كْتُبُ=écrire|j'écris|ك ت ب|أَفْعُلُ|Présent de كَتَبَ.|present
+إِلَيْكَ|إِلَى=à + كَ=toi|à toi|—|—|—|prepositions
+هٰذِهِ|هٰذِهِ=cette|cette|—|—|Démonstratif féminin (رسالة est féminin).|demonstratifs
+الرِّسَالَةَ|الـ=la (ر solaire) + رِسَالَة=lettre|la lettre|ر س ل|فِعَالَة|Même racine que رَسُول (messager) : ce qu'on envoie.|racines
+الْمَغْرِبِ|الْ=le + مَغْرِب=Maroc|le Maroc|غ ر ب|مَفْعِل|« Le pays du couchant » (l'Occident).|racines
+حَيْثُ|حَيْثُ=là où|où|—|—|—|
+أَقْضِي|أَ=je + قْضِي=passer (du temps)|je passe|ق ض ي|أَفْعِلُ|قَضَى = décider, accomplir, passer (un temps).|present
+عُطْلَتِي|عُطْلَة=vacances + ي=mes|mes vacances|ع ط ل|فُعْلَة|De عَطَلَ « être inactif ».|suffixes
+الْجَوُّ|الْ=le + جَوّ=temps, air|le temps (météo)|ج و و|فَعْل|Racine sourde.|
+هُنَا|هُنَا=ici|ici|—|—|—|
+مُعْتَدِلٌ|مُعْتَدِل=modéré, doux|doux|ع د ل|مُفْتَعِل (forme VIII)|Forme VIII de ع د ل (équilibre) : « équilibré ».|racines
+وَالنَّاسُ|وَ=et + الـ=les + نَاس=gens|et les gens|ن و س|فَعَال|Nominatif.|
+كُرَمَاءُ|كُرَمَاء=généreux (pl.)|généreux|ك ر م|فُعَلَاء (pluriel de كَرِيم)|Pluriel brisé فُعَلَاء, fréquent pour les adjectifs فَعِيل de personnes.|pluriels
+جِدًّا|جِدّ=sérieux|très|ج د د|فِعْل|Accusatif employé comme adverbe : « très ».|
+زُرْتُ|زُرْ=visiter + تُ=je|j'ai visité|ز و ر|فَعَلَ (زَارَ → زُرْتُ)|Verbe creux : le alif tombe devant ـتُ.|passe,racines
+مَدِينَةَ|مَدِينَة=ville|la ville de|م د ن|فَعِيلَة|Accusatif, 1er terme d'annexion.|idafa
+فَاسَ|فَاس=Fès|Fès|—|—|Nom de ville : diptote (génitif en fatha).|cas
+الْقَدِيمَةَ|الْ=la + قَدِيم=ancien + ـَة|vieille|ق د م|فَعِيل|Épithète de مدينة (accusatif, féminin).|adjectif
+وَمَشَيْتُ|وَ=et + مَشَيْ=marcher + تُ=je|et j'ai marché|م ش ي|فَعَلَ|Racine défective : le ي réapparaît.|passe
+أَزِقَّتِهَا|أَزِقَّة=ruelles + هَا=ses|ses ruelles|ز ق ق|أَفْعِلَة (pluriel de زُقَاق)|Pluriel brisé أَفْعِلَة.|pluriels,suffixes
+الضَّيِّقَةِ|الـ=les (ض solaire) + ضَيِّق=étroit + ـَة|étroites|ض ي ق|فَيْعِل|Pluriel non humain → féminin singulier.|adjectif
+وَصَلَّيْتُ|وَ=et + صَلَّيْ=prier (forme II) + تُ=je|et j'ai prié|ص ل و|فَعَّلَ (forme II)|Le ى devient ي devant ـتُ.|passe
+جَامِعِ|جَامِع=grande mosquée|la grande mosquée de|ج م ع|فَاعِل|« Celle qui rassemble » (pour la prière du vendredi).|idafa
+الْقَرَوِيِّينَ|الْ=les + قَرَوِيِّين=gens de Kairouan|al-Qarawiyyîn|ق ر و|فَعَلِيّ + ـِين|Nisba de القَيْرَوَان (Kairouan), la ville d'origine de la fondatrice Fâṭima al-Fihriyya.|plurielsains
+أَقْدَمِ|أَقْدَم=le plus ancien|les plus anciennes de|ق د م|أَفْعَل (élatif)|Superlatif de قَدِيم.|racines,idafa
+الْجَامِعَاتِ|الْ=les + جَامِعَات=universités|universités|ج م ع|فَاعِلَات|Pluriel féminin sain de جَامِعَة.|plurielsains
+الْعَالَمِ|الْ=le + عَالَم=monde|le monde|ع ل م|فَاعَل|—|
+أَتَمَنَّى|أَ=je + تَمَنَّى=souhaiter (forme V)|j'espère|م ن ي|أَتَفَعَّلُ (forme V)|Forme V de م ن ي.|present,racines
+أَنْ|أَنْ=que|que|—|—|أَنْ + présent → subjonctif (fatha).|
+تَزُورَ|تَـ=tu + زُورَ=visiter|tu visites|ز و ر|تَفْعُلَ (subjonctif)|Fatha finale : subjonctif après أَنْ.|present
+الْبَلَدَ|الْ=le + بَلَد=pays|pays|ب ل د|فَعَل|Accusatif.|cas
+مَعِي|مَعَ=avec + ي=moi|avec moi|—|—|—|prepositions
+الْمَرَّةِ|الْ=la + مَرَّة=fois|la fois|م ر ر|فَعْلَة|—|
+الْقَادِمَةِ|الْ=la + قَادِم=qui vient + ـَة|prochaine|ق د م|فَاعِل|Participe actif de قَدِمَ « arriver ».|adjectif
+أَرْسِلْ|أَرْسِلْ=envoie (forme IV)|envoie|ر س ل|أَفْعِلْ (impératif forme IV)|L'impératif de la forme IV garde sa hamza (أَ).|racines
+أَخْبَارَكَ|أَخْبَار=nouvelles + كَ=tes|tes nouvelles|خ ب ر|أَفْعَال|—|pluriels,suffixes
+وَسَلِّمْ|وَ=et + سَلِّمْ=salue (forme II)|et salue|س ل م|فَعِّلْ (impératif forme II)|سَلَّمَ عَلَى = saluer.|racines
+أَهْلِكَ|أَهْل=famille + كَ=ta|ta famille|أ ه ل|فَعْل|Génitif après عَلَى.|suffixes
+أَخُوكَ|أَخُو=frère + كَ=ton|ton frère|أ خ و|فَعَل|« Cinq noms » : au nominatif أَخُو devant pronom.|cas
+إِبْرَاهِيمُ|إِبْرَاهِيم=Ibrâhîm|Ibrâhîm|—|—|Nom étranger : diptote.|cas
+قَدِيمِ|قَدِيم=ancien|l'ancien (temps)|ق د م|فَعِيل|فِي قَدِيمِ الزَّمَانِ = « il était une fois ».|idafa
+الزَّمَانِ|الـ=le (ز solaire) + زَمَان=temps|le temps|ز م ن|فَعَال|—|idafa
+مَلِكٌ|مَلِك=roi|un roi|م ل ك|فَعِل|Nominatif : nom de كان.|
+الْمَدْحَ|الْ=l' + مَدْح=éloge|les éloges|م د ح|فَعْل|Accusatif.|cas
+وَيَكْرَهُ|وَ=et + يَـ=il + كْرَهُ=détester|et détestait|ك ر ه|يَفْعَلُ|—|present
+النَّصِيحَةَ|الـ=le + نَصِيحَة=conseil|les conseils|ن ص ح|فَعِيلَة|Accusatif.|cas
+فَدَخَلَ|فَـ=alors + دَخَلَ=entrer|alors entra|د خ ل|فَعَلَ|دَخَلَ عَلَى = entrer chez quelqu'un.|passe
+عَلَيْهِ|عَلَى=chez + هِ=lui|chez lui|—|—|—|prepositions
+يَوْمًا|يَوْم=jour|un jour|ي و م|فَعْل|Accusatif : complément de temps.|cas
+حَكِيمٌ|حَكِيم=sage|un sage|ح ك م|فَعِيل|Même racine que حِكْمَة (sagesse).|
+الْمَلِكُ|الْ=le + مَلِك=roi|roi|م ل ك|فَعِل|Nominatif après أَيُّهَا.|
+الْعَدْلَ|الْ=la + عَدْل=justice|la justice|ع د ل|فَعْل|Accusatif : nom de إِنَّ.|inna
+أَسَاسُ|أَسَاس=fondement|le fondement de|أ س س|فَعَال|Nominatif : prédicat de إنّ.|inna,idafa
+الْمُلْكِ|الْ=le + مُلْك=pouvoir, royauté|du pouvoir|م ل ك|فُعْل|Même racine que مَلِك, مَالِك : مُلْك (u) = le règne.|idafa,racines
+فَغَضِبَ|فَـ=alors + غَضِبَ=se fâcher|alors (le roi) se fâcha|غ ض ب|فَعِلَ|—|passe
+وَأَمَرَ|وَ=et + أَمَرَ=ordonner|et ordonna|أ م ر|فَعَلَ|أَمَرَ بِـ = ordonner quelque chose.|passe
+بِسَجْنِهِ|بِـ=(ordonner) + سَجْن=emprisonnement + هِ=le|qu'on l'emprisonne|س ج ن|فَعْل (maṣdar)|سَجْن (a) = l'action d'emprisonner ; سِجْن (i) = la prison.|prepositions
+أَشْهُرٍ|أَشْهُر=mois|quelques mois|ش ه ر|أَفْعُل (pluriel de paucité)|Le pluriel أَفْعُل sert aux petits nombres (3 à 10).|pluriels
+ثَارَ|ثَارَ=se révolter|s'est révolté|ث و ر|فَعَلَ (verbe creux)|Même racine que ثَوْرَة « révolution ».|passe
+الْمَلِكِ|الْ=le + مَلِك=roi|le roi|م ل ك|فَعِل|Génitif après عَلَى.|
+لِأَنَّهُ|لِـ=parce + أَنَّ=que + هُ=il|parce qu'il|—|—|لِأَنَّ : sœur de إنّ.|inna
+ظَلَمَهُمْ|ظَلَمَ=opprimer + هُمْ=les|les avait opprimés|ظ ل م|فَعَلَ|Même racine que ظُلْم « injustice ».|passe,suffixes
+فَتَذَكَّرَ|فَـ=alors + تَذَكَّرَ=se souvenir (forme V)|alors il se souvint|ذ ك ر|تَفَعَّلَ (forme V)|Forme V réfléchie de ذَكَرَ.|passe,racines
+كَلَامَ|كَلَام=paroles|les paroles de|ك ل م|فَعَال|Accusatif.|idafa
+الْحَكِيمِ|الْ=le + حَكِيم=sage|du sage|ح ك م|فَعِيل|Génitif.|idafa
+وَأَخْرَجَهُ|وَ=et + أَخْرَجَ=faire sortir (forme IV) + هُ=le|et le fit sortir|خ ر ج|أَفْعَلَ (forme IV)|—|passe,racines
+السِّجْنِ|الـ=la (س solaire) + سِجْن=prison|la prison|س ج ن|فِعْل|—|solaires
+وَاعْتَذَرَ|وَ=et + اعْتَذَرَ=s'excuser (forme VIII)|et s'excusa|ع ذ ر|اِفْتَعَلَ (forme VIII)|Forme VIII de ع ذ ر (excuse) : « présenter ses excuses ».|passe,racines
+الْحَكِيمُ|الْ=le + حَكِيم=sage|le sage|ح ك م|فَعِيل|Nominatif : sujet.|
+الصَّدِيقُ|الـ=l' (ص solaire) + صَدِيق=ami|l'ami|ص د ق|فَعِيل|Même racine que صِدْق « vérité » : l'ami vrai.|racines
+صَدَقَكَ|صَدَقَ=dire vrai + كَ=à toi|t'a dit la vérité|ص د ق|فَعَلَ (forme I)|Forme I : dire la vérité à quelqu'un.|passe,racines
+صَدَّقَكَ|صَدَّقَ=croire, approuver (forme II) + كَ=te|t'a donné raison|ص د ق|فَعَّلَ (forme II)|Même racine, forme II : « tenir pour vrai ». Le jeu de mots repose sur une seule shadda !|passe,racines
+فَجَعَلَهُ|فَـ=alors + جَعَلَ=faire de + هُ=lui|alors il fit de lui|ج ع ل|فَعَلَ|جَعَلَ + 2 compléments = « faire de X un Y ».|passe,suffixes
+وَزِيرًا|وَزِير=ministre|ministre|و ز ر|فَعِيل|« Celui qui porte la charge » (cf. وِزْر).|cas
+وَحَكَمَ|وَ=et + حَكَمَ=gouverner|et gouverna|ح ك م|فَعَلَ|—|passe
+بِالْعَدْلِ|بِـ=avec + الْ=la + عَدْل=justice|avec justice|ع د ل|فَعْل|—|prepositions
+بَقِيَّةَ|بَقِيَّة=reste|le reste de|ب ق ي|فَعِيلَة|Accusatif : durée.|idafa
+حَيَاتِهِ|حَيَاة=vie + هِ=sa|sa vie|ح ي ي|فَعَلَة|Même racine que الحَيّ (Âyat al-Kursî).|suffixes
 الْكَعْبَةِ|الْ=la + كَعْبَة=Kaaba|la Kaaba|ك ع ب|فَعْلَة|Génitif après حَوْلَ (« autour de la Kaaba »).|cas
 الْعَصْرِ|الْ=le + عَصْر=temps|le Temps|ع ص ر|فَعْل|عَصْر : le temps qui passe, l'époque, et aussi l'après-midi (prière du ʿaṣr).|
 عَمِلُوا|عَمِلَ=œuvrer + ـُوا=ils|ils ont accompli|ع م ل|فَعِلَ (forme I)|Passé forme I sur le modèle فَعِلَ. ـُوا = ils (l'alif final est muet).|passe
@@ -2363,6 +3102,7 @@ const WA_SRC=`
 شَمَّ|شَمَّ=sentir|sentit|ش م م|فَعَلَ (شَمِمَ → شَمَّ)|Racine sourde : les deux م fusionnent.|passe,racines
 سَقَطَتْ|سَقَطَ=tomber + تْ=elle|tomba|س ق ط|فَعَلَ|ـتْ : 3e pers. féminin (le sujet قطعة est féminin).|passe,genre
 هَرَبَ|هَرَبَ=s'enfuir|s'enfuit|ه ر ب|فَعَلَ|Passé forme I.|passe
+يَوْمَ|يَوْم=jour|le jour de (vendredi)|ي و م|فَعْل|Accusatif : complément de temps (ẓarf) — « le jour de vendredi » ; 1er terme d'annexion.|idafa,cas
 `;
 
 /* place les balises d’icône et d’app dans <head> (iPhone et Android ne les lisent que là) */
@@ -2546,8 +3286,8 @@ document.addEventListener("click",e=>{const c=e.target.closest(".wchip[data-w],.
 const TXT={};
 TEXTS.forEach(t=>{TXT[t.id]=t;
  t.vids=t.voc.map((v,i)=>{const id="tv:"+t.id+":"+i;CM[id]={id,lang:"ar",w:v[0],tr:v[1],d:v[2],series:"Vocabulaire · "+t.title,txt:t.id};return id});
- t.sids=t.s.map((r,i)=>{const id="ts:"+t.id+":"+i,ref=t.type==="coran"?"Verset "+(r[2]||i+1):"Phrase "+(i+1)+"/"+t.s.length;
-  CM[id]={id,lang:"ar",kind:"x",series:t.title,q:"Traduis en français · "+ref,w:r[0],d:r[1],note:t.src+(t.type==="coran"?" · traduction du sens, indicative":""),txt:t.id};return id})});
+ t.sids=t.s.map((r,i)=>{const id="ts:"+t.id+":"+i,ref=t.type==="coran"?"Verset "+(r[2]||i+1):t.type==="hadith"?"Hadith "+(i+1)+"/"+t.s.length:r[2]?r[2]:"Phrase "+(i+1)+"/"+t.s.length;
+  CM[id]={id,lang:"ar",kind:"x",series:t.title,q:"Traduis en français · "+ref,w:r[0],d:r[1],note:(t.type==="hadith"&&r[2]?r[2]:t.src)+(t.type!=="texte"?" · traduction du sens, indicative":""),txt:t.id};return id})});
 
 /* séries générées par Claude (stockées à part) */
 const GKEY=sfx("plume.gen.v1");
@@ -3123,17 +3863,17 @@ function textState(t){if(S.td[t.id])return`<span class="tag" style="background:v
 function renderTexts(){
  const nt=nextText(),d=exDue("ar").length,c=TEXTS.filter(t=>t.type==="coran").length;
  $("#exNextLbl").textContent="Texte en cours";$("#exNext").textContent=nt?nt.title:"Tous les textes sont traduits !";
- $("#exStat").textContent=`${TEXTS.filter(t=>S.td[t.id]).length} traduits sur ${TEXTS.length} · ${c} passages du Coran, ${TEXTS.length-c} textes`;
+ $("#exStat").textContent=`${TEXTS.filter(t=>S.td[t.id]).length} traduits sur ${TEXTS.length} · ${c} passages du Coran, ${TEXTS.filter(t=>t.type==="hadith").length} de hadiths, ${TEXTS.filter(t=>t.type==="texte").length} textes`;
  $("#exStudy").textContent="Continuer";$("#exStudy").disabled=!nt;$("#exDueBtn").disabled=!d;$("#exDueBtn").textContent=d?`À revoir (${d})`:"Rien à revoir";
  $("#exListTitle").textContent="Vocabulaire d’abord, puis le texte";
- const item=t=>`<button class="notion" data-t="${t.id}"><span class="num ${t.type}">${t.type==="coran"?"ق":"ن"}</span><span class="nt"><h3>${esc(t.title)}</h3><small>${esc(t.src)}</small><span class="bar" style="margin-top:4px"><i style="width:${vocLearned(t)/t.vids.length*100}%"></i></span></span>${textState(t)}</button>`;
- $("#exList").innerHTML=`<div class="eyebrow" style="margin-top:2px">Coran</div>${TEXTS.filter(t=>t.type==="coran").map(item).join("")}<div class="eyebrow" style="margin-top:10px">Textes</div>${TEXTS.filter(t=>t.type==="texte").map(item).join("")}`;
+ const item=t=>`<button class="notion" data-t="${t.id}"><span class="num ${t.type}">${t.type==="coran"?"ق":t.type==="hadith"?"ح":"ن"}</span><span class="nt"><h3>${esc(t.title)}</h3><small>${esc(t.src)}</small><span class="bar" style="margin-top:4px"><i style="width:${vocLearned(t)/t.vids.length*100}%"></i></span></span>${textState(t)}</button>`;
+ $("#exList").innerHTML=`<div class="eyebrow" style="margin-top:2px">Coran</div>${TEXTS.filter(t=>t.type==="coran").map(item).join("")}<div class="eyebrow" style="margin-top:10px">Hadiths</div>${TEXTS.filter(t=>t.type==="hadith").map(item).join("")}<div class="eyebrow" style="margin-top:10px">Textes · poésie</div>${TEXTS.filter(t=>t.type==="texte").map(item).join("")}`;
 }
 function openText(id){
  const t=TXT[id];if(!t)return;MODE="panel";const l=vocLearned(t),all=l===t.vids.length,open=textOpen(t),co=t.type==="coran";
  $("#overlay").innerHTML=`<div class="panel" role="dialog" aria-label="${esc(t.title)}">
   <div class="phead"><button class="iconbtn" data-close aria-label="Fermer">${ICON.back}</button><h2>${esc(t.title)}</h2></div>
-  <div class="pbody"><div><span class="tag ttype ${t.type}">${co?"Coran":"Texte"}</span> <span class="muted">${esc(t.src)}</span></div>
+  <div class="pbody"><div><span class="tag ttype ${t.type}">${co?"Coran":t.type==="hadith"?"Hadith":"Texte"}</span> <span class="muted">${esc(t.src)}</span></div>
    <p style="margin:0;line-height:1.5">${esc(t.intro)}</p>
    <div class="card"><div class="eyebrow">Étape 1 · Le vocabulaire</div><h3>${l}/${t.vids.length} mots acquis</h3><span class="bar"><i style="width:${l/t.vids.length*100}%"></i></span>
     <small class="muted">Apprends ces mots quelques jours avant. Le texte se débloque quand tous sont acquis (notés Bien deux fois, ou Facile).</small>
@@ -3156,7 +3896,7 @@ function readText(id){
   <div class="phead"><button class="iconbtn" id="rBack" aria-label="Retour">${ICON.back}</button><h2>${esc(t.title)}</h2></div>
   <div class="pbody"><div class="muted">${esc(t.src)} · touche un ${co?"verset":"passage"} pour voir sa traduction et le décortiquer mot à mot</div>
    <button class="btn ghost sm" id="rAll">Afficher toute la traduction</button>
-   <div class="reader">${t.s.map((r,i)=>`<div class="verse" role="button" tabindex="0" data-i="${i}"><span class="ar" lang="ar">${esc(r[0])}${co&&(i===t.s.length-1||String(t.s[i+1][2]).replace(/[a-z]$/,"")!==String(r[2]||i+1).replace(/[a-z]$/,""))?` <span class="vnum">﴿${String(r[2]||i+1).replace(/[a-z]$/,"")}﴾</span>`:""}</span><div class="vtr" hidden><span>${esc(r[1])}</span><span class="vhint">Touche un mot pour le décortiquer</span>${waChips(r[0])}</div></div>`).join("")}</div>
+   <div class="reader">${t.s.map((r,i)=>`<div class="verse" role="button" tabindex="0" data-i="${i}"><span class="ar" lang="ar">${esc(r[0])}${co&&(i===t.s.length-1||String(t.s[i+1][2]).replace(/[a-z]$/,"")!==String(r[2]||i+1).replace(/[a-z]$/,""))?` <span class="vnum">﴿${String(r[2]||i+1).replace(/[a-z]$/,"")}﴾</span>`:""}</span><div class="vtr" hidden><span>${esc(r[1])}</span>${!co&&r[2]?`<span class="vref">${esc(r[2])}</span>`:""}<span class="vhint">Touche un mot pour le décortiquer</span>${waChips(r[0])}</div></div>`).join("")}</div>
    <button class="btn" id="rDone">${S.td[id]?"Texte traduit ✓":"J’ai traduit ce texte"}</button>
   </div></div>`;
  $("#rBack").onclick=()=>openText(id);

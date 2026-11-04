@@ -797,6 +797,53 @@ select.inp{font-size:16px}
 :root.p-iphone.fb .app{position:fixed;top:0;left:0;right:0;bottom:auto!important;height:calc(var(--app-h,100dvh) + var(--ios-adj,0px))!important}
 :root.p-iphone.fb .nav{position:absolute;left:0;right:0;bottom:0;padding-bottom:max(8px,env(safe-area-inset-bottom,0px))}
 
+/* ================================================================
+   v14 : MOT À MOT — chaque mot des textes se décortique
+   ================================================================ */
+.verse{cursor:pointer}
+.vtr{display:flex;flex-direction:column;gap:8px}
+.vhint{font-size:12px;font-weight:700;color:var(--muted);opacity:.85}
+.wchips{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start;border:0;padding:0}
+.wchip{font-family:var(--arabic);font-size:21px;line-height:1.5;padding:4px 11px 6px;border-radius:12px;background:var(--soft);color:var(--ink);border:1px solid color-mix(in srgb,var(--primary) 22%,transparent);transition:transform .15s,background .15s}
+.wchip:hover{background:color-mix(in srgb,var(--primary) 18%,var(--card))}
+.wchip.off{opacity:.45;border-style:dashed;background:transparent}
+.wdeck{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.wmini{display:flex;align-items:center;gap:12px;text-align:left;background:var(--app);border-radius:14px;padding:10px 12px;width:100%;border:1px solid var(--line)}
+.wmini .ar{font-family:var(--arabic);font-size:24px;line-height:1.4;min-width:74px;text-align:center;color:var(--primary)}
+.wm{display:flex;flex-direction:column;gap:2px;min-width:0}
+.wm b{font-size:14px}.wm small{font-size:12px;color:var(--muted);font-weight:600;line-height:1.45}
+.wm small [lang=ar],.wpart [lang=ar]{font-family:var(--arabic)}
+.wm .wrt{color:var(--primary)}
+#wsLayer{position:absolute;inset:0;z-index:80}
+#wsLayer[hidden]{display:none}
+.wscrim{position:absolute;inset:0;background:rgba(5,15,12,.45);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);animation:fadeIn .25s ease both}
+@keyframes fadeIn{from{opacity:0}}
+.wsheet{position:absolute;left:0;right:0;bottom:0;max-height:88%;overflow-y:auto;background:var(--card);border-radius:26px 26px 0 0;padding:10px 20px calc(22px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:14px;box-shadow:0 -20px 60px -20px rgba(0,0,0,.4)}
+.wsheet.in{animation:wsUp .45s cubic-bezier(.2,.9,.25,1.08) both}
+@keyframes wsUp{from{translate:0 100%}}
+:root.desk .wsheet{left:50%;right:auto;bottom:50%;translate:-50% 50%;width:min(560px,92%);max-height:86%;border-radius:24px;padding-bottom:22px}
+:root.desk .wsheet.in{animation:wsPop .35s cubic-bezier(.2,.9,.25,1.1) both}
+@keyframes wsPop{from{opacity:0;scale:.94}}
+.wgrab{width:40px;height:5px;border-radius:3px;background:var(--line);align-self:center}
+:root.desk .wgrab{display:none}
+.whead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.wbig{font-family:var(--arabic);font-size:46px;line-height:1.5;text-align:center;color:var(--ink)}
+.wsense{text-align:center;font-family:var(--display);font-weight:800;font-size:19px;color:var(--primary);margin-top:-8px}
+.wsec{display:flex;flex-direction:column;gap:8px;background:var(--app);border-radius:18px;padding:14px}
+.wparts{display:flex;flex-wrap:wrap;gap:8px}
+.wpart{display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card);border-radius:12px;padding:6px 12px 8px;border:1px solid var(--line);flex:1 1 auto;min-width:70px}
+.wpart b{font-size:26px;line-height:1.4;color:var(--primary)}
+.wpart small{font-size:12px;font-weight:700;color:var(--muted);text-align:center;line-height:1.3}
+.wrow{display:flex;gap:8px}
+.wbox{flex:1;display:flex;flex-direction:column;align-items:center;background:var(--card);border-radius:12px;padding:8px;border:1px solid var(--line)}
+.wbox small{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.wbox b{font-family:var(--arabic);font-size:26px;line-height:1.5;word-spacing:.3em}
+.wmap{display:flex;justify-content:center;gap:14px;direction:rtl}
+.wmap span{display:flex;flex-direction:column;align-items:center;gap:0;font-size:24px;line-height:1.3;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 14px 6px;min-width:52px}
+.wmap b{font-family:var(--arabic)}.wmap .rl{color:var(--primary)}.wmap i{font-style:normal;font-size:12px;color:var(--muted)}
+.wwhy{margin:0;line-height:1.6;font-weight:600}
+.wnf{background:var(--card);border-radius:14px;padding:12px;border:1px solid var(--line);max-height:320px;overflow:auto}
+
 </style>
 
 <div class="app" id="app">
@@ -1915,6 +1962,408 @@ const BASES=[
 {id:"formules",name:"Les formules du quotidien",c:"Quelle formule dis-tu ?",f:"|Situation|Formule|Sens\n|avant de commencer|بِسْمِ اللَّهِ|au nom d’Allah\n|pour remercier Allah|الْحَمْدُ لِلَّهِ|louange à Allah\n|devant une merveille|سُبْحَانَ اللَّهِ|gloire à Allah\n|pour admirer sans envier|مَا شَاءَ اللَّهُ|ce qu’Allah a voulu\n|pour un projet futur|إِنْ شَاءَ اللَّهُ|si Allah le veut\n|pour remercier quelqu’un|جَزَاكَ اللَّهُ خَيْرًا|qu’Allah te récompense en bien\n|pour bénir quelqu’un|بَارَكَ اللَّهُ فِيكَ|qu’Allah te bénisse\n|à qui éternue|يَرْحَمُكَ اللَّهُ|qu’Allah te fasse miséricorde\n|après une faute|أَسْتَغْفِرُ اللَّهَ|je demande pardon à Allah\n|à l’annonce d’un décès|إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ|nous sommes à Allah et vers Lui nous retournons",x:[
 ["Tu commences à manger.","بِسْمِ اللَّهِ",""],["Quelqu’un te rend service.","جَزَاكَ اللَّهُ خَيْرًا",""],["Tu admires la nouvelle maison d’un ami.","مَا شَاءَ اللَّهُ","Pour admirer sans envie."],["Quelqu’un éternue et dit الْحَمْدُ لِلَّهِ.","يَرْحَمُكَ اللَّهُ",""],["Tu apprends un décès.","إِنَّا لِلَّهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ","Coran 2:156."],["Tu parles d’un projet pour demain.","إِنْ شَاءَ اللَّهُ",""]]}
 ];
+/* ---------- MOT À MOT : analyse de chaque mot des textes (rédigée à la main) ----------
+   mot|découpage (part=sens + …)|sens dans le texte|racine|schème|pourquoi cette forme|notions liées */
+const WA_SRC=`
+بِسْمِ|بِـ=préposition « par, au moyen de » + اسْمِ=nom|au nom de|س م و|اِسْم|Nom très ancien à alif de liaison, de la racine س م و (élever, désigner). Génitif (kasra) car précédé de la préposition بِـ. Dans la basmala, l'alif de اسم ne s'écrit plus.|prepositions,cas
+اللَّهِ|اللَّه=Allah (nom propre)|Allah|أ ل ه|—|Nom propre de Dieu. Génitif (kasra) : complément d'annexion de اسْم (« le nom d'Allah »).|idafa,cas
+اللَّهُ|اللَّه=Allah (nom propre)|Allah|أ ل ه|—|Nom propre de Dieu, ici au nominatif (ḍamma) : sujet ou prédicat.|cas
+الرَّحْمٰنِ|الـ=le (ر solaire : on lit ar-) + رَحْمٰن=Tout-Miséricordieux|le Tout Miséricordieux|ر ح م|فَعْلَان|Le schème فَعْلَان exprime une qualité qui déborde, à son comble (comme غَضْبَان « furieux ») : une miséricorde immense qui embrasse tout. Génitif car épithète d'Allah.|adjectif,solaires
+الرَّحِيمِ|الـ=le (ر solaire) + رَحِيم=Très-Miséricordieux|le Très Miséricordieux|ر ح م|فَعِيل|Le schème فَعِيل marque une qualité stable et durable : une miséricorde constante, qui agit. Génitif : deuxième épithète d'Allah.|adjectif,solaires
+الْحَمْدُ|الْ=la (ح lunaire : le lâm se prononce) + حَمْد=louange|la louange|ح م د|فَعْل|Maṣdar (nom d'action) du verbe حَمِدَ « louer » : le schème فَعْل nomme l'action elle-même. L'article rend la louange totale (« toute louange »). Nominatif : sujet (mubtadaʾ) de la phrase nominale.|nominale,defini,cas
+لِلَّهِ|لِـ=à, appartenant à + اللَّه=Allah|à Allah|أ ل ه|—|La préposition لِـ exprime l'appartenance ; لِـ + الله s'écrit لِلَّه (l'alif tombe). Ce groupe est le prédicat (khabar) de الحمد.|prepositions,nominale
+رَبِّ|رَبّ=Seigneur|Seigneur de|ر ب ب|فَعْل (رَبْب → رَبّ)|Racine « sourde » : 2e et 3e lettres identiques, elles fusionnent sous une shadda. Génitif (il qualifie Allah) et sans article ni tanwîn car 1er terme d'annexion : « Seigneur des mondes ».|idafa,racines
+الْعَالَمِينَ|الْ=les + عَالَم=monde + ـِينَ=pluriel masculin sain|les mondes (toutes les créatures)|ع ل م|فَاعَل + ـِين|عَالَم « monde » vient de ع ل م (signe, savoir) : ce par quoi on connaît le Créateur. Terminaison ـِينَ et non ـُونَ car génitif : complément d'annexion de ربّ.|plurielsains,idafa,cas
+مَالِكِ|مَالِك=Maître, possesseur|Maître de|م ل ك|فَاعِل|Le schème فَاعِل forme le participe actif, « celui qui fait l'action » : مَلَكَ posséder → مَالِك celui qui possède. Génitif (il qualifie Allah), sans article car 1er terme d'annexion.|idafa,racines
+يَوْمِ|يَوْم=jour|le jour de|ي و م|فَعْل|Nom simple. Génitif : complément d'annexion de مالك, et lui-même 1er terme de « jour de la Rétribution ».|idafa
+الدِّينِ|الـ=la (د solaire : ad-) + دِين=rétribution / religion|la Rétribution (le Jugement)|د ي ن|فِعْل|دِين a deux sens : « religion » et « rétribution » (ce qu'on doit rendre). Ici, le Jour où chacun reçoit son dû. Génitif : complément d'annexion.|idafa,solaires
+إِيَّاكَ|إِيَّا=support du pronom complément + كَ=toi|Toi (seul)|—|—|Pronom complément détaché. Placé AVANT le verbe, il insiste : « C'est Toi seul que… ». En arabe, avancer le complément exprime l'exclusivité.|pronoms
+نَعْبُدُ|نَـ=nous (préfixe du présent) + عْبُدُ=adorer|nous adorons|ع ب د|نَفْعُلُ (forme I)|Présent (inaccompli) de عَبَدَ, 1re pers. du pluriel : préfixe نَـ. Voyelle u sur la 2e radicale (يَعْبُدُ). Ḍamma finale : mode indicatif.|present,racines
+وَإِيَّاكَ|وَ=et + إِيَّا+كَ=Toi|et Toi (seul)|—|—|Le وَ (et) s'écrit collé au mot suivant. Même insistance : le complément avancé = « Toi seul ».|pronoms
+نَسْتَعِينُ|نَـ=nous + سْتَـ=demander (forme X) + عِينُ=aide|nous demandons l'aide|ع و ن|نَسْتَفْعِلُ (forme X)|La forme X اسْتَفْعَلَ ajoute س-ت, qui signifient souvent « demander » : عَوْن aide → اسْتَعَانَ demander de l'aide. Le و central devient ي (نَسْتَعْوِنُ → نَسْتَعِينُ) car la racine est creuse.|present,racines
+اهْدِنَا|اهْدِ=guide (impératif) + نَا=nous|guide-nous|ه د ي|اِفْعِ (impératif, racine défective)|Impératif de هَدَى / يَهْدِي : alif de liaison + هْدِ. La dernière radicale ي tombe à l'impératif (racine défective), d'où اهْدِ. نَا = « nous » (complément).|racines,suffixes
+الصِّرَاطَ|الـ=le (ص solaire : aṣ-) + صِرَاط=chemin|le chemin|ص ر ط|فِعَال|Nom sur le schème فِعَال (comme كِتَاب). Accusatif (fatha) : complément d'objet de « guide ».|cas,solaires
+الْمُسْتَقِيمَ|الْ=le + مُسْتَقِيم=droit|droit|ق و م|مُسْتَفْعِل (participe actif, forme X)|Forme X de ق و م (se tenir debout) : اسْتَقَامَ « être droit, rectiligne ». Le préfixe مُـ forme le participe. Accusatif : épithète de الصراط (même cas, même article).|adjectif,racines
+صِرَاطَ|صِرَاط=chemin|le chemin de|ص ر ط|فِعَال|Accusatif : il reprend الصراط. Sans article car 1er terme d'annexion : « le chemin de ceux… ».|idafa
+الَّذِينَ|الَّذِينَ=ceux qui (relatif masc. pluriel)|ceux que, ceux qui|—|—|Pronom relatif masculin pluriel (singulier : الَّذِي). Invariable.|pronoms
+أَنْعَمْتَ|أَنْعَمْ=combler de bienfaits (forme IV) + تَ=tu|Tu as comblé de bienfaits|ن ع م|أَفْعَلَ (forme IV)|La forme IV أَفْعَلَ rend « faire donner » : نِعْمَة bienfait → أَنْعَمَ عَلَى accorder un bienfait à. Passé, 2e pers. masc. sing. (ـتَ).|passe,racines
+عَلَيْهِمْ|عَلَى=sur + هِمْ=eux|sur eux|—|—|عَلَى devient عَلَيْـ devant un pronom. هُمْ devient هِمْ après un son i/y. أَنْعَمَ se construit avec عَلَى.|prepositions,suffixes
+غَيْرِ|غَيْر=autre que, non|non (pas ceux)|غ ي ر|فَعْل|Nom qui exprime l'exclusion : « autres que ». Génitif car il qualifie الذين. Il s'annexe au mot suivant.|idafa
+الْمَغْضُوبِ|الْ=les + مَغْضُوب=objet de colère|ceux qui ont encouru la colère|غ ض ب|مَفْعُول (participe passif)|Le schème مَفْعُول forme le participe passif : غَضِبَ se mettre en colère → مَغْضُوب عَلَيْه « celui contre qui on est en colère ». Génitif (complément de غير).|racines,cas
+وَلَا|وَ=et + لَا=ni, ne… pas|et ni|—|—|Particule de négation. Après une négation, وَلَا = « et ni… ».|negation
+الضَّالِّينَ|الـ=les (ض solaire : aḍ-) + ضَالّ=égaré + ـِينَ=pluriel sain|les égarés|ض ل ل|فَاعِل (ضَالِل → ضَالّ) + ـِين|Participe actif de ضَلَّ « s'égarer » : schème فَاعِل, mais les deux ل identiques fusionnent (ضَالِل → ضَالّ). Pluriel masculin sain au génitif : ـِينَ.|plurielsains,racines
+وَالْعَصْرِ|وَ=par (serment) + الْ=le + عَصْر=temps|par le Temps !|ع ص ر|فَعْل|Ici وَ n'est pas « et » mais le وَ du serment (« par… ! »), qui met le nom au génitif (kasra).|prepositions,cas
+إِنَّ|إِنَّ=certes|certes, en vérité|—|—|Particule d'insistance : le nom qui suit passe à l'accusatif (الإنسانَ), le prédicat reste au nominatif.|inna
+الْإِنْسَانَ|الْ=l' + إِنْسَان=être humain|l'être humain|أ ن س|فِعْلَان|De أ ن س (familiarité, sociabilité) : l'être qui vit avec les autres. Accusatif (fatha) car nom de إِنَّ.|inna,cas
+لَفِي|لَـ=certes (lâm d'insistance) + فِي=dans|est certes dans|—|—|Le لَـ renforce encore l'affirmation déjà posée par إنّ : double insistance.|inna,prepositions
+خُسْرٍ|خُسْر=perte|perdition|خ س ر|فُعْل|Maṣdar de خَسِرَ « perdre ». Tanwîn (indéfini) : une perte grave, sans limite. Génitif car après فِي.|cas,defini
+إِلَّا|إِلَّا=sauf|sauf, si ce n'est|—|—|Particule d'exception.|negation
+آمَنُوا|آمَنَ=croire (forme IV) + ـُوا=ils|ils croient (ont cru)|أ م ن|أَفْعَلَ (أَأْمَنَ → آمَنَ)|Forme IV de أ م ن (sécurité) : rendre sûr → avoir foi. Deux hamzas se suivent (أَأْمَنَ) et fusionnent en آ. ـُوا : 3e pers. masc. pluriel du passé (l'alif final est muet).|passe,racines
+وَعَمِلُوا|وَ=et + عَمِلَ=œuvrer + ـُوا=ils|et accomplissent|ع م ل|فَعِلَ (forme I)|Passé forme I sur le modèle فَعِلَ (kasra sur la 2e radicale). ـُوا = ils.|passe
+الصَّالِحَاتِ|الـ=les (ص solaire) + صَالِح=bon + ـَات=pluriel féminin|les bonnes œuvres|ص ل ح|فَاعِل + ـَات|Participe actif de صَلَحَ « être bon » au pluriel féminin sain : sous-entendu « les (actions) bonnes ». Le pluriel en ـَات prend la kasra même à l'accusatif.|plurielsains,cas
+وَتَوَاصَوْا|وَ=et + تَوَاصَى=se recommander mutuellement + ـوْا=ils|et s'enjoignent mutuellement|و ص ي|تَفَاعَلَ (forme VI)|La forme VI تَفَاعَلَ exprime la réciprocité : وَصَّى recommander → تَوَاصَى se recommander les uns aux autres. Racine défective : تَوَاصَيُوا → تَوَاصَوْا.|passe,racines
+بِالْحَقِّ|بِـ=de + الْ=la + حَقّ=vérité|la vérité|ح ق ق|فَعْل (حَقْق → حَقّ)|بِـ introduit l'objet de la recommandation (تَوَاصَى بِـ). Racine sourde : les deux ق fusionnent sous une shadda.|prepositions,racines
+بِالصَّبْرِ|بِـ=de + الـ=la (ص solaire) + صَبْر=patience|la patience|ص ب ر|فَعْل|Maṣdar de صَبَرَ « endurer avec constance ». Génitif après بِـ.|prepositions,solaires
+قُلْ|قُلْ=dis !|dis !|ق و ل|فُلْ (impératif d'un verbe creux)|Impératif de قَالَ / يَقُولُ : قُولْ perd son و, car une voyelle longue ne peut pas précéder un soukoun (racine creuse).|racines
+هُوَ|هُوَ=il, lui|Il (Lui)|—|—|Pronom isolé 3e pers. masc. sing.|pronoms,nominale
+أَحَدٌ|أَحَد=un, unique|Unique|و ح د|فَعَل|Variante de وَاحِد (le و initial est devenu أ), au sens plus absolu : l'Un qui n'a aucun semblable. Nominatif + tanwîn : prédicat indéfini.|nominale,cas
+الصَّمَدُ|الـ=le (ص solaire) + صَمَد=l'Absolu|l'Absolu|ص م د|فَعَل|صَمَد : Celui vers qui tous se tournent dans le besoin, et qui ne dépend de rien. Nominatif : prédicat.|nominale
+لَمْ|لَمْ=ne… pas (au passé)|ne… pas|—|—|لَمْ + présent apocopé (soukoun final) = négation du passé : لَمْ يَلِدْ « Il n'a pas engendré ».|negation
+يَلِدْ|يَـ=il + لِدْ=engendrer (apocopé)|Il (n')a (pas) engendré|و ل د|يَفْعِلْ (يَوْلِدُ → يَلِدُ)|Racine assimilée (1re lettre و) : le و tombe au présent (يَوْلِدُ → يَلِدُ). Soukoun final : mode apocopé imposé par لَمْ.|negation,present,racines
+وَلَمْ|وَ=et + لَمْ=ne… pas|et ne… pas|—|—|Négation du passé.|negation
+يُولَدْ|يُـ=il + ولَدْ=être engendré (passif)|Il (n')a (pas) été engendré|و ل د|يُفْعَلْ (passif)|Voix passive : voyelles u-a (يُفْعَلُ). Ici le و reste (يُوْلَد), le passif garde la 1re radicale. Apocopé après لَمْ.|negation,racines
+يَكُنْ|يَـ=il + كُنْ=être (apocopé)|(n')est|ك و ن|يَفْعُلْ (يَكُونُ → يَكُنْ)|Présent de كَانَ : يَكُونُ. Après لَمْ, la fin prend le soukoun et le û long tombe pour éviter deux soukouns : يَكُنْ.|negation,racines
+لَهُ|لَـ=à + هُ=lui|à Lui|—|—|لِـ devient لَـ devant un pronom suffixe.|prepositions,suffixes
+كُفُوًا|كُفُو=égal, équivalent|égal|ك ف أ|فُعُل|« Égal, de même rang ». Accusatif : prédicat de كَانَ (يَكُن), qui met son prédicat à l'accusatif.|cas
+إِذَا|إِذَا=lorsque|lorsque|—|—|Particule de temps tournée vers un événement certain à venir.|
+جَاءَ|جَاءَ=venir|vient|ج ي أ|فَعَلَ (جَيَأَ → جَاءَ)|Racine creuse : le ي central devient alif. C'est un passé, mais après إِذَا il exprime un événement certain à venir.|passe,racines
+نَصْرُ|نَصْر=secours, victoire|le secours de|ن ص ر|فَعْل|Maṣdar de نَصَرَ « secourir ». Nominatif (sujet de جاء), sans article car 1er terme d'annexion : « le secours d'Allah ».|idafa,cas
+وَالْفَتْحُ|وَ=et + الْ=la + فَتْح=ouverture, conquête|et la victoire|ف ت ح|فَعْل|فَتْح = « ouverture » ; ici l'ouverture (conquête) de La Mecque. Nominatif : coordonné au sujet.|cas
+وَرَأَيْتَ|وَ=et + رَأَى=voir + تَ=tu|et (que) tu vois|ر أ ي|فَعَلَ|Passé de رَأَى, 2e pers. : le ى final redevient ي devant ـتَ.|passe,racines
+النَّاسَ|الـ=les (ن solaire : an-) + نَاس=gens|les gens|ن و س|فَعَال|Nom collectif « les gens ». Accusatif : objet de « tu vois ».|cas,solaires
+يَدْخُلُونَ|يَـ=ils + دْخُلُ=entrer + ـُونَ=pluriel|entrer (ils entrent)|د خ ل|يَفْعُلُونَ|Présent 3e pers. masc. pluriel : préfixe يَـ + suffixe ـُونَ.|present
+فِي|فِي=dans|dans|—|—|Préposition « dans » : le nom suivant est au génitif.|prepositions
+دِينِ|دِين=religion|la religion de|د ي ن|فِعْل|Ici « religion ». Génitif après فِي, 1er terme d'annexion.|idafa
+أَفْوَاجًا|أَفْوَاج=foules, groupes|en foules|ف و ج|أَفْعَال (pluriel brisé de فَوْج)|Pluriel brisé sur le schème أَفْعَال (فَوْج → أَفْوَاج). Accusatif indéfini = ḥâl : il décrit la manière (« par groupes »).|pluriels,cas
+فَسَبِّحْ|فَـ=alors + سَبِّحْ=glorifie|alors glorifie|س ب ح|فَعِّلْ (impératif, forme II)|Forme II فَعَّلَ (2e radicale doublée) : سَبَّحَ « déclarer Allah exempt de tout défaut ». فَـ introduit la conséquence.|racines
+بِحَمْدِ|بِـ=par + حَمْد=louange|par la louange de|ح م د|فَعْل|Génitif après بِـ ; 1er terme d'annexion.|prepositions,idafa
+رَبِّكَ|رَبّ=Seigneur + كَ=ton|ton Seigneur|ر ب ب|فَعْل|Le pronom suffixe كَ (« ton ») rend le nom défini : pas d'article.|suffixes,idafa
+وَاسْتَغْفِرْهُ|وَ=et + اسْتَغْفِرْ=demande pardon + هُ=Lui|et implore Son pardon|غ ف ر|اِسْتَفْعِلْ (impératif, forme X)|Forme X : « demander » + غَفَرَ pardonner → اسْتَغْفَرَ demander pardon. هُ : complément « Lui ».|racines,suffixes
+إِنَّهُ|إِنَّ=certes + هُ=Il|certes Il|—|—|إنّ + pronom suffixe : le pronom est le « nom » de إنّ.|inna
+كَانَ|كَانَ=être|est (a toujours été)|ك و ن|فَعَلَ (كَوَنَ → كَانَ)|Racine creuse : le و devient alif. Dit d'Allah, كان exprime une qualité permanente. Son prédicat se met à l'accusatif.|racines
+تَوَّابًا|تَوَّاب=qui accueille sans cesse le repentir|Celui qui accueille toujours le repentir|ت و ب|فَعَّال|Le schème فَعَّال est une forme d'intensité (habitude, répétition) : تَابَ revenir → تَوَّاب « celui qui revient sans cesse » (vers Ses serviteurs). Accusatif : prédicat de كان.|racines,cas
+أَعُوذُ|أَ=je + عُوذُ=chercher refuge|je cherche refuge|ع و ذ|أَفْعُلُ (أَعْوُذُ → أَعُوذُ)|Présent 1re pers. sing. (préfixe أَ). Racine creuse : le و devient le û long.|present,racines
+بِرَبِّ|بِـ=auprès de + رَبّ=Seigneur|auprès du Seigneur de|ر ب ب|فَعْل|عَاذَ se construit avec بِـ (chercher refuge auprès de). Génitif, 1er terme d'annexion.|prepositions,idafa
+الْفَلَقِ|الْ=l' + فَلَق=aube|l'aube naissante|ف ل ق|فَعَل|De فَلَقَ « fendre » : l'aube qui fend l'obscurité. Génitif : complément d'annexion.|idafa
+مِنْ|مِنْ=de, contre|contre (de)|—|—|Préposition « de, à partir de » ; avec أعوذ : « contre » ce dont on se protège.|prepositions
+شَرِّ|شَرّ=mal|le mal de|ش ر ر|فَعْل (شَرْر → شَرّ)|Racine sourde : les deux ر fusionnent. Génitif après مِن, 1er terme d'annexion.|idafa,racines
+مَا|مَا=ce que|ce que|—|—|Pronom relatif neutre « ce que » (pour les choses). Selon le contexte, مَا peut aussi être négatif (« ne… pas ») ou interrogatif.|pronoms
+خَلَقَ|خَلَقَ=créer|Il a créé|خ ل ق|فَعَلَ|Passé forme I, 3e pers. masc. sing. (sans terminaison).|passe
+وَمِنْ|وَ=et + مِنْ=contre|et contre|—|—|Coordination.|prepositions
+غَاسِقٍ|غَاسِق=nuit obscure|l'obscurité|غ س ق|فَاعِل|Participe actif de غَسَقَ « s'obscurcir » : « ce qui devient sombre ». Tanwîn : indéfini. Génitif.|racines
+وَقَبَ|وَقَبَ=s'étendre, pénétrer|quand elle s'étend|و ق ب|فَعَلَ|Passé forme I : l'obscurité qui entre et recouvre tout.|passe
+النَّفَّاثَاتِ|الـ=les (ن solaire) + نَفَّاث=souffleuse + ـَات=pluriel féminin|celles qui soufflent|ن ف ث|فَعَّال + ـَات|Schème d'intensité فَعَّال (qui souffle beaucoup) au pluriel féminin : les sorcières qui soufflent sur les nœuds. Génitif.|plurielsains,racines
+الْعُقَدِ|الْ=les + عُقَد=nœuds|les nœuds|ع ق د|فُعَل (pluriel de عُقْدَة)|Pluriel brisé فُعَل de عُقْدَة (nœud). Génitif après فِي.|pluriels
+حَاسِدٍ|حَاسِد=envieux|l'envieux|ح س د|فَاعِل|Participe actif de حَسَدَ « envier ». Génitif indéfini.|racines
+حَسَدَ|حَسَدَ=envier|quand il envie|ح س د|فَعَلَ|Passé forme I ; après إذا : « quand il passe à l'acte ».|passe
+النَّاسِ|الـ=les (ن solaire) + نَاس=hommes|des hommes|ن و س|فَعَال|Génitif : complément d'annexion de ربّ.|idafa
+مَلِكِ|مَلِك=roi|le Roi de|م ل ك|فَعِل|Même racine que مَالِك : مَلِك (schème فَعِل) est le roi, celui qui gouverne. Génitif.|idafa,racines
+إِلٰهِ|إِلٰه=divinité|la Divinité de|أ ل ه|فِعَال|De أَلَهَ « adorer » : schème فِعَال au sens passif = « Celui qui est adoré ». L'alif est écrit en petit au-dessus (ـٰ). Génitif.|racines
+إِلٰهَ|إِلٰه=divinité|divinité|أ ل ه|فِعَال|Fatha sans tanwîn : c'est le nom de la négation absolue لَا (« aucune divinité »).|negation
+الْوَسْوَاسِ|الْ=le + وَسْوَاس=tentateur|le tentateur|و س و س|فَعْلَال (racine de 4 lettres)|Racine quadrilitère redoublée (وس-وس) : le redoublement imite le chuchotement répété. Génitif.|racines
+الْخَنَّاسِ|الْ=le + خَنَّاس=qui se retire|furtif|خ ن س|فَعَّال|Schème d'intensité : celui qui se retire et revient sans cesse (il recule quand on invoque Allah). Épithète au génitif.|adjectif,racines
+الَّذِي|الَّذِي=qui (relatif masc. sing.)|qui, celui qui|—|—|Pronom relatif masculin singulier.|pronoms
+يُوَسْوِسُ|يُـ=il + وَسْوِسُ=chuchoter|chuchote|و س و س|يُفَعْلِلُ|Présent d'un verbe à 4 lettres : préfixe يُـ avec ḍamma (comme pour les formes II à IV).|present
+صُدُورِ|صُدُور=poitrines|les poitrines de|ص د ر|فُعُول (pluriel de صَدْر)|Pluriel brisé فُعُول. Génitif après فِي, 1er terme d'annexion.|pluriels,idafa
+مِنَ|مِنْ=d'entre (voyelle de liaison a)|parmi, d'entre|—|—|مِنْ devient مِنَ devant l'article. Ici « d'entre » : précise de qui il s'agit.|prepositions
+الْجِنَّةِ|الْ=les + جِنَّة=djinns|les djinns|ج ن ن|فِعْلَة|Collectif de جِنّ. Racine ج ن ن = « cacher » : les êtres cachés. Génitif.|racines
+وَالنَّاسِ|وَ=et + الـ=les (ن solaire) + نَاس=hommes|et les hommes|ن و س|فَعَال|Coordonné au génitif.|
+إِنَّا|إِنَّ=certes + نَا=Nous|certes Nous|—|—|إنّ + نا (le « Nous » de majesté) : إِنَّنَا s'abrège en إِنَّا.|inna
+أَنْزَلْنَاهُ|أَنْزَلْ=faire descendre (forme IV) + نَا=Nous + هُ=le (Coran)|Nous l'avons fait descendre|ن ز ل|أَفْعَلَ (forme IV)|نَزَلَ descendre → forme IV أَنْزَلَ « faire descendre » (sens causatif). نَا = sujet, هُ = complément.|passe,racines,suffixes
+لَيْلَةِ|لَيْلَة=nuit|la nuit de|ل ي ل|فَعْلَة|Nom d'unité : لَيْل la nuit (en général) → لَيْلَة une nuit précise. Génitif après فِي, 1er terme d'annexion.|idafa,genre
+الْقَدْرِ|الْ=le + قَدْر=destin, valeur|du Destin|ق د ر|فَعْل|قَدْر : mesure, décret, et aussi « haute valeur ». Génitif : complément d'annexion.|idafa
+وَمَا|وَ=et + مَا=qu'est-ce que|et qu'est-ce qui|—|—|Ici مَا est interrogatif : « qu'est-ce qui… ? ». (Dans d'autres versets, مَا est négatif : « ne… pas ».)|
+أَدْرَاكَ|أَدْرَى=faire savoir (forme IV) + كَ=te|te fera savoir|د ر ي|أَفْعَلَ (forme IV)|Forme IV de دَرَى « savoir » → أَدْرَى « faire savoir ». Formule coranique qui souligne la grandeur d'une chose.|racines,suffixes
+لَيْلَةُ|لَيْلَة=nuit|la Nuit de|ل ي ل|فَعْلَة|Nominatif : sujet ou prédicat de la phrase nominale.|cas
+خَيْرٌ|خَيْر=meilleur, bien|meilleure|خ ي ر|فَعْل|Sert de comparatif « meilleur que » (avec مِنْ). Nominatif indéfini : prédicat.|nominale
+أَلْفِ|أَلْف=mille|mille|أ ل ف|فَعْل|Génitif après مِنْ ; suivi de son complément au génitif singulier (ألف شهر).|idafa
+شَهْرٍ|شَهْر=mois|mois|ش ه ر|فَعْل|Après أَلْف, le nom compté est au singulier génitif.|idafa
+تَنَزَّلُ|تَـ=elles + نَزَّلُ=descendre peu à peu (forme V)|descendent|ن ز ل|تَتَفَعَّلُ (forme V)|Forme V تَفَعَّلَ : descente répétée, par vagues. Un des deux تَ du présent est tombé (تَتَنَزَّلُ → تَنَزَّلُ).|present,racines
+الْمَلَائِكَةُ|الْ=les + مَلَائِكَة=anges|les anges|م ل ك / أ ل ك|فَعَائِلَة|Pluriel brisé de مَلَك. Nominatif : sujet.|pluriels
+وَالرُّوحُ|وَ=et + الـ=l' (ر solaire) + رُوح=Esprit|et l'Esprit (Jibrîl)|ر و ح|فُعْل|Ici l'ange Jibrîl. Nominatif coordonné.|solaires
+فِيهَا|فِي=dans + هَا=elle|durant elle|—|—|هَا renvoie à la nuit (féminin).|prepositions,suffixes
+بِإِذْنِ|بِـ=avec + إِذْن=permission|avec la permission de|أ ذ ن|فِعْل|Génitif après بِـ, 1er terme d'annexion.|prepositions,idafa
+رَبِّهِمْ|رَبّ=Seigneur + هِمْ=leur|de leur Seigneur|ر ب ب|فَعْل|هُمْ devient هِمْ après une kasra.|suffixes
+كُلِّ|كُلّ=tout, chaque|toute|ك ل ل|فُعْل (كُلْل → كُلّ)|Suivi d'un indéfini singulier = « chaque ». Génitif après مِنْ.|idafa
+أَمْرٍ|أَمْر=affaire, ordre|affaire|أ م ر|فَعْل|Génitif : complément d'annexion de كلّ.|idafa
+سَلَامٌ|سَلَام=paix|paix|س ل م|فَعَال|Nominatif : prédicat placé en tête (« paix elle est ») pour insister.|nominale
+هِيَ|هِيَ=elle|elle|—|—|Pronom 3e pers. fém. : la nuit.|pronoms
+حَتَّى|حَتَّى=jusqu'à|jusqu'à|—|—|Préposition : génitif après.|prepositions
+مَطْلَعِ|مَطْلَع=lever|le lever de|ط ل ع|مَفْعَل (nom de temps / lieu)|Le schème مَفْعَل désigne le lieu ou le moment d'une action : طَلَعَ se lever → مَطْلَع le moment du lever.|racines,idafa
+الْفَجْرِ|الْ=l' + فَجْر=aube|l'aube|ف ج ر|فَعْل|De فَجَرَ « fendre, jaillir ». Génitif.|idafa
+أَلَمْ|أَ=est-ce que + لَمْ=ne… pas|n'avons-Nous pas… ?|—|—|أَ (question) + لَمْ (négation du passé) = question qui affirme : « N'est-il pas vrai que Nous avons… ? »|negation
+نَشْرَحْ|نَـ=nous + شْرَحْ=ouvrir, dilater|ouvert|ش ر ح|نَفْعَلْ|Présent 1re pers. pluriel, apocopé (soukoun) à cause de لَمْ.|negation,present
+لَكَ|لَـ=pour + كَ=toi|pour toi|—|—|Préposition + pronom suffixe.|prepositions,suffixes
+صَدْرَكَ|صَدْر=poitrine + كَ=ta|ta poitrine|ص د ر|فَعْل|Accusatif : objet de نشرح.|suffixes,cas
+وَوَضَعْنَا|وَ=et + وَضَعْ=déposer, ôter + نَا=Nous|et Nous avons ôté|و ض ع|فَعَلَ|Le premier و = « et », le second fait partie de la racine. ـنَا : passé 1re pers. pluriel.|passe
+عَنْكَ|عَنْ=de (éloignement) + كَ=toi|de toi|—|—|عَنْ indique l'éloignement : ôter de toi.|prepositions
+وِزْرَكَ|وِزْر=fardeau + كَ=ton|ton fardeau|و ز ر|فِعْل|Même racine que وَزِير « ministre » (celui qui porte la charge). Accusatif.|suffixes
+أَنْقَضَ|أَنْقَضَ=faire craquer (forme IV)|qui accablait|ن ق ض|أَفْعَلَ (forme IV)|Forme IV : un poids si lourd qu'il fait craquer le dos.|passe,racines
+ظَهْرَكَ|ظَهْر=dos + كَ=ton|ton dos|ظ ه ر|فَعْل|Accusatif : objet.|suffixes
+وَرَفَعْنَا|وَ=et + رَفَعْ=élever + نَا=Nous|et Nous avons élevé|ر ف ع|فَعَلَ|Passé 1re pers. pluriel.|passe
+ذِكْرَكَ|ذِكْر=mention, renommée + كَ=ta|ta renommée|ذ ك ر|فِعْل|Maṣdar de ذَكَرَ « mentionner ». Accusatif.|suffixes
+فَإِنَّ|فَـ=car + إِنَّ=certes|car certes|—|—|فَـ lie à ce qui précède ; إنّ met son nom à l'accusatif (يُسْرًا).|inna
+مَعَ|مَعَ=avec|avec, à côté de|—|—|Le nom suivant est au génitif.|prepositions
+الْعُسْرِ|الْ=la + عُسْر=difficulté|la difficulté|ع س ر|فُعْل|Génitif après مَعَ. Avec l'article : LA difficulté précise, la même au verset 6.|defini
+يُسْرًا|يُسْر=facilité|une facilité|ي س ر|فُعْل|Accusatif : nom de إنّ, placé après son prédicat. Indéfini : UNE facilité, puis une autre au verset 6. D'où le dicton : « une difficulté ne vaincra pas deux facilités ».|inna,defini
+فَإِذَا|فَـ=alors + إِذَا=quand|alors quand|—|—|فَـ enchaîne, إذا introduit le moment.|
+فَرَغْتَ|فَرَغْ=terminer + تَ=tu|tu as terminé|ف ر غ|فَعَلَ|Passé 2e pers. masc. sing.|passe
+فَانْصَبْ|فَـ=alors + انْصَبْ=efforce-toi, dresse-toi|alors lève-toi (pour l'adoration)|ن ص ب|اِفْعَلْ (impératif)|Impératif de نَصِبَ « se fatiguer, se dresser » : alif de liaison + نْصَبْ.|racines
+وَإِلَى|وَ=et + إِلَى=vers|et vers|—|—|Préposition « vers ».|prepositions
+فَارْغَبْ|فَـ=alors + ارْغَبْ=aspire|aspire|ر غ ب|اِفْعَلْ (impératif)|Impératif de رَغِبَ « désirer ». Le complément (vers ton Seigneur) est placé avant : exclusivité.|racines
+وَالضُّحَى|وَ=par (serment) + الـ=le (ض solaire) + ضُحَى=matinée|par le jour montant|ض ح و|فُعَل|Le ضُحَى : la matinée lumineuse quand le soleil monte. Génitif de serment (voyelle invisible sur le ى).|prepositions
+وَاللَّيْلِ|وَ=et (par) + الـ=la (ل solaire) + لَيْل=nuit|et par la nuit|ل ي ل|فَعْل|Le ل de l'article fusionne avec le ل de لَيْل (lettre solaire).|solaires
+سَجَى|سَجَى=devenir calme, tout couvrir|quand elle couvre tout de son calme|س ج و|فَعَلَ|Passé, racine défective (و final → ى).|passe,racines
+وَدَّعَكَ|وَدَّعَ=faire ses adieux (forme II) + كَ=te|t'a abandonné|و د ع|فَعَّلَ (forme II)|Forme II (2e radicale doublée). Précédé de مَا : négation du passé.|negation,racines
+رَبُّكَ|رَبّ=Seigneur + كَ=ton|ton Seigneur|ر ب ب|فَعْل|Nominatif (ḍamma) : sujet.|suffixes,cas
+قَلَى|قَلَى=détester|(ne t'a pas) détesté|ق ل ي|فَعَلَ|Racine défective. Le complément « toi » est sous-entendu (pour la rime, et par délicatesse).|passe
+وَلَلْآخِرَةُ|وَ=et + لَـ=certes + الْ=l' + آخِرَة=au-delà|et l'au-delà, certes|أ خ ر|فَاعِلَة|Lâm d'insistance + nom. آخِرَة = « la dernière » (demeure). Nominatif : sujet.|inna,genre
+الْأُولَى|الْ=la + أُولَى=première|la première (vie d'ici-bas)|أ و ل|فُعْلَى|Féminin de أَوَّل sur le schème فُعْلَى (féminin des superlatifs).|genre
+وَلَسَوْفَ|وَ=et + لَـ=certes + سَوْفَ=(futur)|et certes bientôt|—|—|سَوْفَ + présent = futur ; لَـ renforce.|present
+يُعْطِيكَ|يُـ=il + عْطِي=donner (forme IV) + كَ=te|Il te donnera|ع ط و|يُفْعِلُ (forme IV)|Forme IV أَعْطَى « donner » : au présent, préfixe يُـ avec ḍamma.|present,racines
+فَتَرْضَى|فَـ=et alors + تَـ=tu + رْضَى=être satisfait|et tu seras satisfait|ر ض و|تَفْعَلُ|Racine défective : finale ى.|present
+يَجِدْكَ|يَـ=il + جِدْ=trouver + كَ=te|(ne) t'a-t-Il (pas) trouvé|و ج د|يَفْعِلْ (يَوْجِدُ → يَجِدُ)|Racine assimilée : le و tombe au présent (يَجِدُ). Apocopé après أَلَمْ.|negation,racines
+يَتِيمًا|يَتِيم=orphelin|orphelin|ي ت م|فَعِيل|Accusatif : ḥâl (état dans lequel Il t'a trouvé).|cas
+فَآوَى|فَـ=alors + آوَى=accueillir (forme IV)|alors Il t'a accueilli|أ و ي|أَفْعَلَ (أَأْوَى → آوَى)|Forme IV : deux hamzas se suivent et fusionnent en آ.|racines
+وَوَجَدَكَ|وَ=et + وَجَدَ=trouver + كَ=te|et Il t'a trouvé|و ج د|فَعَلَ|Passé forme I.|passe
+ضَالًّا|ضَالّ=égaré|égaré|ض ل ل|فَاعِل (ضَالِل → ضَالّ)|Participe actif, les deux ل fusionnent. Accusatif : ḥâl.|cas
+فَهَدَى|فَـ=alors + هَدَى=guider|alors Il t'a guidé|ه د ي|فَعَلَ|Racine défective : finale ى.|passe
+عَائِلًا|عَائِل=pauvre (chargé de famille)|pauvre|ع ي ل|فَاعِل (عَايِل → عَائِل)|Participe actif ; le ي central devient hamza dans ce schème. Accusatif.|cas
+فَأَغْنَى|فَـ=alors + أَغْنَى=enrichir (forme IV)|alors Il t'a enrichi|غ ن ي|أَفْعَلَ (forme IV)|Forme IV : rendre riche.|racines
+فَأَمَّا|فَـ=donc + أَمَّا=quant à|quant à|—|—|أَمَّا … فَـ : « quant à …, alors … ».|
+الْيَتِيمَ|الْ=l' + يَتِيم=orphelin|l'orphelin|ي ت م|فَعِيل|Accusatif : objet de تقهر, placé avant le verbe.|cas
+فَلَا|فَـ=alors + لَا=ne… pas (interdiction)|ne… pas|—|—|لَا + présent apocopé = interdiction (لا الناهية).|negation
+تَقْهَرْ|تَـ=tu + قْهَرْ=opprimer|opprime|ق ه ر|تَفْعَلْ|Apocopé (soukoun) à cause du لا d'interdiction.|negation
+وَأَمَّا|وَ=et + أَمَّا=quant à|et quant à|—|—|Suite de la construction أَمَّا … فَـ.|
+السَّائِلَ|الـ=le (س solaire) + سَائِل=demandeur|celui qui demande|س أ ل|فَاعِل|Participe actif de سَأَلَ « demander ». Accusatif : objet avancé.|cas
+تَنْهَرْ|تَـ=tu + نْهَرْ=repousser|repousse|ن ه ر|تَفْعَلْ|Apocopé : interdiction.|negation
+بِنِعْمَةِ|بِـ=de + نِعْمَة=bienfait|le bienfait de|ن ع م|فِعْلَة|Génitif après بِـ ; même racine que أَنْعَمْتَ (Fâtiḥa).|prepositions,idafa
+فَحَدِّثْ|فَـ=alors + حَدِّثْ=parle, proclame (forme II)|proclame-le|ح د ث|فَعِّلْ (impératif, forme II)|Impératif forme II de حَدَّثَ « raconter ».|racines
+لَا|لَا=aucun, pas de|pas de, aucun|—|—|لا de négation absolue : le nom suivant prend la fatha sans tanwîn (لا إلهَ). Devant un verbe, لا nie le présent.|negation
+الْحَيُّ|الْ=le + حَيّ=vivant|le Vivant|ح ي ي|فَعْل (حَيْي → حَيّ)|Les deux ي fusionnent sous une shadda. Nominatif.|racines
+الْقَيُّومُ|الْ=le + قَيُّوم=qui subsiste par Lui-même|Celui qui subsiste par Lui-même|ق و م|فَيْعُول (قَيْوُوم → قَيُّوم)|Schème d'intensité : Celui qui se tient par Lui-même et maintient toute chose. و et ي se rencontrent et fusionnent en يّ.|racines
+تَأْخُذُهُ|تَـ=elle + أْخُذُ=prendre + هُ=Le|Le saisit|أ خ ذ|تَفْعُلُ|Préfixe تَـ car le sujet (سِنَة) est féminin.|present,genre
+سِنَةٌ|سِنَة=somnolence|somnolence|و س ن|عِلَة (le و initial est tombé)|Le و initial de la racine tombe, compensé par ة. Nominatif : sujet.|racines
+نَوْمٌ|نَوْم=sommeil|sommeil|ن و م|فَعْل|Nominatif coordonné.|
+السَّمَاوَاتِ|الـ=les (س solaire) + سَمَاوَات=cieux|les cieux|س م و|فَعَال + ـَات|Pluriel féminin sain de سَمَاء. Génitif après فِي.|plurielsains
+الْأَرْضِ|الْ=la + أَرْض=terre|la terre|أ ر ض|فَعْل|Génitif.|
+مَنْ|مَنْ=qui|qui|—|—|Interrogatif (ou relatif) pour les personnes.|
+ذَا|ذَا=celui-ci|(donc)|—|—|مَنْ ذَا الَّذِي : « qui donc est celui qui… ? » (renforce la question).|demonstratifs
+يَشْفَعُ|يَـ=il + شْفَعُ=intercéder|intercède|ش ف ع|يَفْعَلُ|Présent 3e pers. masc. sing.|present
+عِنْدَهُ|عِنْدَ=auprès de + هُ=Lui|auprès de Lui|—|—|Adverbe de lieu + pronom.|prepositions,suffixes
+بِإِذْنِهِ|بِـ=avec + إِذْن=permission + هِ=Sa|avec Sa permission|أ ذ ن|فِعْل|هُ devient هِ après une kasra.|prepositions,suffixes
+يَعْلَمُ|يَـ=il + عْلَمُ=savoir|Il sait|ع ل م|يَفْعَلُ|Présent de عَلِمَ : voyelle a au présent parce que i au passé.|present
+بَيْنَ|بَيْنَ=entre|entre|—|—|بين أيديهم : « entre leurs mains » = devant eux.|prepositions
+أَيْدِيهِمْ|أَيْدِي=mains + هِمْ=leurs|leurs mains|ي د ي|أَفْعُل (pluriel de يَد)|Pluriel brisé de يَد « main ».|pluriels,suffixes
+خَلْفَهُمْ|خَلْف=derrière + هُمْ=eux|derrière eux|خ ل ف|فَعْل|Adverbe de lieu à l'accusatif.|suffixes
+يُحِيطُونَ|يُـ=ils + حِيطُ=embrasser (forme IV) + ونَ=pluriel|ils embrassent|ح و ط|يُفْعِلُونَ (forme IV)|Forme IV أَحَاطَ ; racine creuse : le و devient ي long.|present,racines
+بِشَيْءٍ|بِـ=de + شَيْء=chose|rien de|ش ي أ|فَعْل|Génitif indéfini après بِـ.|prepositions
+عِلْمِهِ|عِلْم=science + هِ=Sa|Sa science|ع ل م|فِعْل|Maṣdar de عَلِمَ.|suffixes
+بِمَا|بِـ=de + مَا=ce que|(de) ce que|—|—|Préposition + relatif.|prepositions
+شَاءَ|شَاءَ=vouloir|Il veut|ش ي أ|فَعَلَ (شَيَأَ → شَاءَ)|Racine creuse : le ي central devient alif.|passe,racines
+وَسِعَ|وَسِعَ=contenir, englober|englobe|و س ع|فَعِلَ|Passé forme I.|passe
+كُرْسِيُّهُ|كُرْسِيّ=Kursî (Repose-pieds, Trône) + هُ=Son|Son Kursî|ك ر س|فُعْلِيّ|Nominatif : sujet de وَسِعَ.|suffixes
+وَالْأَرْضَ|وَ=et + الْ=la + أَرْض=terre|et la terre|أ ر ض|فَعْل|Accusatif : objet coordonné.|cas
+يَئُودُهُ|يَـ=il + ئُودُ=peser, fatiguer + هُ=Lui|Lui coûte (aucune peine)|أ و د|يَفْعُلُ|Racine creuse. Précédé de وَلَا : négation.|present
+حِفْظُهُمَا|حِفْظ=garde + هُمَا=d'eux deux|leur garde (à tous deux)|ح ف ظ|فِعْل|هُمَا : pronom duel (les cieux et la terre).|duel,suffixes
+وَهُوَ|وَ=et + هُوَ=Il|et Il|—|—|Pronom isolé.|pronoms
+الْعَلِيُّ|الْ=le + عَلِيّ=Très-Haut|le Très-Haut|ع ل و|فَعِيل (عَلِيو → عَلِيّ)|Schème فَعِيل ; le و final devient ي et fusionne avec celui du schème.|racines
+الْعَظِيمُ|الْ=l' + عَظِيم=immense|l'Immense|ع ظ م|فَعِيل|Qualité stable : schème فَعِيل.|adjectif
+اِسْمِي|اِسْم=nom + ي=mon|mon nom|س م و|اِسْم|Le pronom suffixe ي (« mon ») rend le nom défini. Phrase nominale sans verbe « être » : « mon nom (est) Yûsuf ».|suffixes,nominale
+يُوسُفُ|يُوسُف=Yûsuf (Joseph)|Yûsuf|—|—|Nom propre d'origine non arabe : pas de tanwîn (diptote). Nominatif : prédicat.|cas
+وَأَنَا|وَ=et + أَنَا=je, moi|et je (suis)|—|—|Pronom isolé 1re pers. sing. : sujet de la phrase nominale.|pronoms,nominale
+طَالِبٌ|طَالِب=étudiant|étudiant|ط ل ب|فَاعِل|Participe actif de طَلَبَ « chercher, demander » : « celui qui cherche (le savoir) ». Nominatif + tanwîn : prédicat indéfini.|racines,nominale
+الْجَامِعَةِ|الْ=l' + جَامِعَة=université|l'université|ج م ع|فَاعِلَة|Participe actif féminin de جَمَعَ « rassembler » : « celle qui rassemble » (les savoirs, les étudiants). Génitif après فِي.|genre,racines
+أَسْتَيْقِظُ|أَ=je + سْتَيْقِظُ=se réveiller (forme X)|je me réveille|ي ق ظ|أَسْتَفْعِلُ (forme X)|Forme X de ي ق ظ (être éveillé) : اسْتَيْقَظَ « s'éveiller ». Présent 1re pers. sing. (préfixe أَ).|present,racines
+كُلَّ|كُلّ=chaque|chaque|ك ل ل|فُعْل|Accusatif : complément de temps (« chaque jour »). Suivi d'un singulier indéfini = « chaque ».|idafa,cas
+يَوْمٍ|يَوْم=jour|jour|ي و م|فَعْل|Génitif indéfini : complément d'annexion de كُلّ.|idafa
+قَبْلَ|قَبْلَ=avant|avant|ق ب ل|فَعْل|Adverbe de temps à l'accusatif ; le nom suivant est au génitif.|prepositions
+فَأَتَوَضَّأُ|فَـ=puis + أَ=je + تَوَضَّأُ=faire ses ablutions (forme V)|puis je fais mes ablutions|و ض أ|أَتَفَعَّلُ (forme V)|Forme V تَفَعَّلَ (réfléchi) : وَضُؤَ être propre → تَوَضَّأَ « se purifier ». فَـ = « puis, aussitôt ».|present,racines
+وَأُصَلِّي|وَ=et + أُ=je + صَلِّي=prier (forme II)|et je prie|ص ل و|أُفَعِّلُ (forme II)|Forme II صَلَّى : au présent, préfixe أُ avec ḍamma. Racine défective : finale ي.|present,racines
+بَعْدَ|بَعْدَ=après|après|ب ع د|فَعْل|Adverbe de temps ; le nom suivant est au génitif.|prepositions
+الصَّلَاةِ|الـ=la (ص solaire) + صَلَاة=prière|la prière|ص ل و|فَعَلَة|Le ة marque le féminin. Génitif après بَعْدَ.|genre,solaires
+أَشْرَبُ|أَ=je + شْرَبُ=boire|je bois|ش ر ب|أَفْعَلُ|Présent 1re pers. sing. de شَرِبَ (voyelle a au présent car i au passé).|present
+الْقَهْوَةَ|الْ=le + قَهْوَة=café|le café|ق ه و|فَعْلَة|Accusatif : objet de « je bois ».|cas,genre
+وَأَقْرَأُ|وَ=et + أَ=je + قْرَأُ=lire|et je lis|ق ر أ|أَفْعَلُ|Même racine que قُرْآن (« lecture, récitation »).|present
+قَلِيلًا|قَلِيل=peu|un peu|ق ل ل|فَعِيل|Accusatif indéfini : complément de manière.|cas
+ثُمَّ|ثُمَّ=puis, ensuite|puis|—|—|Coordination avec un intervalle de temps (différent de فَـ, qui est immédiat).|
+أَخْرُجُ|أَ=je + خْرُجُ=sortir|je sors|خ ر ج|أَفْعُلُ|Présent 1re pers. sing. de خَرَجَ.|present
+الْبَيْتِ|الْ=la + بَيْت=maison|la maison|ب ي ت|فَعْل|Génitif après مِنْ.|
+وَأَذْهَبُ|وَ=et + أَ=je + ذْهَبُ=aller|et je vais|ذ ه ب|أَفْعَلُ|Présent 1re pers. sing. de ذَهَبَ.|present
+إِلَى|إِلَى=vers, à|vers, à|—|—|Préposition de direction : génitif après.|prepositions
+بِالْحَافِلَةِ|بِـ=en, au moyen de + الْ=le + حَافِلَة=bus|en bus|ح ف ل|فَاعِلَة|بِـ instrumental (« au moyen de »). حَافِلَة : « celle qui est pleine, qui rassemble » → le bus.|prepositions,genre
+أَدْرُسُ|أَ=je + دْرُسُ=étudier|j'étudie|د ر س|أَفْعُلُ|Présent de دَرَسَ ; même racine que مَدْرَسَة (école) et دَرْس (leçon).|present,racines
+اللُّغَةَ|الـ=la (ل solaire) + لُغَة=langue|la langue|ل غ و|فُعَة|Accusatif : objet d'« étudier ».|cas,solaires
+الْعَرَبِيَّةَ|الْ=l' + عَرَبِيّ=arabe + ـَة=féminin|arabe|ع ر ب|فَعَلِيّ (nisba)|Le suffixe ـِيّ (nisba) forme l'adjectif de relation : عَرَب → عَرَبِيّ. Féminin et accusatif pour s'accorder avec اللغة.|adjectif,genre
+وَالتَّارِيخَ|وَ=et + الـ=l' (ت solaire) + تَارِيخ=histoire|et l'histoire|أ ر خ|تَفْعِيل (تَأْرِيخ → تَارِيخ)|Maṣdar de la forme II أَرَّخَ « dater ». Accusatif coordonné.|racines,solaires
+الظُّهْرِ|الـ=le (ظ solaire) + ظُهْر=midi|midi|ظ ه ر|فُعْل|Génitif après عِنْدَ. Même racine que ظَهْر « dos » et la prière du ظُهْر.|solaires
+آكُلُ|آ=je (أَ + أْ) + كُلُ=manger|je mange|أ ك ل|أَفْعُلُ (أَأْكُلُ → آكُلُ)|Le préfixe أَ rencontre la hamza de la racine : أَأْكُلُ → آكُلُ.|present,racines
+أَصْدِقَائِي|أَصْدِقَاء=amis + ي=mes|mes amis|ص د ق|أَفْعِلَاء (pluriel de صَدِيق)|Pluriel brisé أَفْعِلَاء de صَدِيق. Même racine que صِدْق « sincérité » : l'ami est celui qui est sincère.|pluriels,suffixes
+الْمَطْعَمِ|الْ=le + مَطْعَم=restaurant|le restaurant|ط ع م|مَفْعَل (nom de lieu)|Le schème مَفْعَل forme les noms de lieu : طَعِمَ manger → مَطْعَم « lieu où l'on mange ».|racines
+الْمَسَاءِ|الْ=le + مَسَاء=soir|le soir|م س و|فَعَال|Génitif après فِي.|
+أَرْجِعُ|أَ=je + رْجِعُ=revenir|je rentre|ر ج ع|أَفْعِلُ|Présent 1re pers. sing. de رَجَعَ.|present
+مُتْعَبًا|مُتْعَب=fatigué|fatigué|ت ع ب|مُفْعَل (participe passif, forme IV)|Participe passif de أَتْعَبَ « fatiguer » : « rendu fatigué ». Accusatif : ḥâl (état au moment de rentrer).|cas,racines
+لٰكِنَّنِي|لٰكِنَّ=mais + نِي=moi|mais je (suis)|—|—|لٰكِنَّ est une « sœur de إنّ » : son nom (ici نِي) est à l'accusatif. Le ن de نِي protège la voyelle.|inna
+سَعِيدٌ|سَعِيد=heureux|heureux|س ع د|فَعِيل|Qualité stable (فَعِيل). Nominatif : prédicat de لكنّ.|adjectif,inna
+النَّوْمِ|الـ=le (ن solaire) + نَوْم=sommeil|dormir (le sommeil)|ن و م|فَعْل|Génitif après قَبْلَ.|solaires
+أُرَاجِعُ|أُ=je + رَاجِعُ=réviser (forme III)|je révise|ر ج ع|أُفَاعِلُ (forme III)|Forme III فَاعَلَ : رَاجَعَ « revenir sur » → réviser. Préfixe أُ avec ḍamma.|present,racines
+دُرُوسِي|دُرُوس=leçons + ي=mes|mes leçons|د ر س|فُعُول (pluriel de دَرْس)|Pluriel brisé فُعُول.|pluriels,suffixes
+وَأَحْفَظُ|وَ=et + أَ=je + حْفَظُ=mémoriser|et je mémorise|ح ف ظ|أَفْعَلُ|Même racine que حِفْظ « garde » (Âyat al-Kursî) et حَافِظ « celui qui connaît le Coran par cœur ».|present
+كَلِمَاتٍ|كَلِمَات=mots|des mots|ك ل م|فَعِلَات (pluriel de كَلِمَة)|Pluriel féminin sain : la kasra + tanwîn sert aussi d'accusatif.|plurielsains
+جَدِيدَةً|جَدِيد=nouveau + ـَة=féminin|nouveaux|ج د د|فَعِيل|Un pluriel de non-humains s'accorde au féminin singulier : كلمات جديدة.|adjectif,genre
+رَمَضَانُ|رَمَضَان=Ramadan|Ramadan|ر م ض|فَعَلَان|De رَمَضَ « chaleur brûlante ». Diptote : pas de tanwîn. Nominatif : sujet.|cas
+الشَّهْرُ|الـ=le (ش solaire) + شَهْر=mois|le mois|ش ه ر|فَعْل|Nominatif : prédicat.|solaires
+التَّاسِعُ|الـ=le (ت solaire) + تَاسِع=neuvième|neuvième|ت س ع|فَاعِل|Les ordinaux se forment sur فَاعِل : تِسْعَة neuf → تَاسِع neuvième.|adjectif
+السَّنَةِ|الـ=l' (س solaire) + سَنَة=année|l'année|س ن و|فَعَة|Génitif après مِنْ.|
+الْهِجْرِيَّةِ|الْ=l' + هِجْرِيّ=hégirien + ـَة=féminin|hégirienne|ه ج ر|فِعْلِيّ (nisba)|هِجْرَة (émigration) + ـِيّ = adjectif de relation, accordé au féminin génitif avec السنة.|adjectif,genre
+فِيهِ|فِي=dans + هِ=lui|durant lui|—|—|هُ devient هِ après فِي.|prepositions,suffixes
+يَصُومُ|يَـ=il + صُومُ=jeûner|jeûnent|ص و م|يَفْعُلُ (يَصْوُمُ → يَصُومُ)|Racine creuse. Le verbe placé avant un sujet pluriel reste au singulier.|present,racines
+الْمُسْلِمُونَ|الْ=les + مُسْلِم=musulman + ـُونَ=pluriel|les musulmans|س ل م|مُفْعِل (forme IV) + ـُون|Participe actif de أَسْلَمَ « se soumettre (à Allah) ». Pluriel masculin sain au nominatif.|plurielsains,racines
+طُلُوعِ|طُلُوع=lever|le lever de|ط ل ع|فُعُول|Maṣdar de طَلَعَ. Génitif, 1er terme d'annexion.|idafa
+غُرُوبِ|غُرُوب=coucher|le coucher de|غ ر ب|فُعُول|Maṣdar de غَرَبَ ; même racine que مَغْرِب (l'ouest, le coucher).|idafa,racines
+الشَّمْسِ|الـ=le (ش solaire) + شَمْس=soleil|du soleil|ش م س|فَعْل|شَمْس a donné son nom aux « lettres solaires ». Nom féminin.|solaires,genre
+يَأْكُلُونَ|يَـ=ils + أْكُلُ=manger + ـُونَ=pluriel|ils mangent|أ ك ل|يَفْعُلُونَ|Présent 3e pers. masc. pluriel.|present
+يَشْرَبُونَ|يَـ=ils + شْرَبُ=boire + ـُونَ=pluriel|ils boivent|ش ر ب|يَفْعَلُونَ|Présent 3e pers. masc. pluriel.|present
+طُولَ|طُول=longueur|tout au long de|ط و ل|فُعْل|Accusatif : complément de temps.|cas
+النَّهَارِ|الـ=la (ن solaire) + نَهَار=journée|la journée|ن ه ر|فَعَال|Le jour (temps de clarté), opposé à لَيْل.|
+وَفِي|وَ=et + فِي=dans|et dans|—|—|—|prepositions
+تَجْتَمِعُ|تَـ=elle + جْتَمِعُ=se réunir (forme VIII)|se réunit|ج م ع|تَفْتَعِلُ (forme VIII)|Forme VIII افْتَعَلَ (un ت inséré après la 1re radicale) : sens réfléchi, جَمَعَ rassembler → اجْتَمَعَ se rassembler. Préfixe تَـ car العائلة est féminin.|present,racines
+الْعَائِلَةُ|الْ=la + عَائِلَة=famille|la famille|ع و ل|فَاعِلَة|Nominatif : sujet.|genre
+حَوْلَ|حَوْلَ=autour de|autour de|ح و ل|فَعْل|Adverbe de lieu ; génitif après.|prepositions
+مَائِدَةِ|مَائِدَة=table (garnie)|la table de|م ي د|فَاعِلَة|Génitif, 1er terme d'annexion. Al-Mâʾida est aussi le nom de la sourate 5.|idafa
+الْإِفْطَارِ|الْ=la + إِفْطَار=rupture du jeûne|la rupture du jeûne|ف ط ر|إِفْعَال (maṣdar forme IV)|Maṣdar de la forme IV أَفْطَرَ « rompre le jeûne ».|racines
+يُفْطِرُونَ|يُـ=ils + فْطِرُ=rompre le jeûne (forme IV) + ـُونَ|ils rompent le jeûne|ف ط ر|يُفْعِلُونَ (forme IV)|Préfixe يُـ avec ḍamma : signe de la forme IV au présent.|present,racines
+عَادَةً|عَادَة=habitude|d'habitude|ع و د|فَعْلَة (عَوْدَة → عَادَة)|Accusatif indéfini employé comme adverbe.|cas
+عَلَى|عَلَى=sur, avec|avec|—|—|Préposition « sur ».|prepositions
+التَّمْرِ|الـ=les (ت solaire) + تَمْر=dattes|les dattes|ت م ر|فَعْل|Nom collectif. Génitif.|solaires
+وَالْمَاءِ|وَ=et + الْ=l' + مَاء=eau|et l'eau|م و ه|فَعَل|Génitif coordonné.|
+يُصَلُّونَ|يُـ=ils + صَلُّ=prier (forme II) + ـُونَ|ils prient|ص ل و|يُفَعِّلُونَ (forme II)|Racine défective : يُصَلِّيُونَ → يُصَلُّونَ.|present,racines
+الْمَغْرِبَ|الْ=le + مَغْرِب=Maghrib (coucher)|le Maghrib|غ ر ب|مَفْعِل (nom de lieu/temps)|Moment ou lieu où le soleil se couche. Accusatif : objet.|racines
+اللَّيْلِ|الـ=la (ل solaire) + لَيْل=nuit|la nuit|ل ي ل|فَعْل|Génitif après فِي.|solaires
+يَذْهَبُ|يَـ=il + ذْهَبُ=aller|vont|ذ ه ب|يَفْعَلُ|Verbe au singulier devant son sujet.|present
+كَثِيرٌ|كَثِير=beaucoup|beaucoup|ك ث ر|فَعِيل|Nominatif : sujet.|
+الْمَسْجِدِ|الْ=la + مَسْجِد=mosquée|la mosquée|س ج د|مَفْعِل (nom de lieu)|Nom de lieu de سَجَدَ « se prosterner » : « le lieu où l'on se prosterne ».|racines
+لِصَلَاةِ|لِـ=pour + صَلَاة=prière|pour la prière de|ص ل و|فَعَلَة|Génitif après لِـ, 1er terme d'annexion.|prepositions,idafa
+التَّرَاوِيحِ|الـ=les (ت solaire) + تَرَاوِيح=Tarâwîḥ|des Tarâwîḥ|ر و ح|تَفَاعِيل (pluriel de تَرْوِيحَة)|Pluriel de تَرْوِيحَة « pause de repos » (entre les séries de prières).|pluriels
+هٰذَا|هٰذَا=ce, celui-ci|ce|—|—|Démonstratif masc. sing. ; suivi d'un nom avec article : « ce mois ».|demonstratifs
+الشَّهْرِ|الـ=le (ش solaire) + شَهْر=mois|mois|ش ه ر|فَعْل|Génitif.|
+نَزَلَ|نَزَلَ=descendre|est descendu|ن ز ل|فَعَلَ|Passé forme I. À comparer avec la forme IV أَنْزَلَ « faire descendre ».|passe
+الْقُرْآنُ|الْ=le + قُرْآن=Coran|le Coran|ق ر أ|فُعْلَان|Maṣdar de قَرَأَ « lire, réciter » : « la Récitation ». Nominatif : sujet.|racines
+وَفِيهِ|وَ=et + فِي=dans + هِ=lui|et en lui|—|—|—|prepositions,suffixes
+نِهَايَتِهِ|نِهَايَة=fin + هِ=sa|sa fin|ن ه ي|فِعَالَة|Le ة devient ت devant un pronom suffixe.|suffixes,genre
+يَحْتَفِلُ|يَـ=il + حْتَفِلُ=célébrer (forme VIII)|célèbrent|ح ف ل|يَفْتَعِلُ (forme VIII)|Forme VIII de ح ف ل (se rassembler) : احْتَفَلَ « célébrer ».|present,racines
+بِعِيدِ|بِـ=(célébrer) + عِيد=fête|la fête de|ع و د|فِعْل|عِيد : ce qui revient chaque année. Génitif après بِـ.|prepositions,idafa
+الْفِطْرِ|الْ=la + فِطْر=rupture du jeûne|la rupture (du jeûne)|ف ط ر|فِعْل|Même racine que إِفْطَار.|idafa
+الْمَاضِيَةِ|الْ=la + مَاضِي=passé + ـَة=féminin|dernière (passée)|م ض ي|فَاعِلَة|Participe actif de مَضَى « passer » : « l'année qui est passée ». Accordé avec السنة (féminin, génitif).|adjectif,genre
+سَافَرْتُ|سَافَرْ=voyager (forme III) + تُ=je|j'ai voyagé|س ف ر|فَاعَلَ (forme III)|Forme III (alif après la 1re radicale). ـتُ : passé 1re pers. sing.|passe,racines
+أَبِي|أَب=père + ي=mon|mon père|أ ب و|فَعَل|Génitif après مَعَ. أَب fait partie des « cinq noms » (أَبُو، أَبَا، أَبِي), mais avec ي « mon » il reste أَبِي.|suffixes
+مَكَّةَ|مَكَّة=La Mecque|La Mecque|م ك ك|فَعْلَة|Nom propre féminin : diptote, donc génitif en fatha sans tanwîn.|cas
+الْمُكَرَّمَةِ|الْ=l' + مُكَرَّم=honoré + ـَة=féminin|l'honorée|ك ر م|مُفَعَّل (participe passif, forme II)|Participe passif de كَرَّمَ « honorer » : « celle qui est honorée ». Épithète au génitif féminin.|adjectif,racines
+لِأَدَاءِ|لِـ=pour + أَدَاء=accomplissement|pour accomplir|أ د ي|فَعَال|Maṣdar de أَدَّى « accomplir, s'acquitter de ». Génitif après لِـ.|prepositions,idafa
+الْعُمْرَةِ|الْ=la + عُمْرَة=ʿumra|la ʿumra|ع م ر|فُعْلَة|De عَمَرَ « visiter, peupler » : la visite pieuse de la Kaaba.|idafa
+رَكِبْنَا|رَكِبْ=monter (dans) + نَا=nous|nous avons pris|ر ك ب|فَعِلَ|Passé 1re pers. pluriel.|passe
+الطَّائِرَةَ|الـ=l' (ط solaire) + طَائِرَة=avion|l'avion|ط ي ر|فَاعِلَة (طَايِرَة → طَائِرَة)|Participe actif féminin de طَارَ « voler » : « celle qui vole ». Le ي devient hamza.|racines,genre
+بَارِيسَ|بَارِيس=Paris|Paris|—|—|Nom propre étranger : diptote (génitif en fatha).|cas
+وَكَانَتِ|وَ=et + كَانَ=être + تْ=elle|et (le voyage) a été|ك و ن|فَعَلَ|ـتْ : 3e pers. fém. du passé ; le soukoun devient kasra pour se lier à l'article suivant.|passe,genre
+الرِّحْلَةُ|الـ=le (ر solaire) + رِحْلَة=voyage|le voyage|ر ح ل|فِعْلَة|Nominatif : nom de كان.|genre
+طَوِيلَةً|طَوِيل=long + ـَة=féminin|long|ط و ل|فَعِيل|Accusatif : prédicat de كان (كان met son prédicat à l'accusatif).|adjectif,cas
+عِنْدَمَا|عِنْدَ=lors de + مَا=que|quand, lorsque|—|—|عِنْدَ + مَا = conjonction de temps.|
+وَصَلْنَا|وَصَلْ=arriver + نَا=nous|nous sommes arrivés|و ص ل|فَعَلَ|Passé 1re pers. pluriel.|passe
+لَبِسْنَا|لَبِسْ=porter, revêtir + نَا=nous|nous avons revêtu|ل ب س|فَعِلَ|Passé 1re pers. pluriel. Même racine que لِبَاس « vêtement ».|passe
+ثِيَابَ|ثِيَاب=vêtements|les vêtements de|ث و ب|فِعَال (pluriel de ثَوْب)|Pluriel brisé (le و devient ي après kasra). Accusatif, 1er terme d'annexion.|pluriels,idafa
+الْإِحْرَامِ|الْ=l' + إِحْرَام=état de sacralisation|l'iḥrâm|ح ر م|إِفْعَال (maṣdar, forme IV)|Maṣdar de أَحْرَمَ « entrer en état sacré ». Même racine que حَرَام (interdit, sacré).|racines,idafa
+الْبَيْضَاءَ|الْ=les + بَيْضَاء=blancs (fém.)|blancs|ب ي ض|فَعْلَاء (féminin des couleurs)|Les couleurs ont أَفْعَل au masculin (أَبْيَض) et فَعْلَاء au féminin. Pluriel non humain → accord au féminin singulier.|adjectif,genre
+دَخَلْنَا|دَخَلْ=entrer + نَا=nous|nous sommes entrés|د خ ل|فَعَلَ|Passé 1re pers. pluriel.|passe
+الْمَسْجِدَ|الْ=la + مَسْجِد=mosquée|la Mosquée|س ج د|مَفْعِل (nom de lieu)|Accusatif : objet direct de دخلنا.|racines,cas
+الْحَرَامَ|الْ=le + حَرَام=sacré|sacrée|ح ر م|فَعَال|Épithète : même cas (accusatif) et même article que المسجد.|adjectif
+وَرَأَيْتُ|وَ=et + رَأَيْ=voir + تُ=je|et j'ai vu|ر أ ي|فَعَلَ|ـتُ : 1re pers. sing. (comparer avec رَأَيْتَ « tu as vu »).|passe
+الْكَعْبَةَ|الْ=la + كَعْبَة=Kaaba|la Kaaba|ك ع ب|فَعْلَة|De كَعْب « cube, chose saillante ». Accusatif : objet.|cas
+لِأَوَّلِ|لِـ=pour + أَوَّل=premier|pour la première|أ و ل|أَفْعَل|أَوَّل : superlatif « le premier ». Génitif après لِـ, 1er terme d'annexion.|idafa
+مَرَّةٍ|مَرَّة=fois|fois|م ر ر|فَعْلَة|Génitif indéfini.|idafa
+بَكَى|بَكَى=pleurer|a pleuré|ب ك ي|فَعَلَ|Racine défective : ي final écrit ى.|passe
+الْفَرَحِ|الْ=la + فَرَح=joie|de joie|ف ر ح|فَعَل|Génitif après مِنْ (« de joie »).|
+وَشَعَرْتُ|وَ=et + شَعَرْ=ressentir + تُ=je|et j'ai ressenti|ش ع ر|فَعَلَ|Même racine que شِعْر « poésie » (ce qu'on ressent).|passe
+بِسَكِينَةٍ|بِـ=(ressentir) + سَكِينَة=sérénité|une sérénité|س ك ن|فَعِيلَة|شَعَرَ se construit avec بِـ. Même racine que سَكَنَ « être calme, habiter ».|prepositions
+عَظِيمَةٍ|عَظِيم=immense + ـَة=féminin|immense|ع ظ م|فَعِيل|Épithète : génitif, indéfini, féminin, comme سكينة.|adjectif
+قَلْبِي|قَلْب=cœur + ي=mon|mon cœur|ق ل ب|فَعْل|De قَلَبَ « retourner » : le cœur qui se retourne, change.|suffixes
+طُفْنَا|طُفْ=tourner autour + نَا=nous|nous avons tourné|ط و ف|فَعَلَ (طَافَ → طُفْنَا)|Racine creuse : devant ـنَا le alif long tombe et devient ḍamma (طَافَ → طُفْنَا).|passe,racines
+سَبْعَةَ|سَبْعَة=sept|sept|س ب ع|فَعْلَة|Avec les nombres 3 à 10, l'accord est inversé : nom masculin (شَوْط) → nombre au féminin (سبعة).|
+أَشْوَاطٍ|أَشْوَاط=tours|tours|ش و ط|أَفْعَال (pluriel de شَوْط)|Après 3 à 10, le nom compté est au pluriel génitif.|pluriels
+سَعَيْنَا|سَعَيْ=parcourir + نَا=nous|nous avons fait le parcours|س ع ي|فَعَلَ|Racine défective : le ي réapparaît devant ـنَا.|passe
+الصَّفَا|الـ=(ص solaire) + صَفَا=Ṣafâ|Ṣafâ|ص ف و|فَعَل|Nom propre d'une colline. Voyelle finale invisible.|solaires
+وَالْمَرْوَةِ|وَ=et + الْ=la + مَرْوَة=Marwa|et Marwa|م ر و|فَعْلَة|Colline de Marwa ; génitif coordonné.|
+النَّاسُ|الـ=les (ن solaire) + نَاس=gens|les gens|ن و س|فَعَال|Nominatif : sujet.|cas
+الْبُلْدَانِ|الْ=les + بُلْدَان=pays|les pays|ب ل د|فُعْلَان (pluriel de بَلَد)|Pluriel brisé فُعْلَان.|pluriels
+يَتَكَلَّمُونَ|يَـ=ils + تَكَلَّمُ=parler (forme V) + ـُونَ|parlaient|ك ل م|يَتَفَعَّلُونَ (forme V)|Forme V de ك ل م (parole) : تَكَلَّمَ « parler ».|present,racines
+لُغَاتٍ|لُغَات=langues|des langues|ل غ و|فُعَات (pluriel de لُغَة)|Pluriel féminin sain ; la kasra + tanwîn sert d'accusatif.|plurielsains
+مُخْتَلِفَةً|مُخْتَلِف=différent + ـَة=féminin|différentes|خ ل ف|مُفْتَعِل (participe actif, forme VIII)|Forme VIII اخْتَلَفَ « différer ». Pluriel non humain → féminin singulier.|adjectif,racines
+لٰكِنَّهُمْ|لٰكِنَّ=mais + هُمْ=ils|mais ils|—|—|Sœur de إنّ : son nom (هم) est un pronom suffixe.|inna
+كَانُوا|كَانَ=être + ـُوا=ils|ils étaient|ك و ن|فَعَلَ|كان + présent (يدعون) = imparfait : « ils invoquaient ».|passe
+يَدْعُونَ|يَـ=ils + دْعُو=invoquer + نَ|ils invoquent|د ع و|يَفْعُلُونَ (يَدْعُوُونَ → يَدْعُونَ)|Racine défective (و final) : les deux و fusionnent.|present,racines
+رَبًّا|رَبّ=Seigneur|un Seigneur|ر ب ب|فَعْل|Accusatif indéfini : objet.|cas
+وَاحِدًا|وَاحِد=un, unique|unique|و ح د|فَاعِل|Épithète : accusatif indéfini comme ربًّا.|adjectif
+غُرَابٌ|غُرَاب=corbeau|un corbeau|غ ر ب|فُعَال|Nominatif indéfini : sujet (nom de كان).|cas
+جَالِسًا|جَالِس=assis, perché|perché|ج ل س|فَاعِل|Participe actif de جَلَسَ. Accusatif : prédicat de كان.|cas
+غُصْنِ|غُصْن=branche|la branche de|غ ص ن|فُعْل|Génitif après عَلَى, 1er terme d'annexion.|idafa
+شَجَرَةٍ|شَجَرَة=arbre|un arbre|ش ج ر|فَعَلَة|Nom d'unité : شَجَر les arbres → شَجَرَة un arbre.|idafa,genre
+فَمِهِ|فَم=bouche + هِ=sa|son bec|ف م و|فَعْل|Génitif après فِي.|suffixes
+قِطْعَةٌ|قِطْعَة=morceau|un morceau|ق ط ع|فِعْلَة|De قَطَعَ « couper » : « ce qui est coupé ». Nominatif : sujet.|
+الْجُبْنِ|الْ=le + جُبْن=fromage|de fromage|ج ب ن|فُعْل|Génitif après مِنْ.|
+مَرَّ|مَرَّ=passer|passa|م ر ر|فَعَلَ (مَرَرَ → مَرَّ)|Racine sourde : les deux ر fusionnent.|passe,racines
+ثَعْلَبٌ|ثَعْلَب=renard|un renard|ث ع ل ب|فَعْلَل (racine de 4 lettres)|Nominatif indéfini : sujet.|
+جَائِعٌ|جَائِع=affamé|affamé|ج و ع|فَاعِل (جَاوِع → جَائِع)|Participe actif de جَاعَ ; le و devient hamza.|adjectif
+فَشَمَّ|فَـ=et aussitôt + شَمَّ=sentir|et sentit|ش م م|فَعَلَ (شَمِمَ → شَمَّ)|Racine sourde.|passe
+رَائِحَةَ|رَائِحَة=odeur|l'odeur de|ر و ح|فَاعِلَة|Même racine que رُوح « souffle ». Accusatif, 1er terme d'annexion.|idafa
+فَقَالَ|فَـ=alors + قَالَ=dire|alors (le renard) dit|ق و ل|فَعَلَ (قَوَلَ → قَالَ)|Racine creuse : le و central devient alif.|passe,racines
+الثَّعْلَبُ|الـ=le (ث solaire) + ثَعْلَب=renard|le renard|ث ع ل ب|فَعْلَل|Nominatif : sujet (verbe avant le sujet).|solaires
+صَبَاحُ|صَبَاح=matin|bon (matin)|ص ب ح|فَعَال|Nominatif, 1er terme d'annexion : صباح الخير « matin de bien ».|idafa
+الْخَيْرِ|الْ=le + خَيْر=bien|(de) bien|خ ي ر|فَعْل|Génitif : complément d'annexion.|idafa
+يَا|يَا=ô|ô|—|—|Particule d'appel (vocatif).|
+سَيِّدَ|سَيِّد=seigneur, maître|seigneur de|س و د|فَيْعِل (سَيْوِد → سَيِّد)|و et ي se rencontrent et fusionnent. Accusatif : après يا, un nom annexé prend la fatha.|idafa,cas
+الطُّيُورِ|الـ=les (ط solaire) + طُيُور=oiseaux|des oiseaux|ط ي ر|فُعُول (pluriel de طَيْر)|Pluriel brisé ; même racine que طَائِرَة (avion).|pluriels
+أَجْمَلَ|أَجْمَلَ=comme il est beau|que (ton plumage) est beau|ج م ل|مَا أَفْعَلَ (exclamation)|Tournure d'admiration مَا أَفْعَلَ + accusatif : « qu'il est beau ! ».|
+رِيشَكَ|رِيش=plumage + كَ=ton|ton plumage|ر ي ش|فِعْل|Accusatif après مَا أَجْمَلَ.|suffixes
+لَوْ|لَوْ=si (irréel)|si|—|—|Condition irréelle ; la réponse est introduite par لَـ (لَكُنْتَ).|
+صَوْتُكَ|صَوْت=voix + كَ=ta|ta voix|ص و ت|فَعْل|Nominatif : nom de كان.|suffixes
+جَمِيلًا|جَمِيل=beau|belle|ج م ل|فَعِيل|Accusatif : prédicat de كان.|adjectif,cas
+مِثْلَ|مِثْل=comme|comme|م ث ل|فِعْل|Accusatif, suivi d'un génitif.|idafa
+رِيشِكَ|رِيش=plumage + كَ=ton|ton plumage|ر ي ش|فِعْل|Génitif : complément de مِثْل (la kasra précède le pronom كَ).|suffixes
+لَكُنْتَ|لَـ=alors (réponse) + كُنْ=être + تَ=tu|tu serais|ك و ن|فَعَلَ (كَانَ → كُنْتَ)|Devant ـتَ, le alif de كان tombe et devient ḍamma. لَـ marque la réponse de لو.|passe,racines
+مَلِكَ|مَلِك=roi|le roi de|م ل ك|فَعِل|Accusatif : prédicat de كان, 1er terme d'annexion.|idafa,cas
+الْغَابَةِ|الْ=la + غَابَة=forêt|la forêt|غ ي ب|فَعَلَة|Même racine que غَاب « être absent, caché » : là où l'on disparaît.|idafa
+فَرِحَ|فَرِحَ=se réjouir|se réjouit|ف ر ح|فَعِلَ|Passé forme I (فَعِلَ : verbes d'état ou d'émotion).|passe
+الْغُرَابُ|الْ=le + غُرَاب=corbeau|le corbeau|غ ر ب|فُعَال|Nominatif : sujet.|cas
+وَفَتَحَ|وَ=et + فَتَحَ=ouvrir|et ouvrit|ف ت ح|فَعَلَ|Même racine que الفاتحة « l'Ouvrante ».|passe
+فَمَهُ|فَم=bouche + هُ=sa|son bec|ف م و|فَعْل|Accusatif : objet.|suffixes
+لِيُغَنِّيَ|لِـ=pour + يُغَنِّيَ=chanter (forme II)|pour chanter|غ ن ي|يُفَعِّلَ (forme II, subjonctif)|لِـ + présent = « pour que » : fatha finale (mode subjonctif).|present,racines
+فَسَقَطَتْ|فَـ=et + سَقَطَ=tomber + تْ=elle|et (le morceau) tomba|س ق ط|فَعَلَ|ـتْ : sujet féminin (قطعة).|passe,genre
+قِطْعَةُ|قِطْعَة=morceau|le morceau de|ق ط ع|فِعْلَة|Nominatif, 1er terme d'annexion.|idafa
+فَأَخَذَهَا|فَـ=et + أَخَذَ=prendre + هَا=le (morceau)|et il le prit|أ خ ذ|فَعَلَ|هَا renvoie à قطعة (féminin).|passe,suffixes
+وَهَرَبَ|وَ=et + هَرَبَ=s'enfuir|et s'enfuit|ه ر ب|فَعَلَ|Passé forme I.|passe
+وَقَالَ|وَ=et + قَالَ=dire|et dit|ق و ل|فَعَلَ|Racine creuse.|passe
+يَضْحَكُ|يَـ=il + ضْحَكُ=rire|en riant|ض ح ك|يَفْعَلُ|Phrase verbale qui sert de ḥâl : « (il dit) en riant ».|present
+كُلُّ|كُلّ=tout|tout|ك ل ل|فُعْل|Nominatif : sujet.|idafa
+مُتَمَلِّقٍ|مُتَمَلِّق=flatteur|flatteur|م ل ق|مُتَفَعِّل (participe actif, forme V)|Forme V تَمَلَّقَ « flatter ». Génitif : complément de كلّ.|racines
+يَعِيشُ|يَـ=il + عِيشُ=vivre|vit|ع ي ش|يَفْعِلُ (يَعْيِشُ → يَعِيشُ)|Racine creuse (ي central).|present,racines
+حِسَابِ|حِسَاب=compte|aux dépens de|ح س ب|فِعَال|Génitif après عَلَى : عَلَى حِسَابِ « au compte de ».|idafa
+يَسْمَعُهُ|يَـ=il + سْمَعُ=écouter + هُ=le|l'écoute|س م ع|يَفْعَلُ|Présent de سَمِعَ + pronom complément.|present,suffixes
+الْكَعْبَةِ|الْ=la + كَعْبَة=Kaaba|la Kaaba|ك ع ب|فَعْلَة|Génitif après حَوْلَ (« autour de la Kaaba »).|cas
+الْعَصْرِ|الْ=le + عَصْر=temps|le Temps|ع ص ر|فَعْل|عَصْر : le temps qui passe, l'époque, et aussi l'après-midi (prière du ʿaṣr).|
+عَمِلُوا|عَمِلَ=œuvrer + ـُوا=ils|ils ont accompli|ع م ل|فَعِلَ (forme I)|Passé forme I sur le modèle فَعِلَ. ـُوا = ils (l'alif final est muet).|passe
+تَوَاصَوْا|تَوَاصَى=se recommander mutuellement + ـوْا=ils|ils se sont enjoint mutuellement|و ص ي|تَفَاعَلَ (forme VI)|La forme VI تَفَاعَلَ exprime la réciprocité : وَصَّى recommander → تَوَاصَى se recommander les uns aux autres. Racine défective : تَوَاصَيُوا → تَوَاصَوْا.|passe,racines
+الْحَقِّ|الْ=la + حَقّ=vérité|la vérité|ح ق ق|فَعْل (حَقْق → حَقّ)|Racine sourde : les deux ق fusionnent sous une shadda. حَقّ = vérité, droit, ce qui est réel.|racines
+الْفَتْحُ|الْ=la + فَتْح=ouverture, conquête|la victoire|ف ت ح|فَعْل|فَتْح = « ouverture » ; ici l'ouverture (conquête) de La Mecque.|
+سَبِّحْ|سَبِّحْ=glorifie|glorifie|س ب ح|فَعِّلْ (impératif, forme II)|Forme II فَعَّلَ (2e radicale doublée) : سَبَّحَ « déclarer Allah exempt de tout défaut » (سُبْحَانَ اللَّه).|racines
+اسْتَغْفِرْهُ|اسْتَغْفِرْ=demande pardon + هُ=Lui|implore Son pardon|غ ف ر|اِسْتَفْعِلْ (impératif, forme X)|Forme X : « demander » + غَفَرَ pardonner → اسْتَغْفَرَ demander pardon (أَسْتَغْفِرُ اللَّه).|racines,suffixes
+الرُّوحُ|الـ=l' (ر solaire) + رُوح=Esprit|l'Esprit (Jibrîl)|ر و ح|فُعْل|Ici l'ange Jibrîl. Même racine que رِيح « vent » et رَائِحَة « odeur » (le souffle).|solaires
+وَضَعْنَا|وَضَعْ=déposer, ôter + نَا=Nous|Nous avons ôté|و ض ع|فَعَلَ|Passé 1re pers. pluriel : ـنَا.|passe
+رَفَعْنَا|رَفَعْ=élever + نَا=Nous|Nous avons élevé|ر ف ع|فَعَلَ|Passé 1re pers. pluriel.|passe
+الضُّحَى|الـ=le (ض solaire) + ضُحَى=matinée|le jour montant|ض ح و|فُعَل|La matinée lumineuse quand le soleil monte (prière du ḍuḥâ).|solaires
+الْآخِرَةُ|الْ=l' + آخِرَة=au-delà|l'au-delà|أ خ ر|فَاعِلَة|آخِرَة = « la dernière » (demeure), féminin de آخِر.|genre
+تَرْضَى|تَـ=tu + رْضَى=être satisfait|tu seras satisfait|ر ض و|تَفْعَلُ|Racine défective : finale ى. Même racine que رِضًا « satisfaction » (رَضِيَ اللَّهُ عَنْهُ).|present
+آوَى|آوَى=accueillir, abriter (forme IV)|Il a accueilli|أ و ي|أَفْعَلَ (أَأْوَى → آوَى)|Forme IV : deux hamzas se suivent et fusionnent en آ.|racines
+أَغْنَى|أَغْنَى=enrichir (forme IV)|Il a enrichi|غ ن ي|أَفْعَلَ (forme IV)|Forme IV (causative) : غَنِيَ être riche → أَغْنَى rendre riche.|racines
+نِعْمَةِ|نِعْمَة=bienfait|le bienfait de|ن ع م|فِعْلَة|Même racine que أَنْعَمْتَ (Fâtiḥa) et نَعَم « oui ».|idafa
+أَتَوَضَّأُ|أَ=je + تَوَضَّأُ=faire ses ablutions (forme V)|je fais mes ablutions|و ض أ|أَتَفَعَّلُ (forme V)|Forme V تَفَعَّلَ (réfléchi) : وَضُؤَ être propre → تَوَضَّأَ « se purifier ». Même racine que وُضُوء.|present,racines
+الْحَافِلَةِ|الْ=le + حَافِلَة=bus|le bus|ح ف ل|فَاعِلَة|« Celle qui est pleine, qui rassemble » → le bus. Même racine que احْتَفَلَ « célébrer ».|genre
+التَّارِيخَ|الـ=l' (ت solaire) + تَارِيخ=histoire|l'histoire|أ ر خ|تَفْعِيل (تَأْرِيخ → تَارِيخ)|Maṣdar de la forme II أَرَّخَ « dater » : la science des dates.|racines,solaires
+أَحْفَظُ|أَ=je + حْفَظُ=mémoriser|je mémorise|ح ف ظ|أَفْعَلُ|Même racine que حِفْظ « garde » et حَافِظ « celui qui connaît le Coran par cœur ».|present
+عِيدِ|عِيد=fête|la fête de|ع و د|فِعْل (عِوْد → عِيد)|عِيد : ce qui revient chaque année ; le و devient ي après kasra.|idafa,racines
+سَكِينَةٍ|سَكِينَة=sérénité|sérénité|س ك ن|فَعِيلَة|Même racine que سَكَنَ « être calme, habiter » et مَسْكَن « logement ».|
+شَمَّ|شَمَّ=sentir|sentit|ش م م|فَعَلَ (شَمِمَ → شَمَّ)|Racine sourde : les deux م fusionnent.|passe,racines
+سَقَطَتْ|سَقَطَ=tomber + تْ=elle|tomba|س ق ط|فَعَلَ|ـتْ : 3e pers. féminin (le sujet قطعة est féminin).|passe,genre
+هَرَبَ|هَرَبَ=s'enfuir|s'enfuit|ه ر ب|فَعَلَ|Passé forme I.|passe
+`;
 
 /* place les balises d’icône et d’app dans <head> (iPhone et Android ne les lisent que là) */
 (()=>{try{document.querySelectorAll('body link[rel="apple-touch-icon"],body link[rel="icon"],body link[rel="manifest"],body meta[name^="apple-"],body meta[name="mobile-web-app-capable"],body meta[name="theme-color"],body meta[name="application-name"]').forEach(n=>document.head.appendChild(n))}catch(e){}})();
@@ -2066,6 +2515,33 @@ const inl=s=>esc(s).replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>").replace(AR_RUN,'<spa
 const tbl=rows=>`<div class="tblw"><table class="tbl"><thead><tr>${rows[0].map(c=>`<th>${inl(c)}</th>`).join("")}</tr></thead><tbody>${rows.slice(1).map(r=>`<tr>${r.map(c=>`<td>${inl(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
 const rich=s=>{const out=[];let tb=null;String(s).split("\n").forEach(l=>{if(l.startsWith("|")){(tb=tb||[]).push(l.replace(/^\||\|$/g,"").split("|").map(c=>c.trim()))}else{if(tb){out.push(tbl(tb));tb=null}out.push(inl(l)+"<br>")}});if(tb)out.push(tbl(tb));return out.join("").replace(/<br>$/,"")};
 
+/* ---------- MOT À MOT (analyse de chaque mot des textes) ---------- */
+const WNORM=w=>String(w).normalize("NFD").replace(/[\u0640،؛؟.!,:«»"()﴿﴾]/g,"").trim();
+const WA={};WA_SRC.split("\n").forEach(l=>{if(!l.trim())return;const p=l.split("|");WA[WNORM(p[0])]={w:p[0],parts:p[1].split(" + ").map(x=>{const i=x.indexOf("=");return i<0?[x,""]:[x.slice(0,i).trim(),x.slice(i+1).trim()]}),s:p[2],r:p[3]==="—"?"":p[3],sc:p[4]==="—"?"":p[4],why:p[5],g:(p[6]||"").split(",").filter(Boolean)}});
+const waGet=w=>WA[WNORM(w)];
+const waChips=txt=>`<div class="wchips" dir="rtl">${String(txt).split(/\s+/).filter(Boolean).map(w=>waGet(w)?`<button class="wchip" type="button" data-w="${esc(w)}" lang="ar">${esc(w.replace(/[،؛؟.!,:«»"()]/g,""))}</button>`:`<span class="wchip off" lang="ar">${esc(w)}</span>`).join("")}</div>`;
+function waMini(w){const a=waGet(w);if(!a)return"";return `<button class="wmini" type="button" data-w="${esc(w)}"><span class="ar" lang="ar">${esc(a.w)}</span><span class="wm"><b>${esc(a.s)}</b><small>${a.parts.map(p=>`<span lang="ar">${esc(p[0])}</span> ${esc(p[1])}`).join(" · ")}</small>${a.r?`<small class="wrt">Racine <span lang="ar">${esc(a.r)}</span>${a.sc?` · schème <span lang="ar">${esc(a.sc)}</span>`:""}</small>`:""}</span></button>`}
+function waMap(a){const rl=a.r.split(/\s+/).filter(Boolean),sc=(a.sc.split(/[\s(]/)[0]||"");if(rl.length!==3||!/ف/.test(sc)||!/ع/.test(sc)||!/ل/.test(sc))return"";
+ return `<div class="wmap" dir="rtl">${["ف","ع","ل"].map((k,i)=>`<span><b lang="ar">${k}</b><i>↓</i><b lang="ar" class="rl">${esc(rl[i])}</b></span>`).join("")}</div><div class="muted" style="font-size:12.5px">Dans le schème, <span lang="ar">ف ع ل</span> représentent les 3 lettres de la racine ; tout le reste (voyelles, lettres ajoutées) vient du schème et donne le sens grammatical.</div>`}
+function openWord(w){const a=waGet(w);if(!a)return;let L=$("#wsLayer");
+ if(!L){$("#app").insertAdjacentHTML("beforeend",`<div id="wsLayer" hidden><div class="wscrim" data-wsclose></div><div class="wsheet" role="dialog" aria-label="Analyse du mot"></div></div>`);L=$("#wsLayer");
+  L.addEventListener("click",e=>{if(e.target.closest("[data-wsclose]")){closeWord();return}const n=e.target.closest("[data-wn]");if(n){const box=L.querySelector(".wnf");const k=n.dataset.wn,N=NOTION[k];
+   if(box.dataset.k===k&&!box.hidden){box.hidden=true;return}box.dataset.k=k;box.hidden=false;box.innerHTML=`<div class="eyebrow">${esc(N.name)}</div><div class="rich fiche">${rich(N.f)}</div>`;box.scrollIntoView({behavior:"smooth",block:"nearest"});return}
+   const ws=e.target.closest(".wsay");if(ws){speak({lang:"ar",w:ws.dataset.say});return}
+   const ad=e.target.closest(".wadd");if(ad){const A=waGet(ad.dataset.add);if(!A)return;if(MINE.w.some(x=>x.lang==="ar"&&WNORM(x.w)===WNORM(A.w))){toast("Déjà dans tes mots");return}
+    MINE.w.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),lang:"ar",at:Date.now(),w:A.w,tr:"",d:A.s,ex:"",exfr:"",note:[A.parts.map(p=>p[0]+" = "+p[1]).join(" + "),A.r?"Racine "+A.r+(A.sc?" · schème "+A.sc:""):""].filter(Boolean).join(" — "),reg:"",freq:0});saveMine();ad.disabled=true;ad.textContent="Ajouté à mes cartes ✓";buzz(8)}})}
+ const sh=L.querySelector(".wsheet"),notions=a.g.map(g=>NOTION["ar:"+g]).filter(Boolean);
+ sh.innerHTML=`<div class="wgrab"></div><div class="whead"><button class="iconbtn" data-wsclose aria-label="Fermer">${ICON.back}</button><span class="eyebrow">Mot à mot</span><button class="speak wsay" data-say="${esc(a.w)}" aria-label="Écouter">${ICON.sound}</button></div>
+  <div class="wbig" lang="ar">${esc(a.w)}</div><div class="wsense">${esc(a.s)}</div>
+  <div class="wsec"><div class="eyebrow">Découpage</div><div class="wparts" dir="rtl">${a.parts.map(p=>`<div class="wpart"><b lang="ar">${esc(p[0])}</b><small dir="ltr">${esc(p[1])}</small></div>`).join("")}</div></div>
+  ${a.r?`<div class="wsec"><div class="eyebrow">Racine et schème</div><div class="wrow"><div class="wbox"><small>Racine</small><b lang="ar">${esc(a.r)}</b></div>${a.sc?`<div class="wbox"><small>Schème</small><b lang="ar">${esc(a.sc)}</b></div>`:""}</div>${a.sc?waMap(a):""}</div>`:`<div class="wsec"><div class="eyebrow">Particule / mot-outil</div><div class="muted">Pas de racine : c'est un mot grammatical.</div></div>`}
+  <div class="wsec"><div class="eyebrow">Pourquoi cette forme</div><p class="wwhy">${esc(a.why)}</p></div>
+  ${notions.length?`<div class="wsec"><div class="eyebrow">Notions liées · Exercices</div><div class="chips wrap">${notions.map(n=>`<button class="chip sm" data-wn="${esc(n.key)}">${esc(n.name)}</button>`).join("")}</div><div class="wnf" hidden></div></div>`:""}
+  <button class="btn ghost sm wadd" data-add="${esc(a.w)}">${ICON.plus||"+"} Ajouter à mes cartes</button>`;
+ L.hidden=false;sh.scrollTop=0;sh.classList.remove("in");void sh.offsetWidth;sh.classList.add("in");buzz(6)}
+function closeWord(){const L=$("#wsLayer");if(L)L.hidden=true}
+document.addEventListener("click",e=>{const c=e.target.closest(".wchip[data-w],.wmini[data-w]");if(c){e.stopPropagation();openWord(c.dataset.w)}},true);
+
 /* textes & Coran (arabe) : vocabulaire préalable + traduction */
 const TXT={};
 TEXTS.forEach(t=>{TXT[t.id]=t;
@@ -2213,13 +2689,14 @@ function regTags(c){
  if(c.freq)h+=`<span class="tag freq" data-f="${c.freq}"><i></i><i></i><i></i>${FREQ[c.freq]}</span>`;return h;
 }
 function backHtml(c){
- if(c.kind==="x"){const n=NOTION[c.notion];return `<div class="back"><div class="eyebrow">Réponse</div><div class="def xa rich">${rich(c.d)}</div>${c.note?`<div class="rich" style="line-height:1.6">${rich(c.note)}</div>`:""}${n?`<details class="fichebox"><summary>Revoir la fiche</summary><div class="rich fiche">${rich(n.f)}</div></details>`:""}</div>`}
+ if(c.kind==="x"){const n=NOTION[c.notion];return `<div class="back"><div class="eyebrow">Réponse</div><div class="def xa rich">${rich(c.d)}</div>${c.txt?`<div class="eyebrow" style="margin-top:4px">Mot à mot · touche un mot</div>${waChips(c.w)}`:""}${c.note?`<div class="rich" style="line-height:1.6">${rich(c.note)}</div>`:""}${n?`<details class="fichebox"><summary>Revoir la fiche</summary><div class="rich fiche">${rich(n.f)}</div></details>`:""}</div>`}
  const ar=c.lang==="ar";
  let h=`<div class="back"><div class="tags">${regTags(c)}</div>`;
  if(c.tr)h+=`<div class="tr">${esc(c.tr)}</div>`;
  h+=`<div class="def">${esc(c.d)}</div>`;
  if(c.ex)h+=`<div class="exb"><div class="${ar?"ar":""}"${ar?' lang="ar"':""}>${starHtml(c.ex)}</div>${c.exfr?`<small>${esc(c.exfr)}</small>`:""}</div>`;
  if(c.note)h+=`<div class="note">${esc(c.note)}</div>`;
+ if(c.txt&&ar){const ws=String(c.w).split(/\s+/).filter(w=>waGet(w));if(ws.length)h+=`<div class="wdeck"><div class="eyebrow">Mot à mot · touche pour tout voir</div>${ws.map(waMini).join("")}</div>`}
  return h+`</div>`;
 }
 function renderCard(){
@@ -2528,6 +3005,7 @@ function closeOverlay(){$("#overlay").innerHTML="";MODE=null;R=null;Q=null;try{s
 function setLang(l){if(S.lang!==l){glyphI=0;setTimeout(()=>drawGlyph("up"),30)}S.lang=l;save();lexN=60;render()}
 
 document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"&&$("#wsLayer")&&!$("#wsLayer").hidden){e.preventDefault();closeWord();return}
  if(e.key==="Escape"&&noteEd){e.preventDefault();closeNote();return}
  if(e.target.matches("input,textarea"))return;
  if(e.key==="Escape"&&$("#overlay").innerHTML){e.preventDefault();if(noteEd)closeNote();else closeOverlay();return}
@@ -2676,13 +3154,13 @@ function readText(id){
  const t=TXT[id],co=t.type==="coran";MODE="panel";
  $("#overlay").innerHTML=`<div class="panel" role="dialog" aria-label="${esc(t.title)}">
   <div class="phead"><button class="iconbtn" id="rBack" aria-label="Retour">${ICON.back}</button><h2>${esc(t.title)}</h2></div>
-  <div class="pbody"><div class="muted">${esc(t.src)} · touche un ${co?"verset":"passage"} pour voir sa traduction</div>
+  <div class="pbody"><div class="muted">${esc(t.src)} · touche un ${co?"verset":"passage"} pour voir sa traduction et le décortiquer mot à mot</div>
    <button class="btn ghost sm" id="rAll">Afficher toute la traduction</button>
-   <div class="reader">${t.s.map((r,i)=>`<button class="verse" data-i="${i}"><span class="ar" lang="ar">${esc(r[0])}${co&&(i===t.s.length-1||String(t.s[i+1][2]).replace(/[a-z]$/,"")!==String(r[2]||i+1).replace(/[a-z]$/,""))?` <span class="vnum">﴿${String(r[2]||i+1).replace(/[a-z]$/,"")}﴾</span>`:""}</span><span class="vtr" hidden>${esc(r[1])}</span></button>`).join("")}</div>
+   <div class="reader">${t.s.map((r,i)=>`<div class="verse" role="button" tabindex="0" data-i="${i}"><span class="ar" lang="ar">${esc(r[0])}${co&&(i===t.s.length-1||String(t.s[i+1][2]).replace(/[a-z]$/,"")!==String(r[2]||i+1).replace(/[a-z]$/,""))?` <span class="vnum">﴿${String(r[2]||i+1).replace(/[a-z]$/,"")}﴾</span>`:""}</span><div class="vtr" hidden><span>${esc(r[1])}</span><span class="vhint">Touche un mot pour le décortiquer</span>${waChips(r[0])}</div></div>`).join("")}</div>
    <button class="btn" id="rDone">${S.td[id]?"Texte traduit ✓":"J’ai traduit ce texte"}</button>
   </div></div>`;
  $("#rBack").onclick=()=>openText(id);
- $(".reader").onclick=e=>{const v=e.target.closest(".verse");if(v){const x=v.querySelector(".vtr");x.hidden=!x.hidden}};
+ $(".reader").onclick=e=>{if(e.target.closest(".wchip"))return;const v=e.target.closest(".verse");if(v){if(e.target.closest(".vtr")&&!e.target.closest(".vtr>span"))return;const x=v.querySelector(".vtr");x.hidden=!x.hidden}};
  $("#rAll").onclick=()=>{const vs=[...document.querySelectorAll(".vtr")],show=vs.some(x=>x.hidden);vs.forEach(x=>x.hidden=!show);$("#rAll").textContent=show?"Masquer la traduction":"Afficher toute la traduction"};
  $("#rDone").onclick=()=>{S.td[id]=1;save();toast("Texte marqué comme traduit");closeOverlay()};
 }
